@@ -267,7 +267,7 @@ export default function SignUp() {
 
 
        
-<button type="submit" class="button-87" role="button">Button 87</button>
+<button type="submit" class="button-87" role="button">connexion</button>
 
             <Grid container>
               <Grid item xs>
