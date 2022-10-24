@@ -185,9 +185,30 @@ export default function SignUp() {
 
               {/* ----------------------------------------------------------------------------------------------- *** PASSWORD *** ------------------------------------------- */}
               <Grid item xs={12}>
-                <FormControl sx={{ mt: 1, width: "100%" }} variant="outlined">
-                  <InputLabel htmlFor="outlined-adornment-password">
-                    Password
+
+
+
+
+              <div class="form__group field">
+  <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+  <label for="name" class="form__label">Name</label>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                <FormControl sx={{ mt: 1, width: "100%" }}
+                 variant="outlined">
+                  <InputLabel color="secondary" htmlFor="outlined-adornment-password">
+                    Mot de passe
                   </InputLabel>
                   <OutlinedInput
                     {...register("password", {
@@ -234,14 +255,19 @@ export default function SignUp() {
               )}
             </Grid>
 
-            <Button
+            {/* <Button
+            className="button-87"
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
               Se connecter
-            </Button>
+            </Button> */}
+
+
+       
+<button type="submit" class="button-87" role="button">Button 87</button>
 
             <Grid container>
               <Grid item xs>

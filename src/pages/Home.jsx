@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import MenuHeader from "../components/auth/MenuHeader";
+import Fox from "../components//Fox";
 import { height } from "@mui/system";
 import Box from "@mui/material/Box";
 
@@ -30,6 +31,7 @@ const Home = () => {
       <Box className="main">
       <h1>Page d'accueil</h1>
       <p>je m'apelle {user.firstname}</p>
+      <Fox />
       </Box>
      
     </div>
