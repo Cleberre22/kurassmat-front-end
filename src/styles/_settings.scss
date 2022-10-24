@@ -1,0 +1,68 @@
+@font-face {
+  // font-family: "font-1";
+  // src: url(../assets/fonts/Oswald-VariableFont_wght.ttf);
+}
+
+
+$color-1: #ffffff;
+$color-2: #598381;
+$color-3: #282c34;
+$white: rgb(243, 243, 243);
+
+@mixin verticalCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background: $color-1;
+  font-family: "JosefinSans-Medium";
+  color: $color-3;
+}
+
+.mainLoginRegister {
+height: 95vh;
+background-image: url(../../public/bgkurassmat.png);
+background-repeat: no-repeat;
+background-size: cover;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+// h1 {
+// font-family: "JosefinSans-Medium";
+// }
+
+.boxLoginRegister {
+  
+  // background-color: #282c34;
+  padding: 30px;
+  border-radius: 16px;
+  border: 2px solid $color-2;
+  min-width: 450px;
+}
+
+.navbar {
+  background-color: #598381;
+  width: 100%;
+}
