@@ -28,7 +28,7 @@ export default function SignUp() {
   const navigate = useNavigate();
 
   const {
-    register,
+    registerAssmat,
     watch,
     control,
     handleSubmit,
@@ -38,8 +38,8 @@ export default function SignUp() {
 
   const email = watch("email", "");
   const password = watch("password", "");
-  const lastName = watch("lastName", "");
-  const firstName = watch("firstName", "");
+  const lastname = watch("lastname", "");
+  const firstname = watch("firstname", "");
 
   // const [values, setValues] = React.useState({
   //   amount: "",
@@ -61,19 +61,19 @@ export default function SignUp() {
   const [validationError, setValidationError] = useState({});
 
   //Fonction d'ajout de club
-  const Register = async (e) => {
+  const RegisterAssmat = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
 
-    formData.append("firstName", firstName);
-    formData.append("lastName", lastName);
+    formData.append("firstname", firstname);
+    formData.append("lastname", lastname);
     formData.append("email", email);
     formData.append("password", password);
     // formData.append("password_confirmation", password_confirmation);
 
     await axios
-      .post(`http://localhost:8000/api/register`, formData)
+      .post(`http://localhost:8000/api/registerAssmat`, formData)
       .then(navigate("/home"))
       // .then(navigate(-1))
       .catch(({ response }) => {
@@ -101,11 +101,11 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             S'inscrire
           </Typography>
-          <Box component="form" noValidate onSubmit={Register} sx={{ mt: 3 }}>
+          <Box component="form" noValidate onSubmit={RegisterAssmat} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  {...register("firstname", {
+                  {...registerAssmat("firstname", {
                     required: true,
                     maxLength: {
                       value: 20,
@@ -121,7 +121,7 @@ export default function SignUp() {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  {...register("lastname", {
+                  {...registerAssmat("lastname", {
                     required: true,
                     maxLength: {
                       value: 20,
@@ -158,7 +158,7 @@ export default function SignUp() {
 
               <Grid item xs={12}>
                 <TextField
-                  {...register("email", {
+                  {...registerAssmat("email", {
                     required: "Veuillez saisir un email",
                     pattern: {
                       value: /^\S+@\S+$/i,
@@ -190,7 +190,7 @@ export default function SignUp() {
                     Mot de passe
                   </InputLabel>
                   <OutlinedInput
-                    {...register("password", {
+                    {...registerAssmat("password", {
                       required: "Ce champ est requis",
                       minLength: {
                         value: 5,

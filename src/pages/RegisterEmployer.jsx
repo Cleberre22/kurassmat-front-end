@@ -1,10 +1,10 @@
 import React from 'react';
 import MenuHeader from "../components/auth/MenuHeader";
-import RegisterForm from "../components/auth/RegisterForm";
+import RegisterFormAssmat from "../components/auth/RegisterFormAssmat";
 import Box from "@mui/material/Box";
 import Fox from '../components/Fox';
 
-const Register = () => {
+const RegisterEmployer = () => {
 
  
 
@@ -13,7 +13,7 @@ const Register = () => {
             <MenuHeader />
             <Box className="mainLoginRegister">
                 <Box >
-                <RegisterForm />
+                <RegisterFormAssmat />
                 <Fox />
                 </Box>
             </Box>
@@ -21,4 +21,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default RegisterEmployer;

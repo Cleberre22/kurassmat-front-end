@@ -171,11 +171,11 @@ const ResponsiveAppBar = () => {
                 </MenuItem>
               )}
 
-              <MenuItem onClick={handleCloseNavMenu}>
+              {/* <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center" component="a" href="/register">
                   Inscription
                 </Typography>
-              </MenuItem>
+              </MenuItem> */}
             </Menu>
           </Box>
 
@@ -265,11 +265,20 @@ const ResponsiveAppBar = () => {
                 >
                   <Button
                     component="a"
-                    href="/register"
+                    href="/registerAssmat"
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
-                    Inscription
+                    Inscription Assmat
+                  </Button>
+
+                  <Button
+                    component="a"
+                    href="/registerEmployer"
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    Inscription Employeur
                   </Button>
 
                   {userLogged ? (
@@ -299,46 +308,32 @@ const ResponsiveAppBar = () => {
                   className="box4"
                   sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
                 >
-
-
-  <p>
+                  <p>
                     {user.firstname} {user.lastname}
-                  </p> 
+                  </p>
 
-                   <Box className="avatarDesktop" sx={{ flexGrow: 0 }}>
-
-                  
-                 
-                  <Tooltip title="Open settings">
+                  <Box className="avatarDesktop" sx={{ flexGrow: 0 }}>
+                    <Tooltip title="Open settings">
                       <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                      {userLogged ? (
-                        <Avatar sx={{ width: 32, height: 32 }} src="/broken-image.jpg" /> 
-                        
-                         ) : (
+                        {userLogged ? (
+                          <Avatar
+                            sx={{ width: 32, height: 32 }}
+                            src="/broken-image.jpg"
+                          />
+                        ) : (
                           <StyledBadge
-                          overlap="circular"
-                          anchorOrigin={{
-                            vertical: "bottom",
-                            horizontal: "right",
-                          }}
-                          variant="dot"
-                        >
-                          <Avatar alt="Remy Sharp" src="spiderman.png" />
-                        </StyledBadge>
+                            overlap="circular"
+                            anchorOrigin={{
+                              vertical: "bottom",
+                              horizontal: "right",
+                            }}
+                            variant="dot"
+                          >
+                            <Avatar alt="Remy Sharp" src="avatar.png" />
+                          </StyledBadge>
                         )}
                       </IconButton>
                     </Tooltip>
-
-                 
-                   
-
-
-             
-
-                  
-                 
-                    
-
 
                     <Menu
                       sx={{ mt: "45px" }}

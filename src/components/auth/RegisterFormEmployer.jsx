@@ -73,7 +73,7 @@ export default function SignUp() {
     // formData.append("password_confirmation", password_confirmation);
 
     await axios
-      .post(`http://localhost:8000/api/register`, formData)
+      .post(`http://localhost:8000/api/registerEmployer`, formData)
       .then(navigate("/home"))
       // .then(navigate(-1))
       .catch(({ response }) => {
@@ -105,7 +105,7 @@ export default function SignUp() {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  {...register("firstname", {
+                  {...register("firstName", {
                     required: true,
                     maxLength: {
                       value: 20,
@@ -114,14 +114,14 @@ export default function SignUp() {
                   })}
                   required
                   fullWidth
-                  id="firstname"
+                  id="firstName"
                   label="Prénom"
                   autoFocus
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  {...register("lastname", {
+                  {...register("lastName", {
                     required: true,
                     maxLength: {
                       value: 20,
@@ -130,27 +130,27 @@ export default function SignUp() {
                   })}
                   required
                   fullWidth
-                  id="lastname"
+                  id="lastName"
                   label="Nom"
                   autoFocus
                 />
               </Grid>
-              {errors.firstname ? (
+              {errors.firstName ? (
                 <Alert
                   className="errorsMessage"
                   sx={{ mt: 2, p: 0, pl: 2 }}
                   severity="error"
                 >
-                  {errors.firstname?.message}
+                  {errors.firstName?.message}
                 </Alert>
               ) : (
                 ""
               )}
-              {errors.lastname ? (
+              {errors.lastName ? (
                 <Alert
                 className="errorsMessage"
                 sx={{ mt: 2, p: 0, pl: 2 }} severity="error">
-                  {errors.lastname?.message}
+                  {errors.lastName?.message}
                 </Alert>
               ) : (
                 ""
