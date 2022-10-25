@@ -95,7 +95,7 @@ export default function SignUp() {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <Avatar className="avatar" sx={{ m: 2 }}>
             <GroupSharp />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -186,8 +186,8 @@ export default function SignUp() {
               {/* ----------------------------------------------------------------------------------------------- *** PASSWORD *** ------------------------------------------- */}
               <Grid item xs={12}>
                 <FormControl sx={{ mt: 1, width: "100%" }} variant="outlined">
-                  <InputLabel htmlFor="outlined-adornment-password">
-                    Password
+                  <InputLabel htmlFor="outlined-adornment-password" label="Mot de passe" required>
+                    Mot de passe
                   </InputLabel>
                   <OutlinedInput
                     {...register("password", {
@@ -234,19 +234,13 @@ export default function SignUp() {
               )}
             </Grid>
 
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              S'inscrire
-            </Button>
-            <Grid container justifyContent="flex-end">
+            <button type="submit" class="button-87" role="button">
+              s'inscrire
+            </button>
+
+            <Grid container justifyContent="center">
               <Grid item>
-                <Link href="#" variant="body2">
-                  Vous avez déjà un compte ? Connectez-vous
-                </Link>
+                <p className="linkLoginRegister">Vous avez déja un compte ? <a href="/login" id="style-2" data-replace="Connectez-vous"><span>Connectez-vous</span></a></p>
               </Grid>
             </Grid>
           </Box>

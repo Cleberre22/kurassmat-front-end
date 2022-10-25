@@ -87,13 +87,12 @@ export default function SignUp() {
         <Box
           className="boxLoginRegister"
           sx={{
-       
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <Avatar className="avatar" sx={{ m: 2 }}>
             <GroupSharp />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -106,56 +105,6 @@ export default function SignUp() {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
-              {/* <Grid item xs={12} sm={6}>
-                <TextField
-                  {...register("firstName", {
-                    required: true,
-                    maxLength: {
-                      value: 20,
-                      message: "Longueur maximale de 20 caractères",
-                    },
-                  })}
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="Prénom"
-                />
-              </Grid> */}
-              {/* <Grid item xs={12} sm={6}>
-                <TextField
-                  {...register("lastName", {
-                    required: true,
-                    maxLength: {
-                      value: 20,
-                      message: "Longueur maximale de 20 caractères",
-                    },
-                  })}
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Nom"
-                  autoFocus
-                />
-              </Grid> */}
-              {/* {errors.firstName ? (
-                <Alert
-                  className="errorsMessage"
-                  sx={{ mt: 2, p: 0, pl: 2 }}
-                  severity="error"
-                >
-                  {errors.firstName?.message}
-                </Alert>
-              ) : (
-                ""
-              )}
-              {errors.lastName ? (
-                <Alert sx={{ mt: 2, p: 0, pl: 2 }} severity="error">
-                  {errors.lastName?.message}
-                </Alert>
-              ) : (
-                ""
-              )} */}
-
               <Grid item xs={12}>
                 <TextField
                   {...register("email", {
@@ -185,29 +134,11 @@ export default function SignUp() {
 
               {/* ----------------------------------------------------------------------------------------------- *** PASSWORD *** ------------------------------------------- */}
               <Grid item xs={12}>
-
-
-
-
-              <div class="form__group field">
-  <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
-  <label for="name" class="form__label">Name</label>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-                <FormControl sx={{ mt: 1, width: "100%" }}
-                 variant="outlined">
-                  <InputLabel color="secondary" htmlFor="outlined-adornment-password">
+                <FormControl sx={{ mt: 1, width: "100%" }} variant="outlined">
+                  <InputLabel
+                    color="secondary"
+                    htmlFor="outlined-adornment-password"
+                  >
                     Mot de passe
                   </InputLabel>
                   <OutlinedInput
@@ -255,31 +186,14 @@ export default function SignUp() {
               )}
             </Grid>
 
-            {/* <Button
-            className="button-87"
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Se connecter
-            </Button> */}
+            <button type="submit" class="button-87" role="button">
+              connexion
+            </button>
 
-
-       
-<button type="submit" class="button-87" role="button">connexion</button>
-
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Mot de passe oublié ?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Pas de compte ? Inscrivez-vous"}
-                </Link>
-              </Grid>
+            <Grid container justifyContent="center">
+               <Grid item >
+                <p className="linkLoginRegister">Pas de compte ? <a href="/register" id="style-2" data-replace="Inscrivez-vous"><span>Inscrivez-vous</span></a></p>
+               </Grid> 
             </Grid>
           </Box>
         </Box>
@@ -288,15 +202,3 @@ export default function SignUp() {
   );
 }
 
-<Grid container>
-  <Grid item xs>
-    <Link href="#" variant="body2">
-      Mot de passe oublié ?
-    </Link>
-  </Grid>
-  <Grid item>
-    <Link href="#" variant="body2">
-      {"Pas de compte ? Inscrivez-vous"}
-    </Link>
-  </Grid>
-</Grid>;
