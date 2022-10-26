@@ -281,7 +281,25 @@ const ResponsiveAppBar = () => {
                     Inscription Employeur
                   </Button> */}
 
-                  {userLogged ? (
+                  <Button
+                    component="a"
+                    href="/profil"
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    Mon compte
+                  </Button>
+
+                  <Button
+                    component="a"
+                    href="/home"
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    Contact
+                  </Button>
+
+                  {/* {userLogged ? (
                     <Button
                       component="a"
                       href="/login"
@@ -298,7 +316,7 @@ const ResponsiveAppBar = () => {
                     >
                       déconnection
                     </Button>
-                  )}
+                  )} */}
                 </Box>
               </Grid>
 
