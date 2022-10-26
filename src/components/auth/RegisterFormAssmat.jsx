@@ -4,10 +4,8 @@ import axios from "axios";
 import { useForm, Controller } from "react-hook-form";
 
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Alert from "@mui/material/Box";
@@ -21,6 +19,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
+import Button from "@mui/material/Button";
 
 const theme = createTheme();
 
@@ -28,7 +27,7 @@ export default function SignUp() {
   const navigate = useNavigate();
 
   const {
-    registerAssmat,
+    register,
     watch,
     control,
     handleSubmit,
@@ -105,7 +104,7 @@ export default function SignUp() {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  {...registerAssmat("firstname", {
+                  {...register("firstname", {
                     required: true,
                     maxLength: {
                       value: 20,
@@ -121,7 +120,7 @@ export default function SignUp() {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  {...registerAssmat("lastname", {
+                  {...register("lastname", {
                     required: true,
                     maxLength: {
                       value: 20,
@@ -158,7 +157,7 @@ export default function SignUp() {
 
               <Grid item xs={12}>
                 <TextField
-                  {...registerAssmat("email", {
+                  {...register("email", {
                     required: "Veuillez saisir un email",
                     pattern: {
                       value: /^\S+@\S+$/i,
@@ -190,7 +189,7 @@ export default function SignUp() {
                     Mot de passe
                   </InputLabel>
                   <OutlinedInput
-                    {...registerAssmat("password", {
+                    {...register("password", {
                       required: "Ce champ est requis",
                       minLength: {
                         value: 5,
@@ -237,6 +236,15 @@ export default function SignUp() {
             <button type="submit" class="button-87" role="button">
               s'inscrire
             </button>
+{/* 
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              S'inscrire
+            </Button> */}
 
             <Grid container justifyContent="center">
               <Grid item>

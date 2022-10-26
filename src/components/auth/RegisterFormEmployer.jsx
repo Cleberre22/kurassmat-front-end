@@ -38,8 +38,8 @@ export default function SignUp() {
 
   const email = watch("email", "");
   const password = watch("password", "");
-  const lastName = watch("lastName", "");
-  const firstName = watch("firstName", "");
+  const lastname = watch("lastname", "");
+  const firstname = watch("firstname", "");
 
   // const [values, setValues] = React.useState({
   //   amount: "",
@@ -66,8 +66,8 @@ export default function SignUp() {
 
     const formData = new FormData();
 
-    formData.append("firstName", firstName);
-    formData.append("lastName", lastName);
+    formData.append("firstname", firstname);
+    formData.append("lastname", lastname);
     formData.append("email", email);
     formData.append("password", password);
     // formData.append("password_confirmation", password_confirmation);
@@ -105,7 +105,7 @@ export default function SignUp() {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  {...register("firstName", {
+                  {...register("firstname", {
                     required: true,
                     maxLength: {
                       value: 20,
@@ -114,14 +114,14 @@ export default function SignUp() {
                   })}
                   required
                   fullWidth
-                  id="firstName"
+                  id="firstname"
                   label="Prénom"
                   autoFocus
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  {...register("lastName", {
+                  {...register("lastname", {
                     required: true,
                     maxLength: {
                       value: 20,
@@ -130,27 +130,27 @@ export default function SignUp() {
                   })}
                   required
                   fullWidth
-                  id="lastName"
+                  id="lastname"
                   label="Nom"
                   autoFocus
                 />
               </Grid>
-              {errors.firstName ? (
+              {errors.firstname ? (
                 <Alert
                   className="errorsMessage"
                   sx={{ mt: 2, p: 0, pl: 2 }}
                   severity="error"
                 >
-                  {errors.firstName?.message}
+                  {errors.firstname?.message}
                 </Alert>
               ) : (
                 ""
               )}
-              {errors.lastName ? (
+              {errors.lastname ? (
                 <Alert
                 className="errorsMessage"
                 sx={{ mt: 2, p: 0, pl: 2 }} severity="error">
-                  {errors.lastName?.message}
+                  {errors.lastname?.message}
                 </Alert>
               ) : (
                 ""

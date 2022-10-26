@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuHeader from "../components/auth/MenuHeader";
-import RegisterFormAssmat from "../components/auth/RegisterFormAssmat";
+import RegisterFormEmployer from "../components/auth/RegisterFormEmployer";
 import Box from "@mui/material/Box";
 import Fox from '../components/Fox';
 
@@ -13,7 +13,7 @@ const RegisterEmployer = () => {
             <MenuHeader />
             <Box className="mainLoginRegister">
                 <Box >
-                <RegisterFormAssmat />
+                <RegisterFormEmployer />
                 <Fox />
                 </Box>
             </Box>
