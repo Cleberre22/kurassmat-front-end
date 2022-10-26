@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import RegisterAssmat from "./pages/RegisterAssmat";
 import RegisterEmployer from "./pages/RegisterEmployer";
 import Login from "./pages/Login";
+import Profil from "./pages/Profil";
 import Index from "./pages/dashboard/Index";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/registerAssmat" element={<RegisterAssmat />} />
         <Route path="/registerEmployer" element={<RegisterEmployer />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profil" element={<Profil />} />
         {/* <Route path="/dashboard/index" element={<Index />} /> */}
         <Route path="/dashboard/index" element={token ? <Index/> : <Login/> }></Route>
       </Routes>

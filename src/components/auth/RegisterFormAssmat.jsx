@@ -98,7 +98,7 @@ export default function SignUp() {
             <GroupSharp />
           </Avatar>
           <Typography component="h1" variant="h5">
-            S'inscrire
+            Inscription ASSMAT
           </Typography>
           <Box component="form" noValidate onSubmit={RegisterAssmat} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -236,15 +236,7 @@ export default function SignUp() {
             <button type="submit" class="button-87" role="button">
               s'inscrire
             </button>
-{/* 
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              S'inscrire
-            </Button> */}
+
 
             <Grid container justifyContent="center">
               <Grid item>

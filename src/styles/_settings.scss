@@ -1,12 +1,30 @@
-// @font-face {
-//   font-family: "font-1";
-//   src: url(../assets/fonts/Skranji-Regular.ttf);
-// }
+@font-face {
+  font-family: "font-1";
+  src: url(../assets/fonts/Skranji-Regular.ttf);
+}
 
+@font-face {
+  font-family: "font-2";
+  src: url(../assets/fonts/RobotoCondensed-Regular.ttf);
+}
+
+@font-face {
+  font-family: "font-3";
+  src: url(../assets/fonts/RobotoCondensed-Bold.ttf);
+}
+
+@font-face {
+  font-family: "font-4";
+  src: url(../assets/fonts/RobotoCondensed-Light.ttf);
+}
 
 $color-1: #ffffff;
 $color-2: #598381;
+$color-6: #177e89;
+$color-7: #08605f;
 $color-3: #282c34;
+$color-4: #f26419;
+$color-5: #f6ae2d;
 $white: rgb(243, 243, 243);
 
 @mixin verticalCenter {
@@ -30,17 +48,6 @@ body {
   color: $color-3;
 }
 
-.mainLoginRegister {
-border-top: 2px solid #598381;
-height: 95vh;
-background-image: url(../../public/bgkurassmat4.png);
-background-repeat: no-repeat;
-background-size: cover;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
 li {
   list-style-type: none;
 }
@@ -50,16 +57,26 @@ a:-webkit-any-link {
   cursor: pointer;
 }
 
-// h1 {
-// font-family: "JosefinSans-Medium";
-// }
+.main {
+  border-top: 2px solid #598381;
+  height: 90vh;
+  background-image: url(../../public/bgkurassmat4.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  // border-bottom: red 3px solid;
+}
 
 .fox {
   position: absolute;
   bottom: 30px;
   left: 30px;
   width: 22%;
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
 }
-
-
-

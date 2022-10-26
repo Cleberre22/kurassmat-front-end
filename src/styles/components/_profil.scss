@@ -1,0 +1,35 @@
+.containerProfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    position: relative;
+    width: 100vw;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        text-align: end;
+        color: $color-3;
+        font-family: 'font-2';
+        margin-bottom: 5px;
+    }
+
+    .boxProfil {
+        border: 1px solid #598381;
+        border-radius: 10px;
+        padding: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        p {
+            font-family: 'font-2';
+            font-size: 1.3rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    }
+}

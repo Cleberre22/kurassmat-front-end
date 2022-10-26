@@ -99,7 +99,7 @@ export default function SignUp() {
             <GroupSharp />
           </Avatar>
           <Typography component="h1" variant="h5">
-            S'inscrire
+            Inscription Parent
           </Typography>
           <Box component="form" noValidate onSubmit={Register} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
