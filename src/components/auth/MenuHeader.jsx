@@ -263,23 +263,23 @@ const ResponsiveAppBar = () => {
                   className="box3"
                   sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
                 >
-                  <Button
+                  {/* <Button
                     component="a"
                     href="/registerAssmat"
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
                     Inscription Assmat
-                  </Button>
+                  </Button> */}
 
-                  <Button
+                  {/* <Button
                     component="a"
                     href="/registerEmployer"
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
                     Inscription Employeur
-                  </Button>
+                  </Button> */}
 
                   {userLogged ? (
                     <Button

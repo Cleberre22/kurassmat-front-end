@@ -74,7 +74,18 @@ a:-webkit-any-link {
   position: absolute;
   bottom: 30px;
   left: 30px;
-  width: 22%;
+  width: 16%;
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+}
+
+.prince {
+  position: absolute;
+  bottom: 40%;
+  right: 30px;
+  width: 14%;
 
   @media only screen and (max-width: 600px) {
     display: none;

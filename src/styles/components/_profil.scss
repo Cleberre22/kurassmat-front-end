@@ -1,4 +1,5 @@
 .containerProfil {
+    margin-top: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,27 +10,117 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    h1 {
+    .titleProfil {
         text-align: end;
-        color: $color-3;
-        font-family: 'font-2';
-        margin-bottom: 5px;
+        color: $color-2;
+        font-size: 2.3rem;
+        font-family: 'font-1';
+        margin-bottom: 3%;
+        margin-right: 8%;
     }
 
     .boxProfil {
+        // background-color: darkolivegreen;
         border: 1px solid #598381;
         border-radius: 10px;
         padding: 5%;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-around;
         flex-direction: column;
 
-        p {
-            font-family: 'font-2';
-            font-size: 1.3rem;
-            text-align: center;
-            margin-bottom: 20px;
+        .userCard {
+            // max-height: 230px;
+            // background-color: aqua;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-direction: column;
+            border-bottom: #598381 1px solid;
+            .boxAction {
+                text-align: end;
+                width: 100%;
+                display: flex;
+                justify-content: end;
+                // background-color: crimson;
+            }
+            .userCardTop {
+                width: 100%;
+                // background-color: brown;
+                display: flex;
+                justify-content: ce;
+                align-items: center;
+                p {
+                    // background-color: #598381;
+                    text-align:end;
+                    margin-left: 5%;
+                }
+            }
+            .userCardMiddle {
+                margin-top: 10px;
+                width: 100%;
+                // background-color:coral;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-direction: column;
+                p {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    // background-color: #598381;
+                    text-align:start;
+                    
+                }
+            }
         }
+        .childCard {
+            // background-color: aqua;
+            // min-height: 231px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-direction: column;
+            border-bottom: #598381 1px solid;
+            .boxAction {
+                margin-bottom: 20px;
+                text-align: end;
+                width: 100%;
+                display: flex;
+                justify-content: end;
+                // background-color: crimson;
+            }
+            .userCardTop {
+                width: 100%;
+                // background-color: brown;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                
+                p {
+                    // background-color: #598381;
+                    text-align:end;
+                    margin-right: 5%;
+                }
+            }
+            .userCardMiddle {
+                margin-top: 10px;
+                width: 100%;
+                // background-color:coral;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                flex-direction: column;
+                p {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    // background-color: #598381;
+                    text-align:start;
+                    
+                }
+            }
+        }
+
+       
     }
 }
