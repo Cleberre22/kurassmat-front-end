@@ -59,7 +59,7 @@ const Profil = () => {
                     <Box className="boxAction">
                       <a
                         className="linkEditProfil"
-                        href="/editProfil/{id}"
+                        href="/editProfil/"
                        
                         id="style-2"
                         data-replace="Modifier mon profil"

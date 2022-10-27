@@ -72,7 +72,7 @@ const EditProfil = () => {
         setCity(res.data.city);
         setUserId(res.data.id);
         console.log(res.data.id);
-        const idTruc = res.data.id;
+      
       });
   };
   // console.log('http://localhost:8000/api/users/' + {userId});
@@ -96,7 +96,7 @@ const EditProfil = () => {
 
 
     await axios
-      .post(`http://localhost:8000/api/users/{id}`, formData)
+      .post(`http://localhost:8000/api/users/${userId}`, formData)
       // .then(navigate("/home"))
       // .then(navigate(-1))
       .catch(({ response }) => {
@@ -133,7 +133,7 @@ const EditProfil = () => {
                         message: "Prénom: Longueur maximale de 20 caractères",
                       },
                     })}
-                    value={userId}
+                    value={firstname}
                     onChange={(event) => {
                       setFirstname(event.target.value);
                     }}
