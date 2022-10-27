@@ -20,7 +20,7 @@ import Prince from "../components/prince";
 
 const Profil = () => {
   const [user, setUser] = useState([]);
-  const [child, setChild] = useState([]);
+  const [childs, setChild] = useState([]);
 
   useEffect(() => {
     displayUsers();
@@ -40,10 +40,10 @@ const Profil = () => {
   };
 
   const displayChild = async () => {
-    await axios.get("http://localhost:8000/api/childs/${child}").then((res) => {
+    await axios.get("http://localhost:8000/api/childs").then((res) => {
       setChild(res.data);
       console.log(res.data);
-      console.log(child);
+      console.log(childs);
     });
   };
 
@@ -135,9 +135,25 @@ const Profil = () => {
                     </Box>
 
                     <Box className="userCardMiddle" sx={{ mb: 3 }}>
-                      <p>
-                        {child.firstname} {child.lastname}
-                      </p>
+
+
+                    {childs.map((child) => (
+            <p>
+            {child.firstname} {child.lastname}
+          </p>
+          ))}
+
+
+
+
+
+
+
+
+
+
+
+                     
                       <p>Email: {user.email}</p>
                       <p>
                         Adresse: {user.address}, {user.postalCode} {user.city}
