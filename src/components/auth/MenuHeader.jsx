@@ -73,7 +73,7 @@ const ResponsiveAppBar = () => {
   }));
 
   const token = localStorage.getItem("access_token");
-  console.log(token);
+  // console.log(token);
   const userLogged = !token;
 
   const [user, setUser] = useState([]);
@@ -95,7 +95,7 @@ const ResponsiveAppBar = () => {
         // console.log(res.data.role);
       });
   };
-  console.log(role);
+  // console.log(role);
 
   const removeToken = () => {
     localStorage.removeItem("access_token");

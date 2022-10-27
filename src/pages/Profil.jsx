@@ -7,9 +7,10 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
+import { Link } from "react-router-dom";
 
-import EditIcon from '@mui/icons-material/Edit';
-import AddIcon from '@mui/icons-material/Add';
+import EditIcon from "@mui/icons-material/Edit";
+import AddIcon from "@mui/icons-material/Add";
 
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -36,16 +37,14 @@ const Profil = () => {
         // console.log(res.data);
       });
   };
-
+// console.log(user.id);
   return (
     <div>
       <MenuHeader />
       <Box className="main">
         <CssBaseline />
         <Container className="containerProfil">
-          <h1 className="titleProfil">
-            Mon tableau de bord 
-          </h1>
+          <h1 className="titleProfil">Mon tableau de bord</h1>
           <Box className="boxProfil">
             <Box>
               <Grid
@@ -55,9 +54,21 @@ const Profil = () => {
               >
                 <Grid item xs={6}>
                   <Box className="userCard">
-                  <Box className="boxAction">
-                      <p>Modifier mon profil </p> <EditIcon />
+
+
+                    <Box className="boxAction">
+                      <a
+                        className="linkEditProfil"
+                        href="/editProfil/{id}"
+                       
+                        id="style-2"
+                        data-replace="Modifier mon profil"
+                      >
+                        <span>Modifier mon profil </span>
+                      </a>
                     </Box>
+
+
                     <Box className="userCardTop" sx={{ mb: 2 }}>
                       <Avatar
                         sx={{ width: 100, height: 100 }}
@@ -66,7 +77,7 @@ const Profil = () => {
                     </Box>
 
                     <Box className="userCardMiddle" sx={{ mb: 3 }}>
-                    <p>
+                      <p>
                         {user.firstname} {user.lastname}
                       </p>
                       <p>Email: {user.email}</p>
@@ -78,7 +89,6 @@ const Profil = () => {
                   </Box>
 
                   <Box className="userCard">
-                    
                     <Box className="userCardTop" sx={{ mt: 3 }}>
                       <h2>Personne à prevenir:</h2>
                     </Box>
@@ -97,23 +107,28 @@ const Profil = () => {
                 </Grid>
 
                 <Grid item xs={6}>
-              
-
                   <Box className="childCard">
                     <Box className="boxAction">
-                      <p>Ajouter un enfant </p><AddIcon />
+                      <a
+                        className="linkEditProfil"
+                        href="/EditProfil"
+                        id="style-2"
+                        data-replace="Modifier mon profil"
+                      >
+                        <span>Ajouter un enfant</span>
+                      </a>
                     </Box>
                     <Box className="userCardTop" sx={{ mb: 2 }}>
-                    
                       <Avatar
                         sx={{ width: 80, height: 80 }}
                         src="avatar-2.png"
                       />
-                      
                     </Box>
 
                     <Box className="userCardMiddle" sx={{ mb: 3 }}>
-                    <p>{user.firstname} {user.lastname}</p>
+                      <p>
+                        {user.firstname} {user.lastname}
+                      </p>
                       <p>Email: {user.email}</p>
                       <p>
                         Adresse: {user.address}, {user.postalCode} {user.city}
