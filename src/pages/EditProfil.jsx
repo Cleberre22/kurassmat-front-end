@@ -27,8 +27,6 @@ import Fox from "../components//Fox";
 import Prince from "../components/prince";
 
 const EditProfil = () => {
-  // const { user  } = useParams();
-
   const navigate = useNavigate();
 
   const [firstname, setFirstname] = useState("");
@@ -39,7 +37,6 @@ const EditProfil = () => {
   const [postalCode, setPostalCode] = useState("");
   const [userId, setUserId] = useState();
   const [city, setCity] = useState("");
-
   const [validationError, setValidationError] = useState({});
 
   const {
@@ -62,7 +59,6 @@ const EditProfil = () => {
         },
       })
       .then((res) => {
-        // console.log(res.data);
         setFirstname(res.data.firstname);
         setLastname(res.data.lastname);
         setEmail(res.data.email);
@@ -71,12 +67,9 @@ const EditProfil = () => {
         setPostalCode(res.data.postalCode);
         setCity(res.data.city);
         setUserId(res.data.id);
-        console.log(res.data.id);
-      
       });
   };
-  // console.log('http://localhost:8000/api/users/' + {userId});
-  // console.log(idTruc);
+
   //Fonction de modification d'un utilisateur
   const EditProfil = async (e) => {
     e.preventDefault();
@@ -91,13 +84,9 @@ const EditProfil = () => {
     formData.append("postalCode", postalCode);
     formData.append("city", city);
 
-
-
-
-
     await axios
       .post(`http://localhost:8000/api/users/${userId}`, formData)
-      // .then(navigate("/home"))
+      .then(navigate("/profil"))
       // .then(navigate(-1))
       .catch(({ response }) => {
         if (response.status === 422) {
@@ -117,14 +106,18 @@ const EditProfil = () => {
           <Box className="boxProfil">
             <Box component="form" onSubmit={EditProfil}>
               <Box className="userCardTopEdit" sx={{ mb: 4 }}>
-                <Avatar sx={{ width: 100, height: 100 }} src="avatar.png" />
-                {/* <button type="submit" className="button-87" role="button">
+              <Avatar
+                        sx={{ width: 100, height: 100 }}
+                        src="avatar.png"
+                      />
+                <button type="submit" className="button-87" role="button">
                   Modifier ma photo de profil
-                </button> */}
+                </button>
               </Box>
 
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
+                  Prénom:
                   <TextField
                     {...EditProfil("firstname", {
                       required: true,
@@ -145,6 +138,7 @@ const EditProfil = () => {
                 </Grid>
 
                 <Grid item xs={12} sm={6}>
+                  Nom:
                   <TextField
                     {...EditProfil("lastname", {
                       required: true,

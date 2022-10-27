@@ -20,9 +20,11 @@ import Prince from "../components/prince";
 
 const Profil = () => {
   const [user, setUser] = useState([]);
+  const [child, setChild] = useState([]);
 
   useEffect(() => {
     displayUsers();
+    displayChild();
   }, []); // Sans les crochets ça tourne en boucle
 
   const displayUsers = async () => {
@@ -34,10 +36,17 @@ const Profil = () => {
       })
       .then((res) => {
         setUser(res.data);
-        // console.log(res.data);
       });
   };
-// console.log(user.id);
+
+  const displayChild = async () => {
+    await axios.get("http://localhost:8000/api/childs/${child}").then((res) => {
+      setChild(res.data);
+      console.log(res.data);
+      console.log(child);
+    });
+  };
+
   return (
     <div>
       <MenuHeader />
@@ -127,7 +136,7 @@ const Profil = () => {
 
                     <Box className="userCardMiddle" sx={{ mb: 3 }}>
                       <p>
-                        {user.firstname} {user.lastname}
+                        {child.firstname} {child.lastname}
                       </p>
                       <p>Email: {user.email}</p>
                       <p>

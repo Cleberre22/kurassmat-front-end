@@ -76,7 +76,7 @@ a:-webkit-any-link {
   left: 30px;
   width: 16%;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 1600px) {
     display: none;
   }
 }
@@ -87,7 +87,7 @@ a:-webkit-any-link {
   right: 30px;
   width: 14%;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 1600px) {
     display: none;
   }
 }
