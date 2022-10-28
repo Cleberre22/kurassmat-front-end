@@ -22,72 +22,41 @@ import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Button from "@mui/material/Button";
 
-import MenuHeader from "../components/auth/MenuHeader";
-import Fox from "../components//Fox";
-import Prince from "../components/prince";
+import MenuHeader from "../../components/auth/MenuHeader";
+import Fox from "../../components//Fox";
+import Prince from "../../components/Prince";
 
-const EditProfil = () => {
+const AddChild = () => {
   const navigate = useNavigate();
 
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [userId, setUserId] = useState();
-  const [city, setCity] = useState("");
+  const [firstnameChild, setFirstnameChild] = useState("");
+  const [lastnameChild, setLastnameChild] = useState("");
+//   const [birthDate, setBirthDate] = useState("");
+//   const [imageChild, setImageChild] = useState("");
+//   const [user_id, setUser_id] = useState("");
+
   const [validationError, setValidationError] = useState({});
 
-  const {
-    editProfil,
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ defaultValues: {} });
+//   const changeHandler = (event) => {
+//     setImageChild(event.target.files[0]);
+//   };
 
-  useEffect(() => {
-    getUsers();
-  }, []); // Sans les crochets ça tourne en boucle
-
-  // GET - Récupère les valeurs de la fiche avec l'API
-  const getUsers = async () => {
-    await axios
-      .get("http://localhost:8000/api/current-user", {
-        headers: {
-          Authorization: "Bearer" + localStorage.getItem("access_token"),
-        },
-      })
-      .then((res) => {
-        setFirstname(res.data.firstname);
-        setLastname(res.data.lastname);
-        setEmail(res.data.email);
-        setPhone(res.data.phone);
-        setAddress(res.data.address);
-        setPostalCode(res.data.postalCode);
-        setCity(res.data.city);
-        setUserId(res.data.id);
-      });
-  };
-
-  //Fonction de modification d'un utilisateur
-  const EditProfil = async (e) => {
+  //Fonction d'ajout d'une fiche enfant
+  const addChild = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("_method", "PATCH");
-    formData.append("firstname", firstname);
-    formData.append("lastname", lastname);
-    formData.append("email", email);
-    formData.append("phone", phone);
-    formData.append("address", address);
-    formData.append("postalCode", postalCode);
-    formData.append("city", city);
+
+    formData.append("firstnameChild", firstnameChild);
+    formData.append("lastnameChild", lastnameChild);
+    // formData.append("birthDate", birthDate);
+    // formData.append("imageChild", imageChild);
+    // formData.append("user_id", user_id);
+   
 
     await axios
-      .post(`http://localhost:8000/api/users/${userId}`, formData)
-      .then(navigate("/profil"))
-      // .then(navigate(-1))
+      .post(`http://localhost:8000/api/childs`, formData)
+      .then(navigate("/home"))
       .catch(({ response }) => {
         if (response.status === 422) {
           setValidationError(response.data.errors);
@@ -95,16 +64,17 @@ const EditProfil = () => {
       });
   };
 
+
   return (
     <div>
       <MenuHeader />
       <Box className="main">
         <CssBaseline />
         <Container className="containerProfil">
-          <h1 className="titleProfil">Modifier mon profil</h1>
+          <h1 className="titleProfil">Ajouter un enfant</h1>
 
           <Box className="boxProfil">
-            <Box component="form" onSubmit={EditProfil}>
+            <Box component="form" onSubmit={AddChild}>
               <Box className="userCardTopEdit" sx={{ mb: 4 }}>
               <Avatar
                         sx={{ width: 100, height: 100 }}
@@ -115,48 +85,48 @@ const EditProfil = () => {
                 </button>
               </Box>
 
-              <Grid container spacing={2}>
+              {/* <Grid container spacing={2}> */}
                 <Grid item xs={12} sm={6}>
                   Prénom:
                   <TextField
-                    {...EditProfil("firstname", {
-                      required: true,
-                      maxLength: {
-                        value: 20,
-                        message: "Prénom: Longueur maximale de 20 caractères",
-                      },
-                    })}
-                    value={firstname}
+                    // {...AddChild("firstnameChild", {
+                    //   required: true,
+                    //   maxLength: {
+                    //     value: 20,
+                    //     message: "Prénom: Longueur maximale de 20 caractères",
+                    //   },
+                    // })}
+                    value={firstnameChild}
                     onChange={(event) => {
-                      setFirstname(event.target.value);
+                      setFirstnameChild(event.target.value);
                     }}
                     required
                     fullWidth
-                    id="firstname"
+                    id="firstnameChild"
                     autoFocus
                   />
                 </Grid>
 
-                <Grid item xs={12} sm={6}>
+                {/* <Grid item xs={12} sm={6}>
                   Nom:
                   <TextField
-                    {...EditProfil("lastname", {
+                    {...AddChild("lastnameChild", {
                       required: true,
                       maxLength: {
                         value: 20,
                         message: "Nom: Longueur maximale de 20 caractères",
                       },
                     })}
-                    value={lastname}
+                    value={lastnameChild}
                     onChange={(event) => {
-                      setLastname(event.target.value);
+                      setLastnameChild(event.target.value);
                     }}
                     required
                     fullWidth
-                    id="lastname"
+                    id="lastnameChild"
                     autoFocus
                   />
-                </Grid>
+                </Grid> */}
 
                 {/* {errors.firstname ? (
                   <Alert
@@ -181,10 +151,10 @@ const EditProfil = () => {
                   ""
                 )} */}
 
-                <Grid item xs={12} sm={6}>
+                {/* <Grid item xs={12} sm={6}>
                   Email:
                   <TextField
-                    {...EditProfil("email", {
+                    {...AddChild("email", {
                       required: true,
                       maxLength: {
                         value: 20,
@@ -200,12 +170,12 @@ const EditProfil = () => {
                     id="email"
                     autoFocus
                   />
-                </Grid>
+                </Grid> */}
 
-                <Grid item xs={12} sm={6}>
+                {/* <Grid item xs={12} sm={6}>
                   Téléphone:
                   <TextField
-                    // {...EditProfil("phone", {
+                    // {...AddChild("phone", {
                     //   required: true,
                     //   maxLength: {
                     //     value: 20,
@@ -221,12 +191,12 @@ const EditProfil = () => {
                     id="phone"
                     autoFocus
                   />
-                </Grid>
+                </Grid> */}
 
-                <Grid item xs={12}>
+                {/* <Grid item xs={12}>
                   Adresse:
                   <TextField
-                    // {...EditProfil("address", {
+                    // {...AddChild("address", {
                     //   required: true,
                     //   maxLength: {
                     //     value: 20,
@@ -242,12 +212,12 @@ const EditProfil = () => {
                     id="address"
                     autoFocus
                   />
-                </Grid>
+                </Grid> */}
 
-                <Grid item xs={12} sm={6}>
+                {/* <Grid item xs={12} sm={6}>
                   Code postal:
                   <TextField
-                    {...EditProfil("postalCode", {
+                    {...AddChild("postalCode", {
                       required: true,
                       maxLength: {
                         value: 20,
@@ -264,12 +234,12 @@ const EditProfil = () => {
                     id="postalCode"
                     autoFocus
                   />
-                </Grid>
+                </Grid> */}
 
-                <Grid item xs={12} sm={6}>
+                {/* <Grid item xs={12} sm={6}>
                   Ville:
                   <TextField
-                    {...EditProfil("city", {
+                    {...AddChild("city", {
                       required: true,
                       maxLength: {
                         value: 20,
@@ -285,17 +255,17 @@ const EditProfil = () => {
                     id="city"
                     // autoFocus
                   />
-                </Grid>
-              </Grid>
+                </Grid> */}
+              {/* </Grid> */}
 
               <Grid
                 container
                 justifyContent="center"
                 sx={{ mt: 4 }}
-                className="buttonEditProfil"
+                className="buttonAddChild"
               >
                 <button type="submit" className="button-877" role="button">
-                  Modifier mon profil
+                  Ajouter un enfant
                 </button>
               </Grid>
             </Box>
@@ -308,4 +278,4 @@ const EditProfil = () => {
   );
 };
 
-export default EditProfil;
+export default AddChild;

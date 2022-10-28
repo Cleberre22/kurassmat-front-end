@@ -50,10 +50,10 @@ const Home = () => {
               maternelle:
             </p>
            <Box className="boxButtonHome">
-           <Button href="/registerAssmat" class="button-87 button">
+           <Button href="/registerAssmat" className="button-87 button">
               ASSMAT
             </Button>
-            <Button href="/registerEmployer" class="button-87">
+            <Button href="/registerEmployer" className="button-87">
               PARENTS
             </Button>
            </Box>

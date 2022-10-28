@@ -2,12 +2,19 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
+
 // import Register from "./pages/Register";
 import RegisterAssmat from "./pages/RegisterAssmat";
 import RegisterEmployer from "./pages/RegisterEmployer";
+
 import Login from "./pages/Login";
-import Profil from "./pages/Profil";
-import EditProfil from "./pages/EditProfil";
+// import LoginRedirectProfil from "./pages/LoginRedirectProfil";
+
+import ShowProfil from "./pages/profil/ShowProfil";
+import EditProfil from "./pages/profil/EditProfil";
+
+import AddChild from "./pages/children/AddChild";
+
 import Index from "./pages/dashboard/Index";
 
 function App() {
@@ -23,11 +30,16 @@ function App() {
         <Route path="/registerAssmat" element={<RegisterAssmat />} />
         <Route path="/registerEmployer" element={<RegisterEmployer />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/profil" element={<Profil />} />
-        <Route path="/editProfil" element={<EditProfil />} />
+        <Route path="/showProfil" element={token ? <ShowProfil/> : <Login/> }/>
+        <Route path="/editProfil" element={token ? <EditProfil/> : <Login/>} />
+
+        <Route path="/addChild" element={token ? <AddChild/> : <Login/>} />
+
+        {/* <Route path="/showProfil" element={token ? <Profil/> : <LoginRedirectProfil/> }/> */}
+        {/* Ajouter dans le back une fonction login avec redirection vers profil */}
 
         {/* <Route path="/dashboard/index" element={<Index />} /> */}
-        <Route path="/dashboard/index" element={token ? <Index/> : <Login/> }></Route>
+        <Route path="/dashboard/index" element={token ? <Index/> : <Login/> }/>
       </Routes>
     </BrowserRouter>
   );

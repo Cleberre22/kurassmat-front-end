@@ -283,7 +283,7 @@ const ResponsiveAppBar = () => {
 
                   <Button
                     component="a"
-                    href="/profil"
+                    href="/showProfil"
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: "white", display: "block" }}
                   >

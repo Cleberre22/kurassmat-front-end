@@ -233,7 +233,7 @@ export default function SignUp() {
               )}
             </Grid>
 
-            <button type="submit" class="button-87" role="button">
+            <button type="submit" className="button-87" role="button">
               s'inscrire
             </button>
 
