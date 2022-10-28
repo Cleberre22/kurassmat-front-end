@@ -17,14 +17,15 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListSubheader from "@mui/material/ListSubheader";
 import Prince from "../components/prince";
+import ChildCard from "../components/ChildCard";
 
 const Profil = () => {
   const [user, setUser] = useState([]);
-  const [childs, setChild] = useState([]);
+  // const [childs, setChild] = useState([]);
 
   useEffect(() => {
     displayUsers();
-    displayChild();
+    // displayChild();
   }, []); // Sans les crochets ça tourne en boucle
 
   const displayUsers = async () => {
@@ -39,13 +40,13 @@ const Profil = () => {
       });
   };
 
-  const displayChild = async () => {
-    await axios.get("http://localhost:8000/api/childs").then((res) => {
-      setChild(res.data);
-      console.log(res.data);
-      console.log(childs);
-    });
-  };
+  // const displayChild = async () => {
+  //   await axios.get("http://localhost:8000/api/childs").then((res) => {
+  //     setChild(res.data);
+  //     console.log(res.data);
+  //     console.log(childs);
+  //   });
+  // };
 
   return (
     <div>
@@ -63,20 +64,16 @@ const Profil = () => {
               >
                 <Grid item xs={6}>
                   <Box className="userCard">
-
-
                     <Box className="boxAction">
                       <a
                         className="linkEditProfil"
                         href="/editProfil/"
-                       
                         id="style-2"
                         data-replace="Modifier mon profil"
                       >
                         <span>Modifier mon profil </span>
                       </a>
                     </Box>
-
 
                     <Box className="userCardTop" sx={{ mb: 2 }}>
                       <Avatar
@@ -135,25 +132,16 @@ const Profil = () => {
                     </Box>
 
                     <Box className="userCardMiddle" sx={{ mb: 3 }}>
-
+                      {/* 
 
                     {childs.map((child) => (
             <p>
             {child.firstname} {child.lastname}
           </p>
-          ))}
+          ))} */}
 
+                      <ChildCard />
 
-
-
-
-
-
-
-
-
-
-                     
                       <p>Email: {user.email}</p>
                       <p>
                         Adresse: {user.address}, {user.postalCode} {user.city}
