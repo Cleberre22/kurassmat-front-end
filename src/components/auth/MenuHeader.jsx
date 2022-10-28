@@ -211,11 +211,11 @@ const ResponsiveAppBar = () => {
                 >
                   <Button
                     component="a"
-                    href="/dashboard/index"
+                    href="/children"
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
-                    Dashboard
+                   Index enfant
                   </Button>
 
                   <Button

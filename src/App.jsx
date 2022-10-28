@@ -13,9 +13,16 @@ import Login from "./pages/Login";
 import ShowProfil from "./pages/profil/ShowProfil";
 import EditProfil from "./pages/profil/EditProfil";
 
-import AddChild from "./pages/children/AddChild";
-
 import Index from "./pages/dashboard/Index";
+
+
+import Children from "./pages/children/Children";
+import AddChild from "./pages/children/AddChild";
+import EditChild from "./pages/children/EditChild";
+import ShowChild from "./pages/children/ShowChild";
+
+
+
 
 function App() {
 
@@ -37,6 +44,21 @@ function App() {
 
         {/* <Route path="/showProfil" element={token ? <Profil/> : <LoginRedirectProfil/> }/> */}
         {/* Ajouter dans le back une fonction login avec redirection vers profil */}
+
+
+
+
+        <Route path="/children" element={<Children />} />
+        <Route path="/children/add" element={<AddChild />} />
+        <Route path="/children/edit/:child" element={<EditChild />} />
+        <Route path="/children/show/:child" element={<ShowChild />} />
+
+
+
+
+
+
+
 
         {/* <Route path="/dashboard/index" element={<Index />} /> */}
         <Route path="/dashboard/index" element={token ? <Index/> : <Login/> }/>
