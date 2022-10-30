@@ -71,7 +71,7 @@ const AddChild = () => {
       <Box className="main">
         <CssBaseline />
         <Container className="containerProfil">
-          <h1 className="titleProfil">Ajouter un enfant</h1>
+          <h1 className="titleProfil">Ajouter un enfant aaa</h1>
 
           <Box className="boxProfil">
             <Box component="form" onSubmit={AddChild}>
@@ -81,11 +81,11 @@ const AddChild = () => {
                         src="avatar.png"
                       />
                 <button type="submit" className="button-87" role="button">
-                  Modifier ma photo de profil
+                 Ajouter une photo
                 </button>
               </Box>
 
-              {/* <Grid container spacing={2}> */}
+              <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   Prénom:
                   <TextField
@@ -107,16 +107,16 @@ const AddChild = () => {
                   />
                 </Grid>
 
-                {/* <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={6}>
                   Nom:
                   <TextField
-                    {...AddChild("lastnameChild", {
-                      required: true,
-                      maxLength: {
-                        value: 20,
-                        message: "Nom: Longueur maximale de 20 caractères",
-                      },
-                    })}
+                    // {...AddChild("lastnameChild", {
+                    //   required: true,
+                    //   maxLength: {
+                    //     value: 20,
+                    //     message: "Nom: Longueur maximale de 20 caractères",
+                    //   },
+                    // })}
                     value={lastnameChild}
                     onChange={(event) => {
                       setLastnameChild(event.target.value);
@@ -126,7 +126,7 @@ const AddChild = () => {
                     id="lastnameChild"
                     autoFocus
                   />
-                </Grid> */}
+                </Grid>
 
                 {/* {errors.firstname ? (
                   <Alert
@@ -256,7 +256,7 @@ const AddChild = () => {
                     // autoFocus
                   />
                 </Grid> */}
-              {/* </Grid> */}
+              </Grid>
 
               <Grid
                 container

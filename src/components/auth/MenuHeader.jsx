@@ -104,7 +104,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Box className="menuNav">
         <Toolbar disableGutters>
           {/* -------------------------------------------------------------------- MENU MOBILE */}
