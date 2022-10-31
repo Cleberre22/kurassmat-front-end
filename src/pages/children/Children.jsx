@@ -88,7 +88,7 @@ function topFunction() {
                       />
                   <p>{child.firstnameChild} </p>
                   <p> {child.lastnameChild}</p>
-                  <p> {child.birthDate.toLocaleString()}</p>
+                  <p> {child.birthDate}</p>
 
                   <Link href="/children/edit/${id}" underline="none">
                     Modifier
