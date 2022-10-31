@@ -56,9 +56,9 @@ const AddChild = () => {
 
   const [validationError, setValidationError] = useState({});
 
-  // const changeHandler = (event) => {
-  //   setImageChild(event.target.files[0]);
-  // };
+  const changeHandler = (event) => {
+    setImageChild(event.target.files[0]);
+  };
 
   //Fonction d'ajout d'une fiche enfant
   const AddChild = async (e) => {
@@ -156,7 +156,7 @@ const AddChild = () => {
 
 
 
-                {/* <Grid item xs={12} sm={6}>
+                 <Grid item xs={12} sm={6}>
                   <Stack direction="row" alignItems="center" spacing={2}>
                     <IconButton
                       color="primary"
@@ -177,7 +177,8 @@ const AddChild = () => {
                       <PhotoCamera />
                     </IconButton>
                   </Stack>
-                </Grid> */}
+                </Grid>
+                
               </Grid>
 
               <Grid

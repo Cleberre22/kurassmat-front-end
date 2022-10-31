@@ -38,18 +38,6 @@ function topFunction() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   const [children, setChildren] = useState([]);
 
   useEffect(() => {
@@ -93,10 +81,14 @@ function topFunction() {
                 </Box>
 
                 <div className="cardIndexChild">
+                <Avatar
+                        sx={{ width: 70, height: 70 }}
+                       
+                        src={`http://localhost:8000/storage/uploads/${child.imageChild}`}
+                      />
                   <p>{child.firstnameChild} </p>
                   <p> {child.lastnameChild}</p>
-                  <p> {child.birthDate}</p>
-                  <p> {child.imageChild}</p>
+                  <p> {child.birthDate.toLocaleString()}</p>
 
                   <Link href="/children/edit/${id}" underline="none">
                     Modifier

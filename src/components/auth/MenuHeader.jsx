@@ -79,9 +79,7 @@ const ResponsiveAppBar = () => {
   const [user, setUser] = useState([]);
   const [role, setRole] = useState([]);
 
-  useEffect(() => {
-    displayUsers();
-  }, []); // Sans les crochets ça tourne en boucle
+
   const displayUsers = async () => {
     await axios
       .get("http://localhost:8000/api/current-user", {
@@ -102,6 +100,10 @@ const ResponsiveAppBar = () => {
     //   setIsLoggedin(false);
     navigate("/home");
   };
+
+  useEffect(() => {
+    displayUsers();
+  }, []); // Sans les crochets ça tourne en boucle
 
   return (
     <AppBar position="fixed">
@@ -137,7 +139,7 @@ const ResponsiveAppBar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {role === "ADMIN" ? (
+              {/* {role === "ADMIN" ? (
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography
                     textAlign="center"
@@ -157,7 +159,7 @@ const ResponsiveAppBar = () => {
                     Dashboardeueueu
                   </Typography>
                 </MenuItem>
-              )}
+              )} */}
 
               {userLogged ? (
                 <MenuItem onClick={handleCloseNavMenu}>
