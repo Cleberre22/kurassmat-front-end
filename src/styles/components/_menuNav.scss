@@ -14,7 +14,7 @@
 }
 
 .menuNav {
-     border-bottom: 2px solid #598381;
+    border-bottom: 2px solid #598381;
     background-color: #ffffff;
 
     a {
@@ -35,6 +35,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
         .titleMenu {
             text-align: center;
             font-family: 'font-1';
@@ -56,10 +57,12 @@
             color: #598381;
             margin-right: 5px;
         }
+
         height: 100%;
         display: flex;
         justify-content: flex-end;
         align-items: center;
+
         .avatarDesktop {
             margin-right: 20px;
         }
