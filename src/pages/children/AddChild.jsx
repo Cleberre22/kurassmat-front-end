@@ -25,6 +25,8 @@ import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Button from "@mui/material/Button";
 
+import dayjs from "dayjs";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -36,17 +38,27 @@ import Prince from "../../components/Prince";
 const AddChild = () => {
   const navigate = useNavigate();
 
-  const [firstnameChild, setFirstnameChild] = useState("toto");
-  const [lastnameChild, setLastnameChild] = useState("toto");
-  const [birthDate, setBirthDate] = useState("1999-02-02");
-  const [imageChild, setImageChild] = useState("ggjfj");
-  const [users_id, setUsers_id] = useState(1);
 
-  // const [birthDate, setValue] = React.useState(null);
+
+  const [firstnameChild, setFirstnameChild] = useState("");
+  const [lastnameChild, setLastnameChild] = useState("");
+  const [birthDate, setBirthDate] = useState(dayjs(""));
+  const [imageChild, setImageChild] = useState("ggjfj");
+  const [users_id, setUsers_id] = useState([11]);
+
+  // const [birthDate, setBirthDate] = React.useState(dayjs('2014-08-18'));
+
+  const handleChange = (newBirthDate) => {
+    setBirthDate(newBirthDate);
+  };
+
+  // const handleChange = (newValue) => {
+  //   setBirthDate(newValue);
+  // };
 
   const [validationError, setValidationError] = useState({});
 
-  
+ 
 
   // const changeHandler = (event) => {
   //   setImageChild(event.target.files[0]);
@@ -92,52 +104,46 @@ const AddChild = () => {
               </Box> */}
 
               <Grid container spacing={2}>
-                {/* <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <TextField
                     required
                     fullWidth
                     value={firstnameChild}
-                            onChange={(event) => {
-                              setFirstnameChild(event.target.value);
-                            }}
+                    onChange={(event) => {
+                      setFirstnameChild(event.target.value);
+                    }}
                     id="firstnameChild"
                     label="Prénom"
                     autoFocus
                   />
-                </Grid> */}
+                </Grid>
 
-                {/* <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <TextField
                     required
                     fullWidth
                     value={lastnameChild}
-                            onChange={(event) => {
-                              setLastnameChild(event.target.value);
-                            }}
+                    onChange={(event) => {
+                      setLastnameChild(event.target.value);
+                    }}
                     id="lastnameChild"
                     label="Nom"
                     autoFocus
                   />
-                </Grid> */}
+                </Grid>
 
-                {/* <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                      inputFormat="MM/DD/YYYY"
-                      label="Date de naissance"
-                      id="birthDate"
-                      // value={firstnameChild}
-                      //       onChange={(event) => {
-                      //         setFirstnameChild(event.target.value);
-                      //       }}
+                    <DesktopDatePicker
+                      label="Date desktop"
+                      inputFormat="YYYY/MM/DD"
                       value={birthDate}
-                      onChange={(newValue) => {
-                        setValue(newValue);
-                      }}
+                      id="birthDate"
+                      onChange={handleChange}
                       renderInput={(params) => <TextField {...params} />}
                     />
                   </LocalizationProvider>
-                </Grid> */}
+                </Grid>
 
                 {/* <Grid item xs={12} sm={6}>
                   <Stack direction="row" alignItems="center" spacing={2}>
