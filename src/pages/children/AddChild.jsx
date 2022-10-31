@@ -12,6 +12,9 @@ import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import Stack from "@mui/material/Stack";
 
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+
 import Alert from "@mui/material/Box";
 import { GroupSharp } from "@mui/icons-material";
 import Typography from "@mui/material/Typography";
@@ -38,27 +41,20 @@ import Prince from "../../components/Prince";
 const AddChild = () => {
   const navigate = useNavigate();
 
-
-
   const [firstnameChild, setFirstnameChild] = useState("");
   const [lastnameChild, setLastnameChild] = useState("");
-  const [birthDate, setBirthDate] = useState(dayjs(""));
+  const [birthDate, setBirthDate] = useState(new Date);
   const [imageChild, setImageChild] = useState("ggjfj");
+
   const [users_id, setUsers_id] = useState([11]);
 
-  // const [birthDate, setBirthDate] = React.useState(dayjs('2014-08-18'));
 
-  const handleChange = (newBirthDate) => {
-    setBirthDate(newBirthDate);
+  const handleChange = (newValue) => {
+    setBirthDate(newValue);
+    console.log(birthDate);
   };
 
-  // const handleChange = (newValue) => {
-  //   setBirthDate(newValue);
-  // };
-
   const [validationError, setValidationError] = useState({});
-
- 
 
   // const changeHandler = (event) => {
   //   setImageChild(event.target.files[0]);
@@ -66,6 +62,8 @@ const AddChild = () => {
 
   //Fonction d'ajout d'une fiche enfant
   const AddChild = async (e) => {
+    console.log(birthDate);
+
     e.preventDefault();
 
     const formData = new FormData();
@@ -104,9 +102,9 @@ const AddChild = () => {
               </Box> */}
 
               <Grid container spacing={2}>
+
                 <Grid item xs={12} sm={6}>
                   <TextField
-                    required
                     fullWidth
                     value={firstnameChild}
                     onChange={(event) => {
@@ -120,7 +118,6 @@ const AddChild = () => {
 
                 <Grid item xs={12} sm={6}>
                   <TextField
-                    required
                     fullWidth
                     value={lastnameChild}
                     onChange={(event) => {
@@ -135,15 +132,29 @@ const AddChild = () => {
                 <Grid item xs={12} sm={6}>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DesktopDatePicker
-                      label="Date desktop"
-                      inputFormat="YYYY/MM/DD"
+                      label="Date de naissance"
+                      inputFormat="DD-MM-YYYY"
                       value={birthDate}
+                      // value="2022-12-24"
                       id="birthDate"
-                      onChange={handleChange}
+                      class="birth"
+                      onChange={(event) => {
+                        setBirthDate(new Date(event).toISOString().split('T')[0]);
+                      }}
                       renderInput={(params) => <TextField {...params} />}
                     />
                   </LocalizationProvider>
                 </Grid>
+
+
+
+
+
+
+
+
+
+
 
                 {/* <Grid item xs={12} sm={6}>
                   <Stack direction="row" alignItems="center" spacing={2}>
