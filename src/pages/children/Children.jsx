@@ -7,36 +7,46 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import ModeEditIcon from "@mui/icons-material/ModeEdit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import ButtonGroup from "@mui/material/ButtonGroup";
 
 import MenuHeader from "../../components/auth/MenuHeader";
 import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
 
 const Children = () => {
+  const buttons = [
+    <Button key="one">One</Button>,
+    <Button key="two">Two</Button>,
+    <Button key="three">Three</Button>,
+  ];
 
+  // Get the button:
+  let mybutton = document.getElementById("myBtn");
 
-// Get the button:
-let mybutton = document.getElementById("myBtn");
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () {
+    scrollFunction();
+  };
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
   }
-}
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
-
-
-
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
 
   const [children, setChildren] = useState([]);
 
@@ -69,43 +79,61 @@ function topFunction() {
           <Box className="boxProfil">
             {children.map((child) => (
               <Box className="userCard">
-                <Box className="boxAction">
-                  <a
+                <Box className="boxActionIndexChild">
+                  {/* <a
                     className="linkEditProfil"
                     href="/editProfil/"
                     id="style-2"
                     data-replace="Modifier mon profil"
                   >
                     <span>Modifier mon profil </span>
-                  </a>
+                  </a> */}
+                  <ButtonGroup
+                    orientation="vertical"
+                    aria-label="vertical contained button group"
+                    variant="text"
+                    sx={{ m: 2 }}
+                  >
+                    
+
+                    <Button href="/children/show/${id}" key="one"><VisibilityIcon /></Button>
+
+                    <Button key="two" href="/children/edit/${id}"><ModeEditIcon /></Button>
+
+                    <Button
+                      key="three"
+                  href="#"
+                      onClick={() => {
+                        deleteChild(child.id);
+                      }}
+                    >
+                      <DeleteIcon />
+                    </Button>
+
+                  </ButtonGroup>
+
+
+
+
+
+
+
                 </Box>
 
                 <div className="cardIndexChild">
-                <Avatar
-                        sx={{ width: 70, height: 70 }}
-                       
-                        src={`http://localhost:8000/storage/uploads/${child.imageChild}`}
-                      />
+                  <Avatar
+                    sx={{ width: 70, height: 70 }}
+                    src={`http://localhost:8000/storage/uploads/${child.imageChild}`}
+                  />
                   <p>{child.firstnameChild} </p>
                   <p> {child.lastnameChild}</p>
                   <p> {child.birthDate}</p>
 
-                  <Link href="/children/edit/${id}" underline="none">
-                    Modifier
-                  </Link>
+               
 
-                  <Link href="/children/show/${id}" underline="none">
-                    Voir
-                  </Link>
+               
 
-                  <Button
-                    variant="danger"
-                    onClick={() => {
-                      deleteChild(child.id);
-                    }}
-                  >
-                    Supprimer
-                  </Button>
+                  
                 </div>
               </Box>
             ))}
@@ -306,39 +334,15 @@ function topFunction() {
               </Grid> */}
             {/* </Box> */}
           </Box>
-
-
-          
-
-
         </Container>
-
       </Box>
       <Fox />
       <Prince />
-      <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+      <button onclick="topFunction()" id="myBtn" title="Go to top">
+        Top
+      </button>
     </div>
   );
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export default Children;
