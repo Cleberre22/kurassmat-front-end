@@ -16,7 +16,7 @@ const Child = (id) => {
   }, []); // Sans les crochets ça tourne en boucle
 
   const displayChild = async () => {
-    await axios.get("http://localhost:8000/api/childs/${id}").then((res) => {
+    await axios.get("http://localhost:8000/api/childs/${1}").then((res) => {
       setChild(res.data);
       console.log(res.data);
     });
@@ -31,6 +31,7 @@ const Child = (id) => {
         <Box className="boxChild">
           <h1>Show fiche enfant</h1>
 
+<p color="red">{child.firstnameChild}</p>
           {child.firstnameChild}
           {/* <Box className="listeChild">
             <h2>liste</h2>

@@ -88,25 +88,19 @@ a:-webkit-any-link {
   bottom: 55%;
   right: 30px;
   width: 14%;
+  opacity: 75%;
 
   @media only screen and (max-width: 1600px) {
     display: none;
   }
 }
 
-
-
  /*---------------------------------------- LINK ----------------------*/
  
 
-
-
   /*---------------------------------------- BACK TO TOP ----------------------*/
-  .BackToTop {
-    background-color: #f6ae2d;
-  }
+ 
 .iconBackToTop {
-  color: #f26419;
-  
+  color: #f26419; 
 }
 

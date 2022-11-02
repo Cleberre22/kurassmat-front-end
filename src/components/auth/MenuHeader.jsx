@@ -223,6 +223,16 @@ const ResponsiveAppBar = () => {
                   >
                     Dashboard
                   </Button>
+
+                  <Button
+                    component="a"
+                    href="/dashboard/index"
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    Dashboard
+                  </Button>
+
                 </Box>
               </Grid>
 
@@ -285,6 +295,15 @@ const ResponsiveAppBar = () => {
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
                     Mon compte
+                  </Button>
+
+                  <Button
+                    component="a"
+                    href="/home"
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    Contact
                   </Button>
 
                   <Button
