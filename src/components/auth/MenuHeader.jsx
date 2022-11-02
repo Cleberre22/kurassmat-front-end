@@ -16,12 +16,7 @@ import Grid from "@mui/material/Grid";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 
-import Stack from "@mui/material/Stack";
-
 import { useNavigate } from "react-router-dom";
-
-// const pages = ["Login", "Register"];
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

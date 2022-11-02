@@ -1,42 +1,37 @@
 .containerAddChild {
-
     width: 100%;
-    
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     // background-color: aqua;
 
-
-
-
-
-
-
+    .infoAddChild {
+      // display: flex;
+      // justify-content: center;
+      // align-items: flex-end;
+      // margin: 0;
+      // background-color: deepskyblue;
+    }
 
     .addChildCard {
         width: 100%;
-        // background-color: brown;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        p {
-            // background-color: #598381;
-            text-align:end;
-            margin-left: 5%;
-        }
+        // background-color: blueviolet;
     }
 
     
     
+}  
     /*---------------------------------------- BUTTON ----------------------*/
     .addChildCard {
       .button-87 {
         // height: 30px;
         // width: 100%;
         margin-top: 20px;
-        padding: 5px 10px;
+        padding: 2px 10px;
         text-align: center;
         text-transform: uppercase;
         transition: 0.5s;
@@ -69,8 +64,8 @@
       }
     }
     
-    .buttonEditProfil {
-      .button-877 {
+    .buttonAddChild {
+      .button-87 {
         height: 30px;
         width: 100%;
         
@@ -107,4 +102,3 @@
     
     
     
-}

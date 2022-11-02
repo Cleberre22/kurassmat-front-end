@@ -9,19 +9,6 @@ import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import TextField from "@mui/material/TextField";
 
-import Alert from "@mui/material/Box";
-import { GroupSharp } from "@mui/icons-material";
-import Typography from "@mui/material/Typography";
-
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import IconButton from "@mui/material/IconButton";
-import InputAdornment from "@mui/material/InputAdornment";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import Button from "@mui/material/Button";
-
 import MenuHeader from "../../components/auth/MenuHeader";
 import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
@@ -158,29 +145,6 @@ const EditProfil = () => {
                   />
                 </Grid>
 
-                {/* {errors.firstname ? (
-                  <Alert
-                    className="errorsMessage"
-                    sx={{ mt: 2, p: 0, pl: 2 }}
-                    severity="error"
-                  >
-                    {errors.firstname?.message}
-                  </Alert>
-                ) : (
-                  ""
-                )}
-                {errors.lastname ? (
-                  <Alert
-                    className="errorsMessage"
-                    sx={{ mt: 2, p: 0, pl: 2 }}
-                    severity="error"
-                  >
-                    {errors.lastname?.message}
-                  </Alert>
-                ) : (
-                  ""
-                )} */}
-
                 <Grid item xs={12} sm={6}>
                   Email:
                   <TextField
@@ -205,13 +169,6 @@ const EditProfil = () => {
                 <Grid item xs={12} sm={6}>
                   Téléphone:
                   <TextField
-                    // {...EditProfil("phone", {
-                    //   required: true,
-                    //   maxLength: {
-                    //     value: 20,
-                    //     message: "Nom: Longueur maximale de 20 caractères",
-                    //   },
-                    // })}
                     value={phone}
                     onChange={(event) => {
                       setPhone(event.target.value);
@@ -226,13 +183,6 @@ const EditProfil = () => {
                 <Grid item xs={12}>
                   Adresse:
                   <TextField
-                    // {...EditProfil("address", {
-                    //   required: true,
-                    //   maxLength: {
-                    //     value: 20,
-                    //     message: "Code postal: Longueur maximale de 5 caractères",
-                    //   },
-                    // })}
                     value={address}
                     onChange={(event) => {
                       setAddress(event.target.value);
@@ -283,7 +233,6 @@ const EditProfil = () => {
                     required
                     fullWidth
                     id="city"
-                    // autoFocus
                   />
                 </Grid>
               </Grid>

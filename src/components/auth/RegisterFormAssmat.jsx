@@ -19,7 +19,6 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
-import Button from "@mui/material/Button";
 
 const theme = createTheme();
 
@@ -31,7 +30,7 @@ export default function SignUp() {
     watch,
     control,
     handleSubmit,
-    formState: { errors, isDirty, isValid, isSubmitSuccessful },
+    formState: { errors },
   } = useForm({ mode: "onChange" });
   const onSubmit = (data) => console.log(data);
 
@@ -39,14 +38,6 @@ export default function SignUp() {
   const password = watch("password", "");
   const lastname = watch("lastname", "");
   const firstname = watch("firstname", "");
-
-  // const [values, setValues] = React.useState({
-  //   amount: "",
-  //   password: "",
-  //   weight: "",
-  //   weightRange: "",
-  //   showPassword: false,
-  // });
 
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => {

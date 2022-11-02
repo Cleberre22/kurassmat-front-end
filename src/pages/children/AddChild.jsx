@@ -8,31 +8,13 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import TextField from "@mui/material/TextField";
-import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
-import Stack from "@mui/material/Stack";
-
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-
-import Alert from "@mui/material/Box";
-import { GroupSharp } from "@mui/icons-material";
-import Typography from "@mui/material/Typography";
-
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-
-import InputAdornment from "@mui/material/InputAdornment";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import OutlinedInput from "@mui/material/OutlinedInput";
 import Button from "@mui/material/Button";
 
 import dayjs from "dayjs";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 import MenuHeader from "../../components/auth/MenuHeader";
 import Fox from "../../components//Fox";
@@ -44,13 +26,13 @@ const AddChild = () => {
   const [firstnameChild, setFirstnameChild] = useState("");
   const [lastnameChild, setLastnameChild] = useState("");
   const [birthDate, setBirthDate] = useState(new Date());
-  const [imageChild, setImageChild] = useState("ggjfj");
+  const [imageChild, setImageChild] = useState("");
 
-  const [users_id, setUsers_id] = useState([11]);
+  const [users_id, setUsers_id] = useState([]);
 
   const handleChange = (newValue) => {
     setBirthDate(newValue);
-    console.log(birthDate);
+    // console.log(birthDate);
   };
 
   const [validationError, setValidationError] = useState({});
@@ -59,11 +41,42 @@ const AddChild = () => {
     setImageChild(event.target.files[0]);
   };
 
+
+
+
+
+
+// On récupère l'id du user pour remplir la table pivot
+  const [user, setUser] = useState([]);
+  const [role, setRole] = useState([]);
+
+  const displayUsers = async () => {
+    await axios
+      .get("http://localhost:8000/api/current-user", {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
+      .then((res) => {
+        setUser(res.data);
+        setRole(res.data.role);
+        // console.log(res.data);
+      });
+  };
+  // console.log(role);
+
+  useEffect(() => {
+    displayUsers();
+  }, []); // Sans les crochets ça tourne en boucle
+
+
   //Fonction d'ajout d'une fiche enfant
   const AddChild = async (e) => {
-    console.log(birthDate);
+    // console.log(birthDate);
 
     e.preventDefault();
+    const users_id = [];
+    users_id.push(user.id);
 
     const formData = new FormData();
 
@@ -72,6 +85,11 @@ const AddChild = () => {
     formData.append("birthDate", birthDate);
     formData.append("imageChild", imageChild);
     formData.append("users_id", users_id);
+
+     //Bout de code pour récupérer les données du formulaire
+    // for (var pair of formData.entries()) {
+    //         console.log(pair[0]+ ', ' + pair[1]);
+    //     }
 
     await axios
       .post(`http://localhost:8000/api/childs`, formData)
@@ -98,8 +116,8 @@ const AddChild = () => {
               onSubmit={AddChild}
             >
               <Container className="containerAddChild">
-                <Grid container spacing={2} centered>
-                  <Grid item xs={12} sm={12} centered>
+                <Grid className="infoAddChild" container spacing={2} >
+                  <Grid item xs={12} sm={12}>
                     <TextField
                       fullWidth
                       value={firstnameChild}
@@ -165,13 +183,11 @@ const AddChild = () => {
                     //   }}
                     id="imageChild"
                   />
-                  <PhotoCamera />
+                  <PhotoCamera 
+                  sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}/>
                 </Button>
               </Box>
-            </Box>
-
-
-            <Grid
+              <Grid
               container
               justifyContent="center"
               sx={{ mt: 4 }}
@@ -181,6 +197,10 @@ const AddChild = () => {
                 Ajouter un enfant
               </button>
             </Grid>
+            </Box>
+
+
+            
           </Box>
         </Container>
       </Box>

@@ -10,19 +10,19 @@ import Avatar from "@mui/material/Avatar";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import PropTypes from 'prop-types';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Fab from '@mui/material/Fab';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import Fade from '@mui/material/Fade';
+import PropTypes from "prop-types";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
+import Fab from "@mui/material/Fab";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import Fade from "@mui/material/Fade";
 
 import MenuHeader from "../../components/auth/MenuHeader";
 import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
 
-
 const Children = () => {
   const [children, setChildren] = useState([]);
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     displayChildren();
@@ -42,7 +42,6 @@ const Children = () => {
       .then(displayChildren);
   };
 
-
   function ScrollTop(props) {
     const { children, window } = props;
     // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -53,32 +52,32 @@ const Children = () => {
       disableHysteresis: true,
       threshold: 100,
     });
-  
+
     const handleClick = (event) => {
       const anchor = (event.target.ownerDocument || document).querySelector(
-        '#back-to-top-anchor',
+        "#back-to-top-anchor"
       );
-  
+
       if (anchor) {
         anchor.scrollIntoView({
-          block: 'center',
+          block: "center",
         });
       }
     };
-  
+
     return (
       <Fade in={trigger}>
         <Box
           onClick={handleClick}
           role="presentation"
-          sx={{ position: 'fixed', bottom: 30, right: 40 }}
+          sx={{ position: "fixed", bottom: 30, right: 40 }}
         >
           {children}
         </Box>
       </Fade>
     );
   }
-  
+
   ScrollTop.propTypes = {
     children: PropTypes.element.isRequired,
     /**
@@ -88,90 +87,99 @@ const Children = () => {
     window: PropTypes.func,
   };
 
-
   return (
     <div className="indexChild">
       <MenuHeader />
       <Box className="main">
         <CssBaseline />
         <Container className="containerProfil" sx={{ mt: 25 }}>
-          <h1 id="back-to-top-anchor" className="titleProfil">Liste des enfants</h1>
+          <h1 id="back-to-top-anchor" className="titleProfil">
+            Liste des enfants
+          </h1>
 
-          <Box className="boxProfil">
-            {children.map((child) => (
-              <Box className="userCard">
-                <Box className="boxIndexChild">
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={10}>
-                      <Box className="cardIndexChild">
-                        <Box className="avatarIndexChild">
-                          <Avatar
-                            className="avatar"
-                            sx={{ width: 100, height: 100 }}
-                            src={`http://localhost:8000/storage/uploads/${child.imageChild}`}
-                          />
-                        </Box>
-                        <Box className="boxInfoIndexChild">
-                          <Box className="boxNameIndexChild">
-                            <p>Nom et prénom: {child.lastnameChild} </p>
-                            <p> {child.firstnameChild}</p>
+          {/* {user.id / user.id ? ( */}
+
+            <Box className="boxProfil">
+              {children.map((child) => (
+                <Box className="userCard">
+                  <Box className="boxIndexChild">
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} sm={10}>
+                        <Box className="cardIndexChild">
+                          <Box className="avatarIndexChild">
+                            <Avatar
+                              className="avatar"
+                              sx={{ width: 100, height: 100 }}
+                              src={`http://localhost:8000/storage/uploads/${child.imageChild}`}
+                            />
                           </Box>
+                          <Box className="boxInfoIndexChild">
+                            <Box className="boxNameIndexChild">
+                              <p>Nom et prénom: {child.lastnameChild} </p>
+                              <p> {child.firstnameChild}</p>
+                            </Box>
 
-                          <p>Date de naissance: {child.birthDate}</p>
+                            <p>Date de naissance: {child.birthDate}</p>
+                          </Box>
                         </Box>
-                      </Box>
-                    </Grid>
-                    <Grid item xs={12} sm={2}>
-                      <Box>
-                        {" "}
-                        <Box
-                          className="buttonGroupIndexChild"
-                          orientation="vertical"
-                          variant="text"
-                          sx={{ m: 2 }}
-                        >
-                          <Button
-                            className="actionButtonIndexChild"
-                            href="/children/show/${id}"
-                            key="one"
+                      </Grid>
+                      <Grid item xs={12} sm={2}>
+                        <Box>
+                          {" "}
+                          <Box
+                            className="buttonGroupIndexChild"
+                            orientation="vertical"
+                            variant="text"
+                            sx={{ m: 2 }}
                           >
-                            <VisibilityIcon />
-                          </Button>
+                            <Button
+                              className="actionButtonIndexChild"
+                              href="/children/show/${id}"
+                              key="one"
+                            >
+                              <VisibilityIcon />
+                            </Button>
 
-                          <Button
-                            className="actionButtonIndexChild"
-                            key="two"
-                            href="/children/edit/${id}"
-                          >
-                            <ModeEditIcon />
-                          </Button>
+                            <Button
+                              className="actionButtonIndexChild"
+                              key="two"
+                              href="/children/edit/${id}"
+                            >
+                              <ModeEditIcon />
+                            </Button>
 
-                          <Button
-                            className="actionButtonIndexChild"
-                            key="three"
-                            href="#"
-                            onClick={() => {
-                              deleteChild(child.id);
-                            }}
-                          >
-                            <DeleteIcon />
-                          </Button>
+                            <Button
+                              className="actionButtonIndexChild"
+                              key="three"
+                              href="#"
+                              onClick={() => {
+                                deleteChild(child.id);
+                              }}
+                            >
+                              <DeleteIcon />
+                            </Button>
+                          </Box>
                         </Box>
-                      </Box>
+                      </Grid>
                     </Grid>
-                  </Grid>
+                  </Box>
                 </Box>
-              </Box>
-            ))}
-          </Box>
+              ))}
+            </Box>
+          {/* ) : ( */}
+            {/* <p>pas de correspondance</p> */}
+          {/* )} */}
         </Container>
 
         <ScrollTop className="BackToTop">
-        <Fab className="BackToTop" size="small" aria-label="scroll back to top">
-          <KeyboardArrowUpIcon className="iconBackToTop"/>
-        </Fab>
-      </ScrollTop>
-
+          <Fab
+            className="BackToTop"
+            size="small"
+            aria-label="scroll back to top"
+          >
+            <KeyboardArrowUpIcon className="iconBackToTop" />
+          </Fab>
+        </ScrollTop>
       </Box>
       <Fox />
       <Prince />
