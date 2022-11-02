@@ -134,7 +134,7 @@ const Children = () => {
                           >
                             <Button
                               className="actionButtonIndexChild"
-                              href="/children/show/${id}"
+                              href="/children/show/:child.id"
                               key="one"
                             >
                               <VisibilityIcon />
@@ -143,7 +143,8 @@ const Children = () => {
                             <Button
                               className="actionButtonIndexChild"
                               key="two"
-                              href="/children/edit/${id}"
+                              href={`/children/edit/${child.id}`}
+                              // to={`/children/edit/${child.id}`}
                             >
                               <ModeEditIcon />
                             </Button>

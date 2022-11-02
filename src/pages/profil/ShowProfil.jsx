@@ -47,7 +47,7 @@ const Profil = () => {
       <Box className="main">
         <CssBaseline />
         <Container className="containerProfil">
-          <h1 className="titleProfil">Mon tableau de bord</h1>
+          <h1 className="titleProfil">{user.firstname} {user.lastname}</h1>
           <Box className="boxProfil">
             <Box>
               <Grid

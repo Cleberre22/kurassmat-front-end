@@ -1,66 +1,157 @@
 import React, { useEffect, useState } from "react";
-import MenuHeader from "../../components/auth/MenuHeader";
 import axios from "axios";
-import { Box } from "@mui/material";
-import Button from "@mui/material/Button";
-import Link from "@mui/material/Link";
-import { useParams } from "react-router-dom";
 
-const Child = (id) => {
+import CssBaseline from "@mui/material/CssBaseline";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Avatar from "@mui/material/Avatar";
 
+import MenuHeader from "../../components/auth/MenuHeader";
+import Fox from "../../components/Fox";
+import Prince from "../../components/Prince";
 
-  const [child, setChild] = useState([]);
+const Child = () => {
+
+  const [child, setChild] = useState("");
+  // const [user, setUser] = useState([]);
 
   useEffect(() => {
     displayChild();
   }, []); // Sans les crochets ça tourne en boucle
 
   const displayChild = async () => {
-    await axios.get("http://localhost:8000/api/childs/${1}").then((res) => {
-      setChild(res.data);
-      console.log(res.data);
+    await axios.get("http://localhost:8000/api/childs/${id}").then((res) => {
+      setChild(res.data.data);
+      console.log(res.data.data);
+      // console.log(child.Identifiant);
     });
   };
-     console.log(child);
+  console.log(child[0]);
+
+   
+    //  const displayUser = async () => {
+    //    await axios
+    //      .get("http://localhost:8000/api/current-user", {
+    //        headers: {
+    //          Authorization: "Bearer" + localStorage.getItem("access_token"),
+    //        },
+    //      })
+    //      .then((res) => {
+    //        setUser(res.data);
+    //        console.log(res.data);
+    //      });
+    //  };
+    //  console.log(user);
 
   return (
     <div className="indexChild">
-      <MenuHeader />
-
+       <MenuHeader />
       <Box className="main">
-        <Box className="boxChild">
-          <h1>Show fiche enfant</h1>
+        <CssBaseline />
+        <Container className="containerProfil">
+          <h1 className="titleProfil">Nom et Prénom</h1>
+          <Box className="boxProfil">
+            <Box>
+              <Grid
+                container
+                rowSpacing={1}
+                columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+              >
+                <Grid item xs={6}>
+                  <Box className="userCard">
 
-<p color="red">{child.firstnameChild}</p>
-          {child.firstnameChild}
-          {/* <Box className="listeChild">
-            <h2>liste</h2>
-            {children.map((child) => (
-              <div className="cardIndexChild">
-                <p>{child.firstnameChild} </p>
-                <p> {child.lastnameChild}</p>
-                <p> {child.birthDate}</p>
-                <p> {child.imageChild}</p>
+                    {/* <Box className="boxAction">
+                      <a
+                        className="linkEditProfil"
+                        href="/editProfil/"
+                        id="style-2"
+                        data-replace="Modifier mon profil"
+                      >
+                        <span>Modifier mon profil </span>
+                      </a>
+                    </Box> */}
 
-                <Link
-                    to={`/pages/children/edit/${child.id}`}
-                    className="btn btn-success mb-2"
-                  >
-                    Modifier
-                  </Link>
+                    <Box className="userCardTop" sx={{ mb: 2 }}>
+                      <Avatar
+                        sx={{ width: 100, height: 100 }}
+                        src="avatar.png"
+                      />
+                    </Box>
 
-                <Button
-                  variant="danger"
-                  onClick={() => {
-                    deleteChild(child.id);
-                  }}
-                >
-                  Supprimer
-                </Button>
-              </div>
-            ))}
-          </Box>*/}
-        </Box>
+                    <Box className="userCardMiddle" sx={{ mb: 3 }}>
+                      <p>
+                       Prénom de l'enfant: {child.firstnameChild}
+                      </p>
+                      {/* <p>Email: {user.email}</p>
+                      <p>
+                        Adresse: {user.address}, {user.postalCode} {user.city}
+                      </p>
+                      <p>Téléphone: {user.phone}</p> */}
+                    </Box>
+                  </Box>
+
+                  {/* <Box className="userCard">
+                    <Box className="userCardTop" sx={{ mt: 3 }}>
+                      <h2>Personne à prevenir:</h2>
+                    </Box>
+
+                    <Box className="userCardMiddle" sx={{ mb: 3 }}>
+                      <p>
+                        {user.firstname} {user.lastname}
+                      </p>
+                      <p>Email: {user.email}</p>
+                      <p>
+                        Adresse: {user.address}, {user.postalCode} {user.city}
+                      </p>
+                      <p>Téléphone: {user.phone}</p>
+                    </Box>
+                  </Box> */}
+                </Grid>
+
+                <Grid item xs={6}>
+                  <Box className="childCard">
+                    {/* <Box className="boxAction">
+                      <a
+                        className="linkEditProfil"
+                        href="/addChild"
+                        id="style-2"
+                        data-replace="Modifier mon profil"
+                      >
+                        <span>Ajouter un enfant</span>
+                      </a>
+                    </Box> */}
+                    {/* <Box className="userCardTop" sx={{ mb: 2 }}>
+                      <Avatar
+                        sx={{ width: 80, height: 80 }}
+                        src="avatar-2.png"
+                      />
+                    </Box> */}
+
+                    <Box className="userCardMiddle" sx={{ mb: 3 }}>
+                      {/* {childs.map((child) => (
+                        <p>
+                          {child.firstname} {child.lastname}
+                        </p>
+                      ))} */}
+
+                      {/* <p>Email: {user.email}</p>
+                      <p>
+                        Adresse: {user.address}, {user.postalCode} {user.city}
+                      </p>
+                      <p>Téléphone: {user.phone}</p> */}
+                    </Box>
+                  </Box>
+
+                </Grid>
+              </Grid>
+            </Box>
+          </Box>
+        </Container>
+
+        <Fox />
+        <Prince />
+     
       </Box>
     </div>
   );

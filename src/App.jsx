@@ -40,11 +40,10 @@ function App() {
         <Route path="/showProfil" element={token ? <ShowProfil/> : <Login/> }/>
         <Route path="/editProfil" element={token ? <EditProfil/> : <Login/>} />
 
-        <Route path="/addChild" element={token ? <AddChild/> : <Login/>} />
+       
 
         {/* <Route path="/showProfil" element={token ? <Profil/> : <LoginRedirectProfil/> }/> */}
         {/* Ajouter dans le back une fonction login avec redirection vers profil */}
-
 
 
 
@@ -52,11 +51,6 @@ function App() {
         <Route path="/children/add" element={<AddChild />} />
         <Route path="/children/edit/:child" element={<EditChild />} />
         <Route path="/children/show/:child" element={<ShowChild />} />
-
-
-
-
-
 
 
 
