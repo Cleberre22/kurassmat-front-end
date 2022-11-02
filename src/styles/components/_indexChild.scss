@@ -1,19 +1,124 @@
 .indexChild {
 
     .boxProfil {
-        // background-color: darkolivegreen;
         border: 1px solid #598381;
         border-radius: 10px;
         padding: 5%;
         display: flex;
         justify-content: space-around;
         flex-direction: column;
-        .boxActionIndexChild {
+
+        .boxIndexChild {
             text-align: end;
-                width: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            // background-color: rgba(220, 20, 60, 0.356);
+            .cardIndexChild {
+                height: 100%;
                 display: flex;
-                justify-content: end;
-                background-color: crimson;
+                justify-content: center;
+                align-items: center;
+
+                // background-color: cornflowerblue;
+                .avatarIndexChild {
+                    width: 50%;
+                    padding-right: 30px;
+                    // background-color: darkseagreen;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .avatar {
+                        border: $color-4 2px solid;
+                    }
+                }
+
+                .boxInfoIndexChild {
+                    // background-color: deeppink;
+                    display: flex;
+                    justify-content: flex-start;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    width: 50%;
+
+                    .boxNameIndexChild {
+                        display: flex;
+                        justify-content: center;
+
+                        p {
+                            margin-right: 5px;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+
+            .buttonGroupIndexChild {
+                .actionButtonIndexChild {
+                    display: flex;
+                    width: min-content;
+
+                    margin: 8px;
+                    color: $color-4;
+                }
+            }
+        }
+
+
+
+
+          
+    }
+
+    /*---------------------------------------- LINK ----------------------*/
+    .buttonGroupIndexChild {
+
+        width: min-content;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .actionButtonIndexChild {
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+        }
+
+        .actionButtonIndexChild::before,
+        .actionButtonIndexChild::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            left: 0;
+        }
+
+        .actionButtonIndexChild::before {
+            background-color: #598381;
+            height: 2px;
+            bottom: 0;
+            transform-origin: 100% 50%;
+            transform: scaleX(0);
+            transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        .actionButtonIndexChild:hover::before {
+            transform-origin: 0% 50%;
+            transform: scaleX(1);
+        }
+
+        .actionButtonIndexChild span {
+            display: inline-block;
+            transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        .actionButtonIndexChild {
+            text-decoration: none;
+            color: #F09819;
+            font-weight: 700;
+            vertical-align: top;
         }
     }
 }
