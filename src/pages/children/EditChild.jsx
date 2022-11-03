@@ -10,6 +10,10 @@ import Avatar from "@mui/material/Avatar";
 import TextField from "@mui/material/TextField";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import Button from "@mui/material/Button";
+import Backdrop from '@mui/material/Backdrop';
+import Modal from '@mui/material/Modal';
+import Fade from '@mui/material/Fade';
+import Typography from '@mui/material/Typography';
 
 import dayjs from "dayjs";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
@@ -19,6 +23,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import MenuHeader from "../../components/auth/MenuHeader";
 import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
+import UpdateImage from "../../components/UpdateImage";
 
 const EditChild = () => {
   const { child } = useParams();
@@ -27,7 +32,7 @@ const EditChild = () => {
   const [firstnameChild, setFirstnameChild] = useState("");
   const [lastnameChild, setLastnameChild] = useState("");
   const [birthDate, setBirthDate] = useState(new Date());
-  // const [imageChild, setImageChild] = useState("");
+  const [imageChild, setImageChild] = useState("");
 
   const [users_id, setUsers_id] = useState([]);
 
@@ -38,9 +43,9 @@ const EditChild = () => {
 
   const [validationError, setValidationError] = useState({});
 
-  // const changeHandler = (event) => {
-  //   setImageChild(event.target.files[0]);
-  // };
+  const changeHandler = (event) => {
+    setImageChild(event.target.files[0]);
+  };
 
   // On récupère l'id du user pour remplir la table pivot
   const [user, setUser] = useState([]);
@@ -114,6 +119,24 @@ const EditChild = () => {
       });
   };
 
+
+
+// Modal Update Image
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <div className="editChild">
       <MenuHeader />
@@ -172,9 +195,10 @@ const EditChild = () => {
                 </Grid>
               </Container>
 
-              {/* <Box className="addChildCard" sx={{ mb: 4 }}>
+              <Box className="addChildCard" sx={{ mb: 4 }}>
+                <p>Ajouter une page ou une modal pour le form edition photo + function dans controller api</p>
                 <Avatar sx={{ width: 100, height: 100 }} src="avatar.png" />
-                <Button
+                {/* <Button
                   className="button-87"
                   variant="contained"
                   component="label"
@@ -193,8 +217,34 @@ const EditChild = () => {
                   />
                   <PhotoCamera 
                   sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}/>
-                </Button>
-              </Box> */}
+                </Button> */}
+
+                <div>
+      <Button  className="button-87" onClick={handleOpen}>Modifier la photo de profil<PhotoCamera 
+                  sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}/></Button>
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <Box sx={style}>
+            <Typography id="transition-modal-title" variant="h6" component="h2">
+              Modifier photo de profil
+            </Typography>
+           
+            <UpdateImage/>
+          </Box>
+        </Fade>
+      </Modal>
+    </div>
+              </Box>
             </Box>
 
             <Grid
