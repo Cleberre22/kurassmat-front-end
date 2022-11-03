@@ -37,8 +37,8 @@ function App() {
         <Route path="/registerAssmat" element={<RegisterAssmat />} />
         <Route path="/registerEmployer" element={<RegisterEmployer />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/showProfil" element={token ? <ShowProfil/> : <Login/> }/>
-        <Route path="/editProfil" element={token ? <EditProfil/> : <Login/>} />
+        <Route path="/showProfil" element={<ShowProfil/> }/>
+        <Route path="/editProfil" element={<EditProfil/>} />
 
        
 

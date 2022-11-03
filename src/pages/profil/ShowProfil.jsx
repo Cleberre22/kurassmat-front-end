@@ -110,9 +110,9 @@ const Profil = () => {
                     <Box className="boxAction">
                       <a
                         className="linkEditProfil"
-                        href="/addChild"
+                        href="/children/add"
                         id="style-2"
-                        data-replace="Modifier mon profil"
+                        data-replace="Ajouter un enfant"
                       >
                         <span>Ajouter un enfant</span>
                       </a>

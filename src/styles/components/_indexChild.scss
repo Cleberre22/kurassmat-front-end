@@ -1,5 +1,62 @@
 .indexChild {
 
+    .boxActionIndexChild {
+        display: flex;
+        justify-content: flex-start;
+        height: 100%;
+        margin-bottom: 15px;
+        margin-left: 35px;
+        margin-right: 35px;
+        .iconAddIndexChild {
+            color: #598381;
+        }
+    }
+
+    /*---------------------------------------- LINK ----------------------*/
+    .boxActionIndexChild {
+        a {
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+        }
+
+        a::before,
+        a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            left: 0;
+        }
+
+        a::before {
+            background-color: #598381;
+            height: 2px;
+            bottom: 0;
+            transform-origin: 100% 50%;
+            transform: scaleX(0);
+            transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        a:hover::before {
+            transform-origin: 0% 50%;
+            transform: scaleX(1);
+        }
+
+        a span {
+            display: inline-block;
+            transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        a {
+            text-decoration: none;
+            color: #F09819;
+            font-weight: 700;
+            vertical-align: top;
+        }
+    }
+
+
+
     .boxProfil {
         border: 1px solid #598381;
         border-radius: 10px;
@@ -69,7 +126,7 @@
 
 
 
-          
+
     }
 
     /*---------------------------------------- LINK ----------------------*/

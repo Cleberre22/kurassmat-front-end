@@ -42,10 +42,6 @@ const AddChild = () => {
   };
 
 
-
-
-
-
 // On récupère l'id du user pour remplir la table pivot
   const [user, setUser] = useState([]);
   const [role, setRole] = useState([]);
@@ -109,11 +105,12 @@ const AddChild = () => {
         <Container className="containerProfil">
           <h1 className="titleProfil">Ajouter un enfant</h1>
 
-          <Box className="boxProfil">
+          <Box className="boxProfil"
+           component="form"
+              onSubmit={AddChild}>
             <Box
               className="containerAddChild"
-              component="form"
-              onSubmit={AddChild}
+             
             >
               <Container className="containerAddChild">
                 <Grid className="infoAddChild" container spacing={2} >
@@ -187,7 +184,13 @@ const AddChild = () => {
                   sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}/>
                 </Button>
               </Box>
-              <Grid
+              
+            
+
+            </Box>
+
+
+            <Grid
               container
               justifyContent="center"
               sx={{ mt: 4 }}
@@ -197,7 +200,6 @@ const AddChild = () => {
                 Ajouter un enfant
               </button>
             </Grid>
-            </Box>
 
 
             

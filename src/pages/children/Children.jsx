@@ -14,6 +14,8 @@ import PropTypes from "prop-types";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Fab from "@mui/material/Fab";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import AddIcon from '@mui/icons-material/Add';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Fade from "@mui/material/Fade";
 
 import MenuHeader from "../../components/auth/MenuHeader";
@@ -96,6 +98,17 @@ const Children = () => {
           <h1 id="back-to-top-anchor" className="titleProfil">
             Liste des enfants
           </h1>
+          <Box className="boxActionIndexChild">
+                      <a
+                        className="linkEditProfil"
+                        href="/children/add"
+                        id="style-2"
+                        data-replace="Ajouter un enfant"
+                      >
+                        <span><p>Ajouter un enfant <AddCircleIcon className="iconAddIndexChild"/></p></span>
+                      </a>
+        </Box>
+
 
           {/* {user.id / user.id ? ( */}
 
@@ -134,7 +147,7 @@ const Children = () => {
                           >
                             <Button
                               className="actionButtonIndexChild"
-                              href="/children/show/:child.id"
+                              href={`/children/show/${child.id}`}
                               key="one"
                             >
                               <VisibilityIcon />
@@ -144,7 +157,7 @@ const Children = () => {
                               className="actionButtonIndexChild"
                               key="two"
                               href={`/children/edit/${child.id}`}
-                              // to={`/children/edit/${child.id}`}
+                             
                             >
                               <ModeEditIcon />
                             </Button>
