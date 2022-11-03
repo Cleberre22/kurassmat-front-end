@@ -24,6 +24,7 @@ import MenuHeader from "../../components/auth/MenuHeader";
 import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
 import UpdateImage from "../../components/UpdateImage";
+import CardProfile from "../../components/CardProfile"
 
 const EditChild = () => {
   const { child } = useParams();
@@ -127,10 +128,10 @@ const EditChild = () => {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
+    // bgcolor: 'background.paper',
+    // border: '2px solid #598381',
+    // boxShadow: 24,
+    // p: 4,
   };
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -234,11 +235,8 @@ const EditChild = () => {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <Typography id="transition-modal-title" variant="h6" component="h2">
-              Modifier photo de profil
-            </Typography>
-           
-            <UpdateImage/>
+           <CardProfile />
+            {/* <UpdateImage/> */}
           </Box>
         </Fade>
       </Modal>
