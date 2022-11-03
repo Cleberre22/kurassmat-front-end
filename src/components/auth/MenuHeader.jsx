@@ -243,6 +243,7 @@ const ResponsiveAppBar = () => {
                   sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
                 >
                   <Typography
+                  id="back-to-top-anchor"
                     className="titleMenu"
                     variant="h6"
                     noWrap

@@ -95,12 +95,20 @@ a:-webkit-any-link {
   }
 }
 
- /*---------------------------------------- LINK ----------------------*/
- 
-
   /*---------------------------------------- BACK TO TOP ----------------------*/
- 
+
+ /* Smooth scrolling IF user doesn't have a preference due to motion sensitivities */
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+.BackToTop {
+  background-color: #282c34;
+}
 .iconBackToTop {
-  color: #f26419; 
+  color: #f26419;
+  
 }
 

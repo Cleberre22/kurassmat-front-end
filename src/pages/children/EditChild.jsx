@@ -120,7 +120,6 @@ const EditChild = () => {
   };
 
 
-
 // Modal Update Image
   const style = {
     position: 'absolute',
@@ -197,7 +196,7 @@ const EditChild = () => {
 
               <Box className="addChildCard" sx={{ mb: 4 }}>
                 <p>Ajouter une page ou une modal pour le form edition photo + function dans controller api</p>
-                <Avatar sx={{ width: 100, height: 100 }} src="avatar.png" />
+                <Avatar sx={{ width: 100, height: 100 }} src={`http://localhost:8000/storage/uploads/{imageChild}`} />
                 {/* <Button
                   className="button-87"
                   variant="contained"
