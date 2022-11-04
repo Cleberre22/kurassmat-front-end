@@ -14,11 +14,9 @@ import Prince from "../../components/Prince";
 
 const Profil = () => {
   const [user, setUser] = useState([]);
-  // const [childs, setChild] = useState([]);
 
   useEffect(() => {
     displayUsers();
-    // displayChild();
   }, []); // Sans les crochets ça tourne en boucle
 
   const displayUsers = async () => {
@@ -32,14 +30,6 @@ const Profil = () => {
         setUser(res.data);
       });
   };
-
-  // const displayChild = async () => {
-  //   await axios.get("http://localhost:8000/api/childs").then((res) => {
-  //     setChild(res.data);
-  //     console.log(res.data);
-  //     console.log(childs);
-  //   });
-  // };
 
   return (
     <div>

@@ -10,10 +10,10 @@ import Avatar from "@mui/material/Avatar";
 import TextField from "@mui/material/TextField";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import Button from "@mui/material/Button";
-import Backdrop from '@mui/material/Backdrop';
-import Modal from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
-import Typography from '@mui/material/Typography';
+import Backdrop from "@mui/material/Backdrop";
+import Modal from "@mui/material/Modal";
+import Fade from "@mui/material/Fade";
+import Typography from "@mui/material/Typography";
 
 import dayjs from "dayjs";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
@@ -24,7 +24,7 @@ import MenuHeader from "../../components/auth/MenuHeader";
 import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
 import UpdateImage from "../../components/UpdateImage";
-import CardProfile from "../../components/CardProfile"
+import CardProfile from "../../components/CardProfile";
 
 const EditChild = () => {
   const { child } = useParams();
@@ -65,7 +65,7 @@ const EditChild = () => {
         // console.log(res.data);
       });
   };
-  // console.log(role);
+  console.log(child);
 
   useEffect(() => {
     displayUsers();
@@ -77,7 +77,7 @@ const EditChild = () => {
     await axios
       .get(`http://localhost:8000/api/childs/${child}`)
       .then((res) => {
-        // console.log(res.data.data[0].firstnameChild);
+        console.log(res.data);
         setFirstnameChild(res.data.data[0].firstnameChild);
         setLastnameChild(res.data.data[0].lastnameChild);
         setBirthDate(res.data.data[0].birthDate);
@@ -107,8 +107,8 @@ const EditChild = () => {
 
     // Bout de code pour récupérer les données du formulaire
     for (var pair of formData.entries()) {
-            console.log(pair[0]+ ', ' + pair[1]);
-        }
+      console.log(pair[0] + ", " + pair[1]);
+    }
 
     await axios
       .post(`http://localhost:8000/api/childs/${child}`, formData)
@@ -120,13 +120,12 @@ const EditChild = () => {
       });
   };
 
-
-// Modal Update Image
+  // Modal Update Image
   const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     width: 400,
     // bgcolor: 'background.paper',
     // border: '2px solid #598381',
@@ -196,8 +195,14 @@ const EditChild = () => {
               </Container>
 
               <Box className="addChildCard" sx={{ mb: 4 }}>
-                <p>Ajouter une page ou une modal pour le form edition photo + function dans controller api</p>
-                <Avatar sx={{ width: 100, height: 100 }} src={`http://localhost:8000/storage/uploads/{imageChild}`} />
+                <p>
+                  Ajouter une page ou une modal pour le form edition photo +
+                  function dans controller api
+                </p>
+                <Avatar
+                  sx={{ width: 100, height: 100 }}
+                  src={"http://localhost:8000/storage/uploads/imageChild"}
+                />
                 {/* <Button
                   className="button-87"
                   variant="contained"
@@ -220,27 +225,31 @@ const EditChild = () => {
                 </Button> */}
 
                 <div>
-      <Button  className="button-87" onClick={handleOpen}>Modifier la photo de profil<PhotoCamera 
-                  sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}/></Button>
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <Box sx={style}>
-           <CardProfile />
-            {/* <UpdateImage/> */}
-          </Box>
-        </Fade>
-      </Modal>
-    </div>
+                  <Button className="button-87" onClick={handleOpen}>
+                    Modifier la photo de profil
+                    <PhotoCamera
+                      sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}
+                    />
+                  </Button>
+                  <Modal
+                    aria-labelledby="transition-modal-title"
+                    aria-describedby="transition-modal-description"
+                    open={open}
+                    onClose={handleClose}
+                    closeAfterTransition
+                    BackdropComponent={Backdrop}
+                    BackdropProps={{
+                      timeout: 500,
+                    }}
+                  >
+                    <Fade in={open}>
+                      <Box sx={style}>
+                        <CardProfile />
+                        {/* <UpdateImage/> */}
+                      </Box>
+                    </Fade>
+                  </Modal>
+                </div>
               </Box>
             </Box>
 
