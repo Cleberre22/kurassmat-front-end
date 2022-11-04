@@ -105,9 +105,7 @@ const ShowChild = () => {
                     <Box className="userCardTop" sx={{ mb: 2 }}>
                       <Avatar
                         sx={{ width: 100, height: 100 }}
-                        // src={`http://localhost:8000/storage/uploads/${imageChild}`}
                         src={`http://localhost:8000/storage/uploads/${imageChild}`}
-                        // src={`http://localhost:8000/storage/uploads/${article.image}`}
                       />
                     </Box>
 
@@ -118,7 +116,6 @@ const ShowChild = () => {
                       <p>
                         Parent: {firstname} {lastname}
                       </p>
-
                       <p>Email: {email}</p>
                       <p>téléphone: {phone}</p>
                       <p>
