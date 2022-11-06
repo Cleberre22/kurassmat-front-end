@@ -8,7 +8,7 @@ import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 
 
-import MenuHeader from "../../components/auth/MenuHeader";
+import MenuAppBar from "../../components/auth/MenuAppBar";
 import Fox from "../../components/Fox";
 import Prince from "../../components/Prince";
 
@@ -33,7 +33,7 @@ const Profil = () => {
 
   return (
     <div>
-      <MenuHeader />
+      <MenuAppBar />
       <Box className="main">
         <CssBaseline />
         <Container className="containerProfil">

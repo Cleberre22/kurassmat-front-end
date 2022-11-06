@@ -11,8 +11,7 @@ import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
-import MenuBis from "../../components/auth/MenuBis";
-import MenuHeader from "../../components/auth/MenuHeader";
+import MenuAppBar from "../../components/auth/MenuAppBar";
 import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
 import BackToTop from "../../components/BackToTop";
@@ -41,8 +40,7 @@ const Children = () => {
 
   return (
     <div className="indexChild">
-      {/* <MenuHeader /> */}
-      <MenuBis />
+      <MenuAppBar />
       <Box className="main">
         <CssBaseline />
         <Container className="containerProfil" sx={{ mt: 25 }}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import MenuHeader from "../components/auth/MenuHeader";
+import MenuAppBar from "../components/auth/MenuAppBar";
 import LoginForm from "../components/auth/LoginForm";
 import Box from "@mui/material/Box";
 import Fox from '../components//Fox';
@@ -7,7 +7,7 @@ import Fox from '../components//Fox';
 const Login = () => {
     return (
         <div>
-            <MenuHeader />
+            <MenuAppBar />
             <Box className="mainLoginRegister">
                 <Box >
                 <LoginForm />

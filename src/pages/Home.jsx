@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import MenuHeader from "../components/auth/MenuHeader";
+import MenuAppBar from "../components/auth/MenuAppBar";
 import Fox from "../components//Fox";
+import Prince from "../components//Prince";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -30,7 +31,7 @@ const Home = () => {
 
   return (
     <div>
-      <MenuHeader />
+      <MenuAppBar />
       <Box className="main">
         <CssBaseline />
         <Container className="containerHome">
@@ -63,6 +64,7 @@ const Home = () => {
         </Container>
 
         <Fox />
+        <Prince />
       </Box>
     </div>
   );

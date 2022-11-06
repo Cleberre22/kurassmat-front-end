@@ -1,0 +1,120 @@
+@font-face {
+    font-family: "font-1";
+    src: url(../../assets/fonts/Skranji-Regular.ttf);
+}
+
+@font-face {
+    font-family: "font-2";
+    src: url(../../assets/fonts/RobotoCondensed-Regular.ttf);
+}
+
+@font-face {
+    font-family: "font-3";
+    src: url(../../assets/fonts/RobotoCondensed-Bold.ttf);
+}
+
+.appBar {
+    max-height: 80px;
+    width: 100vw;
+    padding-left: 70px;
+    padding-right: 20px;
+    border-bottom: 2px solid #598381;
+    background-color: #ffffff;
+    @media only screen and (max-width: 900px) {
+        padding-left: 20px;
+      }
+    a {
+        color: #598381;
+        font-family: 'font-3';
+        font-size: 16px;
+    }
+
+    .boxBurger {
+        background-color: brown;
+    }
+
+    .boxMenuDesktopPart1 {
+        // background-color: darkgreen;
+        display: flex;
+        justify-content: flex-end;
+        @media only screen and (max-width: 1001px) {
+            a {
+                font-size: 13px;
+            }
+          }
+        @media only screen and (max-width: 900px) {
+            display: none;
+          }
+        
+    }
+    .boxMenuDesktopPart2 {
+        // background-color: red;
+        display: flex;
+        justify-content: flex-start;
+        @media only screen and (max-width: 1001px) {
+            a {
+                font-size: 13px;
+            }
+          }
+        @media only screen and (max-width: 900px) {
+            display: none;
+          }
+    }
+
+    .logoDesktop {
+        // background-color: aqua;
+        display: flex;
+        justify-content: center;
+        .titleMenu {
+            text-align: center;
+            font-family: 'font-1';
+            font-size: 34px;
+            font-weight: 600;
+            color: #598381;
+        }
+        @media only screen and (max-width: 900px) {
+            display: none;
+          }
+    }
+
+    .boxLogoMobile {
+        background-color: chocolate;
+    }
+
+    .boxAvatar {
+        // background-color: #08605f;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        p {
+            font-size: 12px;
+            color: #598381;
+            margin-right: 10px;
+            @media only screen and (max-width: 1150px) {
+                display: none;
+              }
+        }
+        @media only screen and (max-width: 1150px) {
+            display: none;
+          }
+    
+    }
+
+    .boxAvatar2 {
+        background-color: #08605f;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        p {
+            font-size: 12px;
+            color: #598381;
+            margin-right: 10px;
+            @media only screen and (max-width: 1150px) {
+                display: none;
+              }
+        }
+        @media only screen and (min-width: 1150px) {
+            display: none;
+          }
+    }
+}
