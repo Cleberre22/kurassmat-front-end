@@ -103,7 +103,7 @@ const ShowChild = () => {
                     </Box>
 
                     <Box className="userCardTop" sx={{ mb: 2 }}>
-                      <Avatar
+                      <Avatar className="avatarShowChild"
                         sx={{ width: 100, height: 100 }}
                         src={`http://localhost:8000/storage/uploads/${imageChild}`}
                       />
@@ -148,11 +148,11 @@ const ShowChild = () => {
                     <Box className="boxAction">
                       <a
                         className="linkEditProfil"
-                        href="/addChild"
+                        href="/summary/add"
                         id="style-2"
-                        data-replace="Modifier mon profil"
+                        data-replace="Ajouter un message"
                       >
-                        <span>Ajouter un enfant</span>
+                        <span>Ajouter un message</span>
                       </a>
                     </Box> 
                      <Box className="userCardTop" sx={{ mb: 2 }}>

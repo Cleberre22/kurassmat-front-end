@@ -21,6 +21,11 @@ import AddChild from "./pages/children/AddChild";
 import EditChild from "./pages/children/EditChild";
 import ShowChild from "./pages/children/ShowChild";
 
+// import Children from "./pages/children/Children";
+import AddSummary from "./pages/daySummaries/AddSummary";
+// import EditChild from "./pages/children/EditChild";
+// import ShowChild from "./pages/children/ShowChild";
+
 
 
 
@@ -52,6 +57,10 @@ function App() {
         <Route path="/children/edit/:child" element={<EditChild />} />
         <Route path="/children/show/:child" element={<ShowChild />} />
 
+        {/* <Route path="/summary" element={<IndexSummary />} /> */}
+        <Route path="/summary/add" element={<AddSummary />} />
+        {/* <Route path="/children/edit/:child" element={<EditChild />} />
+        <Route path="/children/show/:child" element={<ShowChild />} /> */}
 
 
         {/* <Route path="/dashboard/index" element={<Index />} /> */}
