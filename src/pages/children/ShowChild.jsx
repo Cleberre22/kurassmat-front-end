@@ -47,9 +47,11 @@ const ShowChild = () => {
   const [role, setRole] = useState("");
   const [user, setUser] = useState([]);
   const [users_id, setUsers_id] = useState([]);
+  const [contentDaySummary, setContentDaySummary] = useState([]);
 
   useEffect(() => {
     getChild();
+    // displayDaySummaries();
   }, []); // Sans les crochets ça tourne en boucle
 
   // GET - Récupère les valeurs de la fiche avec l'API
@@ -71,11 +73,21 @@ const ShowChild = () => {
         setPostalCode(res.data.data[0].postalCode);
         setCity(res.data.data[0].city);
         setRole(res.data.data[0].role);
+        // setContentDaySummary(res.data.data[0].contentDaySummary);
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
+  // const [daySummaries, setDaySummaries] = useState([]);
+
+  // const displayArticles = async () => {
+  //   await axios.get("http://localhost:8000/api/articles").then((res) => {
+  //     setArticles(res.data);
+  //     // console.log(res.data);
+  //   });
+  // };
 
   // Modal Update Image
   const style = {
@@ -84,10 +96,6 @@ const ShowChild = () => {
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: 400,
-    // bgcolor: 'background.paper',
-    // border: '2px solid #598381',
-    // boxShadow: 24,
-    // p: 4,
   };
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -111,16 +119,17 @@ const ShowChild = () => {
               >
                 <Grid item xs={6}>
                   <Box className="userCard">
-                    <Box className="boxAction">
+                    
+                    {/* <Box className="boxAction">
                       <a
                         className="linkEditProfil"
-                        href="/editProfil/"
+                        href="/children/edit/${idChild}"
                         id="style-2"
-                        data-replace="Modifier mon profil"
+                        data-replace="Modifier le profil"
                       >
-                        <span>Modifier mon profil </span>
+                        <span>Modifier le profil </span>
                       </a>
-                    </Box>
+                    </Box> */}
 
                     <Box className="userCardTop" sx={{ mb: 2 }}>
                       <Avatar
@@ -184,7 +193,10 @@ const ShowChild = () => {
                     </Box>
 
                     <Box className="userCardMiddle" sx={{ mb: 3 }}>
-                      <p>Email: {user.email}</p>
+                      {/* {child.map(() => ( */}
+                        <p>Message: {contentDaySummary[3]}</p>
+                      {/* ))} */}
+
                       <p>
                         Adresse: {user.address}, {user.postalCode} {user.city}
                       </p>
@@ -211,7 +223,7 @@ const ShowChild = () => {
                       >
                         <Fade in={open}>
                           <Box sx={style}>
-                            <SummaryForm idChild={idChild}/>
+                            <SummaryForm idChild={idChild} />
                           </Box>
                         </Fade>
                       </Modal>

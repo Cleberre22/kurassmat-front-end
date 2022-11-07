@@ -1,4 +1,69 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+// import { useNavigate, useParams } from "react-router-dom";
+// import { useForm, Controller } from "react-hook-form";
+// import axios from "axios";
+
+
+
+// const { child } = useParams();
+// const navigate = useNavigate();
+
+// const [imageChild, setImageChild] = useState("");
+
+// const [validationError, setValidationError] = useState({});
+
+// const changeHandler = (event) => {
+//   setImageChild(event.target.files[0]);
+// };
+
+// console.log(child);
+
+// useEffect(() => {
+//   getChild();
+// }, []); // Sans les crochets ça tourne en boucle
+
+// // GET - Récupère les valeurs de la fiche avec l'API
+// const getChild = async () => {
+//   await axios
+//     .get(`http://localhost:8000/api/childs/${child}`)
+//     .then((res) => {
+//       console.log(res.data);
+//       setImageChild(res.data.imageChild);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// };
+// // console.log(child);
+
+// //Fonction de modification d'une fiche enfant
+// const EditChild = async (e) => {
+//   // console.log(birthDate);
+
+//   const formData = new FormData();
+//   formData.append("_method", "PATCH");
+//   formData.append("imageChild", imageChild);
+  
+
+//   // Bout de code pour récupérer les données du formulaire
+//   for (var pair of formData.entries()) {
+//     console.log(pair[0] + ", " + pair[1]);
+//   }
+
+//   await axios
+//     .post(`http://localhost:8000/api/childUpadteImage/${child}`, formData)
+//     .then(navigate("/children"))
+//     .catch(({ response }) => {
+//       if (response.status === 422) {
+//         setValidationError(response.data.errors);
+//       }
+//     });
+// };
+
+
+
+
+
 
 
 const ImgUpload =({

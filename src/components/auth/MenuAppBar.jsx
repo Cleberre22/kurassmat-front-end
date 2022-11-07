@@ -239,11 +239,11 @@ export default function HideAppBar(props) {
 
                 <Button
                   component="a"
-                  href="/dashboard/index"
+                  href="/daysummaries"
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  Dashboard
+                  Ind DaySum
                 </Button>
 
                 <Button

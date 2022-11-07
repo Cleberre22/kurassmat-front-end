@@ -13,17 +13,15 @@ import Button from "@mui/material/Button";
 import Backdrop from "@mui/material/Backdrop";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import Typography from "@mui/material/Typography";
 
 import dayjs from "dayjs";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 
-import MenuHeader from "../../components/auth/MenuHeader";
+import MenuAppBar from "../../components/auth/MenuAppBar";
 import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
-import UpdateImage from "../../components/UpdateImage";
 import CardProfile from "../../components/CardProfile";
 
 const EditChild = () => {
@@ -81,7 +79,7 @@ const EditChild = () => {
         setFirstnameChild(res.data.data[0].firstnameChild);
         setLastnameChild(res.data.data[0].lastnameChild);
         setBirthDate(res.data.data[0].birthDate);
-        // setImageChild(res.data.imageChild);
+        setImageChild(res.data.imageChild);
       })
       .catch((error) => {
         console.log(error);
@@ -102,7 +100,7 @@ const EditChild = () => {
     formData.append("firstnameChild", firstnameChild);
     formData.append("lastnameChild", lastnameChild);
     formData.append("birthDate", birthDate);
-    // formData.append("imageChild", imageChild);
+    formData.append("imageChild", imageChild);
     formData.append("users_id", users_id);
 
     // Bout de code pour récupérer les données du formulaire
@@ -112,7 +110,7 @@ const EditChild = () => {
 
     await axios
       .post(`http://localhost:8000/api/childs/${child}`, formData)
-      .then(navigate("/children"))
+      .then(navigate("/home"))
       .catch(({ response }) => {
         if (response.status === 422) {
           setValidationError(response.data.errors);
@@ -138,7 +136,7 @@ const EditChild = () => {
 
   return (
     <div className="editChild">
-      <MenuHeader />
+      <MenuAppBar />
       <Box className="main">
         <CssBaseline />
         <Container className="containerProfil">
@@ -195,14 +193,40 @@ const EditChild = () => {
               </Container>
 
               <Box className="addChildCard" sx={{ mb: 4 }}>
-                <p>
+                {/* <p>
                   Ajouter une page ou une modal pour le form edition photo +
                   function dans controller api
                 </p>
                 <Avatar
                   sx={{ width: 100, height: 100 }}
                   src={"http://localhost:8000/storage/uploads/imageChild"}
-                />
+                /> */}
+
+                <Box className="addChildCard" sx={{ mb: 4 }}>
+                  <Avatar sx={{ width: 100, height: 100 }} src="avatar.png" />
+                  <Button
+                    className="button-87"
+                    variant="contained"
+                    component="label"
+                  >
+                    Ajouter une photo
+                    <input
+                      hidden
+                      accept="image/*"
+                      type="file"
+                      onChange={changeHandler}
+                      // value={imageChild}
+                      //   onChange={(event) => {
+                      //     setImageChild(event.target.value);
+                      //   }}
+                      id="imageChild"
+                    />
+                    <PhotoCamera
+                      sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}
+                    />
+                  </Button>
+                </Box>
+
                 {/* <Button
                   className="button-87"
                   variant="contained"
@@ -214,17 +238,17 @@ const EditChild = () => {
                     accept="image/*"
                     type="file"
                     onChange={changeHandler}
-                    // value={imageChild}
-                    //   onChange={(event) => {
-                    //     setImageChild(event.target.value);
-                    //   }}
+                    value={imageChild}
+                      // onChange={(event) => {
+                      //   setImageChild(event.target.value);
+                      // }}
                     id="imageChild"
                   />
                   <PhotoCamera 
                   sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}/>
                 </Button> */}
 
-                <div>
+                {/* <div>
                   <Button className="button-87" onClick={handleOpen}>
                     Modifier la photo de profil
                     <PhotoCamera
@@ -245,11 +269,11 @@ const EditChild = () => {
                     <Fade in={open}>
                       <Box sx={style}>
                         <CardProfile />
-                        {/* <UpdateImage/> */}
+                     
                       </Box>
                     </Fade>
                   </Modal>
-                </div>
+                </div> */}
               </Box>
             </Box>
 

@@ -1,10 +1,10 @@
 import React from 'react';
-import MenuHeader from "../../components/auth/MenuHeader";
+import MenuAppBar from "../../components/auth/MenuAppBar";
 
 const index = () => {
     return (
         <div>
-            <MenuHeader />
+            <MenuAppBar />
             <h1>DASHBOARD</h1>
         </div>
     );

@@ -9,7 +9,7 @@ import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import TextField from "@mui/material/TextField";
 
-import MenuHeader from "../../components/auth/MenuHeader";
+import MenuAppBar from "../../components/auth/MenuAppBar";
 import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
 
@@ -84,7 +84,7 @@ const EditProfil = () => {
 
   return (
     <div>
-      <MenuHeader />
+      <MenuAppBar />
       <Box className="main">
         <CssBaseline />
         <Container className="containerProfil">
