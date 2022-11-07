@@ -16,7 +16,7 @@ import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 
-import MenuHeader from "../../components/auth/MenuHeader";
+import MenuAppBar from "../../components/auth/MenuAppBar";
 import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
 
@@ -99,7 +99,7 @@ const AddChild = () => {
 
   return (
     <div>
-      <MenuHeader />
+      <MenuAppBar />
       <Box className="main">
         <CssBaseline />
         <Container className="containerProfil">

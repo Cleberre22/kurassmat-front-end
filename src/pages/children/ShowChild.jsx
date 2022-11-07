@@ -9,6 +9,7 @@ import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import TextField from "@mui/material/TextField";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
+import MessageIcon from "@mui/icons-material/Message";
 import Button from "@mui/material/Button";
 import Backdrop from "@mui/material/Backdrop";
 import Modal from "@mui/material/Modal";
@@ -20,28 +21,30 @@ import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 
-import MenuHeader from "../../components/auth/MenuHeader";
+import MenuAppBar from "../../components/auth/MenuAppBar";
 import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
 import UpdateImage from "../../components/UpdateImage";
 import CardProfile from "../../components/CardProfile";
+import SummaryForm from "../../components/SummaryForm";
 
 const ShowChild = () => {
   const { child } = useParams();
   const navigate = useNavigate();
 
+  const [idChild, setIdChild] = useState("");
   const [firstnameChild, setFirstnameChild] = useState("");
   const [lastnameChild, setLastnameChild] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [imageChild, setImageChild] = useState("");
   const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("")
-  const [address, setAddress] = useState("")
-  const [postalCode, setPostalCode] = useState("")
-  const [city, setCity] = useState("")
-  const [phone, setPhone] = useState("")
-  const [email, setEmail] = useState("")
-  const [role, setRole] = useState("")
+  const [lastname, setLastname] = useState("");
+  const [address, setAddress] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [city, setCity] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
   const [user, setUser] = useState([]);
   const [users_id, setUsers_id] = useState([]);
 
@@ -55,6 +58,7 @@ const ShowChild = () => {
       .get(`http://localhost:8000/api/childs/${child}`)
       .then((res) => {
         console.log(res.data);
+        setIdChild(res.data.data[0].idChild);
         setFirstnameChild(res.data.data[0].firstnameChild);
         setLastnameChild(res.data.data[0].lastnameChild);
         setBirthDate(res.data.data[0].birthDate);
@@ -73,9 +77,25 @@ const ShowChild = () => {
       });
   };
 
+  // Modal Update Image
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    // bgcolor: 'background.paper',
+    // border: '2px solid #598381',
+    // boxShadow: 24,
+    // p: 4,
+  };
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <div className="indexChild">
-      <MenuHeader />
+      <MenuAppBar />
       <Box className="main">
         <CssBaseline />
         <Container className="containerProfil">
@@ -103,7 +123,8 @@ const ShowChild = () => {
                     </Box>
 
                     <Box className="userCardTop" sx={{ mb: 2 }}>
-                      <Avatar className="avatarShowChild"
+                      <Avatar
+                        className="avatarShowChild"
                         sx={{ width: 100, height: 100 }}
                         src={`http://localhost:8000/storage/uploads/${imageChild}`}
                       />
@@ -154,27 +175,47 @@ const ShowChild = () => {
                       >
                         <span>Ajouter un message</span>
                       </a>
-                    </Box> 
-                     <Box className="userCardTop" sx={{ mb: 2 }}>
+                    </Box>
+                    <Box className="userCardTop" sx={{ mb: 2 }}>
                       <Avatar
                         sx={{ width: 80, height: 80 }}
                         src="avatar-2.png"
                       />
-                    </Box> 
+                    </Box>
 
                     <Box className="userCardMiddle" sx={{ mb: 3 }}>
-                      {/* {childs.map((child) => (
-                        <p>
-                          {child.firstname} {child.lastname}
-                        </p>
-                      ))}  */}
-
                       <p>Email: {user.email}</p>
                       <p>
                         Adresse: {user.address}, {user.postalCode} {user.city}
                       </p>
                       <p>Téléphone: {user.phone}</p>
                     </Box>
+
+                    <div>
+                      <Button className="button-87" onClick={handleOpen}>
+                        Ajouter un message
+                        <MessageIcon
+                          sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}
+                        />
+                      </Button>
+                      <Modal
+                        aria-labelledby="transition-modal-title"
+                        aria-describedby="transition-modal-description"
+                        open={open}
+                        onClose={handleClose}
+                        closeAfterTransition
+                        BackdropComponent={Backdrop}
+                        BackdropProps={{
+                          timeout: 500,
+                        }}
+                      >
+                        <Fade in={open}>
+                          <Box sx={style}>
+                            <SummaryForm idChild={idChild}/>
+                          </Box>
+                        </Fade>
+                      </Modal>
+                    </div>
                   </Box>
                 </Grid>
               </Grid>

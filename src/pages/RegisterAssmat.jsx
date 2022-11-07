@@ -1,5 +1,5 @@
 import React from 'react';
-import MenuHeader from "../components/auth/MenuHeader";
+import MenuAppBar from "../components/auth/MenuAppBar";
 import RegisterFormAssmat from "../components/auth/RegisterFormAssmat";
 import Box from "@mui/material/Box";
 import Fox from '../components/Fox';
@@ -10,7 +10,7 @@ const RegisterAssmat = () => {
 
     return (
         <div>
-            <MenuHeader />
+            <MenuAppBar />
             <Box className="mainLoginRegister">
                 <Box >
                 <RegisterFormAssmat />
