@@ -85,7 +85,7 @@ const EditChild = () => {
         console.log(error);
       });
   };
-  // console.log(child);
+  console.log(firstnameChild);
 
   //Fonction de modification d'une fiche enfant
   const EditChild = async (e) => {

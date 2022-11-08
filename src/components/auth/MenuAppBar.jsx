@@ -333,85 +333,73 @@ export default function HideAppBar(props) {
                   Contact
                 </Button>
 
+                <Box sx={{ flexGrow: 1 }}></Box>
 
-<Box sx={{ flexGrow: 1 }}>
-
-</Box>
-
-
-
-<Box className="boxAvatar" sx={{ flexGrow: 0 }}>
-                <p>
-                  {user.firstname} {user.lastname}
-                </p>
-                <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Box className="boxAvatar" sx={{ flexGrow: 0 }}>
+                  <p>
+                    {user.firstname} {user.lastname}
+                  </p>
+                  <Tooltip title="Open settings">
+                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                      {userLogged ? (
+                        <Avatar
+                          sx={{ width: 32, height: 32 }}
+                          src="/broken-image.jpg"
+                        />
+                      ) : (
+                        <StyledBadge
+                          overlap="circular"
+                          anchorOrigin={{
+                            vertical: "bottom",
+                            horizontal: "right",
+                          }}
+                          variant="dot"
+                        >
+                          <Avatar alt="Remy Sharp" src="avatar.png" />
+                        </StyledBadge>
+                      )}
+                    </IconButton>
+                  </Tooltip>
+                  <Menu
+                    sx={{ mt: "45px" }}
+                    id="menu-appbar"
+                    anchorEl={anchorElUser}
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "right",
+                    }}
+                    open={Boolean(anchorElUser)}
+                    onClose={handleCloseUserMenu}
+                  >
+                    <MenuItem onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">Profil</Typography>
+                    </MenuItem>
+                    <MenuItem onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">Compte</Typography>
+                    </MenuItem>
+                    <MenuItem onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">Dashboard</Typography>
+                    </MenuItem>
                     {userLogged ? (
-                      <Avatar
-                        sx={{ width: 32, height: 32 }}
-                        src="/broken-image.jpg"
-                      />
-                    ) : (
-                      <StyledBadge
-                        overlap="circular"
-                        anchorOrigin={{
-                          vertical: "bottom",
-                          horizontal: "right",
-                        }}
-                        variant="dot"
+                      <MenuItem
+                        component="a"
+                        href="/login"
+                        onClick={handleCloseUserMenu}
                       >
-                        <Avatar alt="Remy Sharp" src="avatar.png" />
-                      </StyledBadge>
+                        <Typography textAlign="center">Connexion</Typography>
+                      </MenuItem>
+                    ) : (
+                      <MenuItem onClick={removeToken}>
+                        <Typography textAlign="center">Deconnection</Typography>
+                      </MenuItem>
                     )}
-                  </IconButton>
-                </Tooltip>
-                <Menu
-                  sx={{ mt: "45px" }}
-                  id="menu-appbar"
-                  anchorEl={anchorElUser}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}
-                >
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">Profil</Typography>
-                  </MenuItem>
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">Compte</Typography>
-                  </MenuItem>
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">Dashboard</Typography>
-                  </MenuItem>
-                  {userLogged ? (
-                    <MenuItem
-                      component="a"
-                      href="/login"
-                      onClick={handleCloseUserMenu}
-                    >
-                      <Typography textAlign="center">Connexion</Typography>
-                    </MenuItem>
-                  ) : (
-                    <MenuItem onClick={removeToken}>
-                      <Typography textAlign="center">Deconnection</Typography>
-                    </MenuItem>
-                  )}
-                </Menu>
-              </Box>
-
-
-
-
-
-
-
+                  </Menu>
+                </Box>
               </Box>
 
               {/* -------------------------------------------------------------------- BOX AVATAR + MENU PROFIL */}
@@ -481,7 +469,7 @@ export default function HideAppBar(props) {
                 </Menu>
               </Box>
             </Toolbar>
-          </Box> 
+          </Box>
         </AppBar>
       </HideOnScroll>
       <Toolbar />

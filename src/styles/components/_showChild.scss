@@ -1,3 +1,77 @@
 .avatarShowChild {
     border: $color-4 2px solid;
 }
+
+.daySummaryCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+
+    .boxAction {
+        text-align: end;
+        width: 100%;
+        display: flex;
+        justify-content: end;
+    }
+}
+
+.daySummaryShow {
+    padding: 15px;
+    background-color: #f0961948;
+    border-radius: 10px;
+    border: #598381 1px solid;
+    padding-right: 10px;
+    width: 100%;
+    text-align: justify;
+    // background-color: #598381;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divButtonModal {
+    margin-bottom: 10px;
+    border-radius: 50px;
+
+    .buttonModal {
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+    }
+
+    .buttonModal::before,
+    .buttonModal::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        left: 0;
+    }
+
+    .buttonModal::before {
+        background-color: #598381;
+        height: 2px;
+        bottom: 0;
+        transform-origin: 100% 50%;
+        transform: scaleX(0);
+        transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    .buttonModal:hover::before {
+        transform-origin: 0% 50%;
+        transform: scaleX(1);
+    }
+
+    .buttonModal span {
+        display: inline-block;
+        transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    .buttonModal {
+        text-decoration: none;
+        color: #F09819;
+        font-weight: 700;
+        vertical-align: top;
+    }
+}

@@ -48,9 +48,11 @@ const ShowChild = () => {
   const [user, setUser] = useState([]);
   const [users_id, setUsers_id] = useState([]);
   const [contentDaySummary, setContentDaySummary] = useState([]);
+  const [DSCreated_at, setDSCreated_at] = useState([]);
 
   useEffect(() => {
     getChild();
+    displayUsers();
     // displayDaySummaries();
   }, []); // Sans les crochets ça tourne en boucle
 
@@ -72,13 +74,35 @@ const ShowChild = () => {
         setAddress(res.data.data[0].address);
         setPostalCode(res.data.data[0].postalCode);
         setCity(res.data.data[0].city);
-        setRole(res.data.data[0].role);
-        // setContentDaySummary(res.data.data[0].contentDaySummary);
+        // setRole(res.data.data[0].role);
+        setContentDaySummary(res.data.data[0].contentDaySummary);
+        setDSCreated_at(res.data.data[0].DSCreated_at);
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
+  const roleUser = user.role;
+  console.log(roleUser);
+  // console.log(token);
+  const assmat = !roleUser;
+
+  const displayUsers = async () => {
+    await axios
+      .get("http://localhost:8000/api/current-user", {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
+      .then((res) => {
+        setUser(res.data);
+        setRole(res.data.role);
+        // console.log(res.data.role);
+      });
+  };
+  // console.log(role);
+ 
 
   // const [daySummaries, setDaySummaries] = useState([]);
 
@@ -119,7 +143,6 @@ const ShowChild = () => {
               >
                 <Grid item xs={6}>
                   <Box className="userCard">
-                    
                     {/* <Box className="boxAction">
                       <a
                         className="linkEditProfil"
@@ -151,7 +174,7 @@ const ShowChild = () => {
                       <p>
                         Adresse: {address} {postalCode}, {city}
                       </p>
-                      <p>Role: {role}</p>
+                      <p>Role: {user.role}</p>
                     </Box>
                   </Box>
 
@@ -169,65 +192,82 @@ const ShowChild = () => {
                         Adresse: {user.address}, {user.postalCode} {user.city}
                       </p>
                       <p>Téléphone: {user.phone}</p>
+
+                      <p>role: {user.role}</p>
                     </Box>
                   </Box>
                 </Grid>
 
                 <Grid item xs={6}>
-                  <Box className="childCard">
+                  <Box className="daySummaryCard">
                     <Box className="boxAction">
-                      <a
-                        className="linkEditProfil"
-                        href="/summary/add"
-                        id="style-2"
-                        data-replace="Ajouter un message"
-                      >
-                        <span>Ajouter un message</span>
-                      </a>
+                    {roleUser ? (
+                        <div className="divButtonModal">
+                        <Button className="buttonModal" onClick={handleOpen}>
+                        <span>Voir les récaps
+                          <MessageIcon
+                            sx={{ width: 16, height: 16, mt: 0.40, ml: 0.7 }}
+                          /></span>
+                        </Button>
+                        <Modal
+                          aria-labelledby="transition-modal-title"
+                          aria-describedby="transition-modal-description"
+                          open={open}
+                          onClose={handleClose}
+                          closeAfterTransition
+                          BackdropComponent={Backdrop}
+                          BackdropProps={{
+                            timeout: 500,
+                          }}
+                        >
+                          <Fade in={open}>
+                            <Box sx={style}>
+                              <SummaryForm idChild={idChild} />
+                            </Box>
+                          </Fade>
+                        </Modal>
+                      </div>
+                      ) : (
+                        <div className="divButtonModal">
+                        <Button className="buttonModal" onClick={handleOpen}>
+                        <span>Ajouter un message
+                          <MessageIcon
+                            sx={{ width: 16, height: 16, mt: 0.40, ml: 0.7 }}
+                          /></span>
+                        </Button>
+                        <Modal
+                          aria-labelledby="transition-modal-title"
+                          aria-describedby="transition-modal-description"
+                          open={open}
+                          onClose={handleClose}
+                          closeAfterTransition
+                          BackdropComponent={Backdrop}
+                          BackdropProps={{
+                            timeout: 500,
+                          }}
+                        >
+                          <Fade in={open}>
+                            <Box sx={style}>
+                              <SummaryForm idChild={idChild} />
+                            </Box>
+                          </Fade>
+                        </Modal>
+                      </div>
+                      )}
+                    
+
                     </Box>
-                    <Box className="userCardTop" sx={{ mb: 2 }}>
-                      <Avatar
-                        sx={{ width: 80, height: 80 }}
-                        src="avatar-2.png"
-                      />
+                    <Box className="daySummaryShow" sx={{ mb: 2 }}>
+                      
+                       <p>Message: {contentDaySummary}</p>
+                  
+
+                      <p>Reçu le: {DSCreated_at}</p>
                     </Box>
 
                     <Box className="userCardMiddle" sx={{ mb: 3 }}>
-                      {/* {child.map(() => ( */}
-                        <p>Message: {contentDaySummary[3]}</p>
-                      {/* ))} */}
-
-                      <p>
-                        Adresse: {user.address}, {user.postalCode} {user.city}
-                      </p>
-                      <p>Téléphone: {user.phone}</p>
+                     
                     </Box>
-
-                    <div>
-                      <Button className="button-87" onClick={handleOpen}>
-                        Ajouter un message
-                        <MessageIcon
-                          sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}
-                        />
-                      </Button>
-                      <Modal
-                        aria-labelledby="transition-modal-title"
-                        aria-describedby="transition-modal-description"
-                        open={open}
-                        onClose={handleClose}
-                        closeAfterTransition
-                        BackdropComponent={Backdrop}
-                        BackdropProps={{
-                          timeout: 500,
-                        }}
-                      >
-                        <Fade in={open}>
-                          <Box sx={style}>
-                            <SummaryForm idChild={idChild} />
-                          </Box>
-                        </Fade>
-                      </Modal>
-                    </div>
                   </Box>
                 </Grid>
               </Grid>
