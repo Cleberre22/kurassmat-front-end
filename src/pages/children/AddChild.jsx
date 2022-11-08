@@ -25,24 +25,22 @@ const AddChild = () => {
 
   const [firstnameChild, setFirstnameChild] = useState("");
   const [lastnameChild, setLastnameChild] = useState("");
-  const [birthDate, setBirthDate] = useState(new Date());
+  const [birthDate, setBirthDate] = useState(new Date().toISOString().split("T")[0]);
   const [imageChild, setImageChild] = useState("");
-
-  const [users_id, setUsers_id] = useState([]);
+  const [users_id, setUsers_id] = useState("");
 
   const handleChange = (newValue) => {
     setBirthDate(newValue);
     // console.log(birthDate);
   };
 
-  const [validationError, setValidationError] = useState({});
-
   const changeHandler = (event) => {
     setImageChild(event.target.files[0]);
   };
 
+  const [validationError, setValidationError] = useState({});
 
-// On récupère l'id du user pour remplir la table pivot
+  // On récupère l'id du user pour remplir la table pivot
   const [user, setUser] = useState([]);
   const [role, setRole] = useState([]);
 
@@ -65,7 +63,6 @@ const AddChild = () => {
     displayUsers();
   }, []); // Sans les crochets ça tourne en boucle
 
-
   //Fonction d'ajout d'une fiche enfant
   const AddChild = async (e) => {
     // console.log(birthDate);
@@ -82,13 +79,13 @@ const AddChild = () => {
     formData.append("imageChild", imageChild);
     formData.append("users_id", users_id);
 
-     //Bout de code pour récupérer les données du formulaire
-    // for (var pair of formData.entries()) {
-    //         console.log(pair[0]+ ', ' + pair[1]);
-    //     }
+    //  Bout de code pour récupérer les données du formulaire
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ", " + pair[1]);
+    }
 
     await axios
-      .post(`http://localhost:8000/api/childs`, formData)
+      .post(`http://localhost:8000/api/childs/`, formData)
       .then(navigate("/home"))
       .catch(({ response }) => {
         if (response.status === 422) {
@@ -105,15 +102,10 @@ const AddChild = () => {
         <Container className="containerProfil">
           <h1 className="titleProfil">Ajouter un enfant</h1>
 
-          <Box className="boxProfil"
-           component="form"
-              onSubmit={AddChild}>
-            <Box
-              className="containerAddChild"
-             
-            >
+          <Box className="boxProfil" component="form" onSubmit={AddChild}>
+            <Box className="containerAddChild">
               <Container className="containerAddChild">
-                <Grid className="infoAddChild" container spacing={2} >
+                <Grid className="infoAddChild" container spacing={2}>
                   <Grid item xs={12} sm={12}>
                     <TextField
                       fullWidth
@@ -163,6 +155,7 @@ const AddChild = () => {
 
               <Box className="addChildCard" sx={{ mb: 4 }}>
                 <Avatar sx={{ width: 100, height: 100 }} src="avatar.png" />
+
                 <Button
                   className="button-87"
                   variant="contained"
@@ -175,20 +168,17 @@ const AddChild = () => {
                     type="file"
                     onChange={changeHandler}
                     // value={imageChild}
-                    //   onChange={(event) => {
-                    //     setImageChild(event.target.value);
-                    //   }}
+                    // onChange={(event) => {
+                    //   setImageChild(event.target.value);
+                    // }}
                     id="imageChild"
                   />
-                  <PhotoCamera 
-                  sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}/>
+                  <PhotoCamera
+                    sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}
+                  />
                 </Button>
               </Box>
-              
-            
-
             </Box>
-
 
             <Grid
               container
@@ -200,9 +190,6 @@ const AddChild = () => {
                 Ajouter un enfant
               </button>
             </Grid>
-
-
-            
           </Box>
         </Container>
       </Box>
