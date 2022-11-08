@@ -25,7 +25,7 @@ const AddChild = () => {
 
   const [firstnameChild, setFirstnameChild] = useState("");
   const [lastnameChild, setLastnameChild] = useState("");
-  const [birthDate, setBirthDate] = useState(new Date());
+  const [birthDate, setBirthDate] = useState(new Date().toISOString().split("T")[0]);
   const [imageChild, setImageChild] = useState("");
 
   const [users_id, setUsers_id] = useState([]);
@@ -83,9 +83,9 @@ const AddChild = () => {
     formData.append("users_id", users_id);
 
      //Bout de code pour récupérer les données du formulaire
-    // for (var pair of formData.entries()) {
-    //         console.log(pair[0]+ ', ' + pair[1]);
-    //     }
+    for (var pair of formData.entries()) {
+            console.log(pair[0]+ ', ' + pair[1]);
+        }
 
     await axios
       .post(`http://localhost:8000/api/childs`, formData)
