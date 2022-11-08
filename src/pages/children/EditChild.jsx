@@ -31,7 +31,7 @@ const EditChild = () => {
   const [firstnameChild, setFirstnameChild] = useState("");
   const [lastnameChild, setLastnameChild] = useState("");
   const [birthDate, setBirthDate] = useState(new Date());
-  const [imageChild, setImageChild] = useState("");
+  // const [imageChild, setImageChild] = useState("");
 
   const [users_id, setUsers_id] = useState([]);
 
@@ -42,9 +42,9 @@ const EditChild = () => {
 
   const [validationError, setValidationError] = useState({});
 
-  const changeHandler = (event) => {
-    setImageChild(event.target.files[0]);
-  };
+  // const changeHandler = (event) => {
+  //   setImageChild(event.target.files[0]);
+  // };
 
   // On récupère l'id du user pour remplir la table pivot
   const [user, setUser] = useState([]);
@@ -79,7 +79,7 @@ const EditChild = () => {
         setFirstnameChild(res.data.data[0].firstnameChild);
         setLastnameChild(res.data.data[0].lastnameChild);
         setBirthDate(res.data.data[0].birthDate);
-        setImageChild(res.data.imageChild);
+        // setImageChild(res.data.imageChild);
       })
       .catch((error) => {
         console.log(error);
@@ -100,7 +100,7 @@ const EditChild = () => {
     formData.append("firstnameChild", firstnameChild);
     formData.append("lastnameChild", lastnameChild);
     formData.append("birthDate", birthDate);
-    formData.append("imageChild", imageChild);
+    // formData.append("imageChild", imageChild);
     formData.append("users_id", users_id);
 
     // Bout de code pour récupérer les données du formulaire
@@ -135,7 +135,7 @@ const EditChild = () => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div className="editChild">
+    <div className="EditChild">
       <MenuAppBar />
       <Box className="main">
         <CssBaseline />
@@ -202,7 +202,7 @@ const EditChild = () => {
                   src={"http://localhost:8000/storage/uploads/imageChild"}
                 /> */}
 
-                <Box className="addChildCard" sx={{ mb: 4 }}>
+                {/* <Box className="addChildCard" sx={{ mb: 4 }}>
                   <Avatar sx={{ width: 100, height: 100 }} src="avatar.png" />
                   <Button
                     className="button-87"
@@ -225,7 +225,7 @@ const EditChild = () => {
                       sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}
                     />
                   </Button>
-                </Box>
+                </Box> */}
 
                 {/* <Button
                   className="button-87"
