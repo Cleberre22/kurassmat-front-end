@@ -16,10 +16,21 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
 
-import dayjs from "dayjs";
-import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { styled } from "@mui/material/styles";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import Collapse from "@mui/material/Collapse";
+
+import IconButton from "@mui/material/IconButton";
+
+import { red } from "@mui/material/colors";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShareIcon from "@mui/icons-material/Share";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 import MenuAppBar from "../../components/auth/MenuAppBar";
 import Fox from "../../components//Fox";
@@ -28,10 +39,13 @@ import UpdateImage from "../../components/UpdateImage";
 import CardProfile from "../../components/CardProfile";
 import SummaryForm from "../../components/SummaryForm";
 
+
 const ShowChild = () => {
   const { child } = useParams();
+  
   const navigate = useNavigate();
 
+  // const [idChildSummary, setIdChildSummary] = useState([]);
   const [idChild, setIdChild] = useState("");
   const [firstnameChild, setFirstnameChild] = useState("");
   const [lastnameChild, setLastnameChild] = useState("");
@@ -83,10 +97,8 @@ const ShowChild = () => {
       });
   };
 
-  const roleUser = user.role;
-  console.log(roleUser);
-  // console.log(token);
-  const assmat = !roleUser;
+  console.log(child);
+  
 
   const displayUsers = async () => {
     await axios
@@ -102,16 +114,6 @@ const ShowChild = () => {
       });
   };
   // console.log(role);
- 
-
-  // const [daySummaries, setDaySummaries] = useState([]);
-
-  // const displayArticles = async () => {
-  //   await axios.get("http://localhost:8000/api/articles").then((res) => {
-  //     setArticles(res.data);
-  //     // console.log(res.data);
-  //   });
-  // };
 
   // Modal Update Image
   const style = {
@@ -124,6 +126,23 @@ const ShowChild = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const ExpandMore = styled((props) => {
+    const { expand, ...other } = props;
+    return <IconButton {...other} />;
+  })(({ theme, expand }) => ({
+    transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
+    marginLeft: "auto",
+    transition: theme.transitions.create("transform", {
+      duration: theme.transitions.duration.shortest,
+    }),
+  }));
+
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
 
   return (
     <div className="indexChild">
@@ -201,7 +220,7 @@ const ShowChild = () => {
                 <Grid item xs={6}>
                   <Box className="daySummaryCard">
                     <Box className="boxAction">
-                    {roleUser ? (
+                      {/* {roleUser ? (
                         <div className="divButtonModal">
                         <Button className="buttonModal" onClick={handleOpen}>
                         <span>Voir les récaps
@@ -227,13 +246,27 @@ const ShowChild = () => {
                           </Fade>
                         </Modal>
                       </div>
-                      ) : (
-                        <div className="divButtonModal">
+                      ) : ( */}
+                      <div className="divButtonModal">
+                      <Button className="buttonModal"
+                      idChildSummary={idChild}
+                      component="a"
+                      href={`/indexDaySummariesChild/${idChild}`}
+                      >
+                          <span>
+                            Voir tout les messages
+                            <MessageIcon
+                              sx={{ width: 16, height: 16, mt: 0.4, ml: 0.7 }}
+                            />
+                          </span>
+                        </Button>
                         <Button className="buttonModal" onClick={handleOpen}>
-                        <span>Ajouter un message
-                          <MessageIcon
-                            sx={{ width: 16, height: 16, mt: 0.40, ml: 0.7 }}
-                          /></span>
+                          <span>
+                            Ajouter un message
+                            <MessageIcon
+                              sx={{ width: 16, height: 16, mt: 0.4, ml: 0.7 }}
+                            />
+                          </span>
                         </Button>
                         <Modal
                           aria-labelledby="transition-modal-title"
@@ -253,21 +286,16 @@ const ShowChild = () => {
                           </Fade>
                         </Modal>
                       </div>
-                      )}
-                    
-
+                      {/* )}
+                       */}
                     </Box>
                     <Box className="daySummaryShow" sx={{ mb: 2 }}>
-                      
-                       <p>Message: {contentDaySummary}</p>
-                  
+                      <p>Message: {contentDaySummary}</p>
 
                       <p>Reçu le: {DSCreated_at}</p>
                     </Box>
 
-                    <Box className="userCardMiddle" sx={{ mb: 3 }}>
-                     
-                    </Box>
+                    <Box className="userCardMiddle" sx={{ mb: 3 }}></Box>
                   </Box>
                 </Grid>
               </Grid>

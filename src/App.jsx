@@ -16,7 +16,9 @@ import EditProfil from "./pages/profil/EditProfil";
 import Index from "./pages/dashboard/Index";
 
 import IndexSummaries from "./pages/daySummaries/IndexSummaries";
+import IndexSummariesChild from "./pages/daySummaries/IndexSummariesChild";
 
+import ChildrenAuth from "./pages/children/ChildrenAuth";
 import Children from "./pages/children/Children";
 import AddChild from "./pages/children/AddChild";
 import EditChild from "./pages/children/EditChild";
@@ -46,14 +48,14 @@ function App() {
         <Route path="/showProfil" element={<ShowProfil/> }/>
         <Route path="/editProfil" element={<EditProfil/>} />
 
-       
-
         {/* <Route path="/showProfil" element={token ? <Profil/> : <LoginRedirectProfil/> }/> */}
         {/* Ajouter dans le back une fonction login avec redirection vers profil */}
 
         <Route path="/daysummaries" element={<IndexSummaries />} />
+        <Route path="/indexDaySummariesChild/:idChildSummary" element={<IndexSummariesChild />} />
 
         <Route path="/children" element={<Children />} />
+        <Route path="/childrenAuth/:idUserAuth" element={<ChildrenAuth />} />
         <Route path="/children/add" element={<AddChild />} />
         <Route path="/children/edit/:child" element={<EditChild />} />
         <Route path="/children/show/:child" element={<ShowChild />} />
@@ -62,7 +64,6 @@ function App() {
         {/* <Route path="/summary/add/:child" element={<AddSummary />} /> */}
         {/* <Route path="/children/edit/:child" element={<EditChild />} />
         <Route path="/children/show/:child" element={<ShowChild />} /> */}
-
 
         {/* <Route path="/dashboard/index" element={<Index />} /> */}
         <Route path="/dashboard/index" element={token ? <Index/> : <Login/> }/>

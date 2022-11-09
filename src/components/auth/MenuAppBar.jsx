@@ -112,6 +112,7 @@ export default function HideAppBar(props) {
 
   const [user, setUser] = useState([]);
   const [role, setRole] = useState([]);
+  const [idUser, setIdUser] = useState([]);
 
   const displayUsers = async () => {
     await axios
@@ -122,11 +123,12 @@ export default function HideAppBar(props) {
       })
       .then((res) => {
         setUser(res.data);
+        setIdUser(res.data.idUser[0]);
         setRole(res.data.role);
         // console.log(res.data.role);
       });
   };
-  // console.log(role);
+  // console.log(user);
 
   const removeToken = () => {
     localStorage.removeItem("access_token");
@@ -229,13 +231,25 @@ export default function HideAppBar(props) {
                 sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
               >
                 <Button
+                  idUser={idUser}
+                  component="a"
+                  href={`/childrenAuth/${user.id}`}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  IndexAuth
+                </Button>
+
+
+                {/* --------------------INDEX POUR ADMIN------------- */}
+                {/* <Button
                   component="a"
                   href="/children"
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   Index enfant
-                </Button>
+                </Button> */}
 
                 <Button
                   component="a"

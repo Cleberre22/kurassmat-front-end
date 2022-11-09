@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -16,27 +17,47 @@ import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
 import BackToTop from "../../components/BackToTop";
 
-const DaySummaries = () => {
-  const [daySummaries, setDaySummaries] = useState([]);
+const ChildrenAuth = () => {
+  const { idUserAuth } = useParams();
+  const [children, setChildren] = useState([]);
   const [user, setUser] = useState([]);
+  const [users_id, setUsers_id] = useState("");
+  const [child_id, setChild_id] = useState("");
+
+//  console.log(idUserAuth);
 
   useEffect(() => {
-    displayDaySummaries();
+    displayChildren();
+    displayUsers();
   }, []); // Sans les crochets ça tourne en boucle
 
-  const displayDaySummaries = async () => {
-    await axios.get("http://localhost:8000/api/daysummary").then((res) => {
-      setDaySummaries(res.data);
-      // console.log(res.data);
+  const displayChildren = async () => {
+    await axios.get(`http://localhost:8000/api/childIndexAuth/${idUserAuth}`).then((res) => {
+      setChildren(res.data.data);
+    //   console.log(res.data);
     });
   };
-//   console.log(articles);
+  // console.log(articles);
 
-  const deleteDaySummary = (id) => {
+  const deleteChild = (id) => {
     axios
-      .delete(`http://localhost:8000/api/daysummary/${id}`)
-      .then(displayDaySummaries);
+      .delete(`http://localhost:8000/api/childs/${id}`)
+      .then(displayChildren);
   };
+
+  const displayUsers = async () => {
+    await axios
+      .get("http://localhost:8000/api/current-user", {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
+      .then((res) => {
+        setUser(res.data);
+        // console.log(res.data);
+      });
+  };
+  // console.log(role);
 
   return (
     <div className="indexChild">
@@ -45,37 +66,56 @@ const DaySummaries = () => {
         <CssBaseline />
         <Container className="containerProfil" sx={{ mt: 25 }}>
           <h1 id="back-to-top-anchor" className="titleProfil">
-            Liste des récapitulatifs
+            Liste des enfants AUTH
           </h1>
+          <Box className="boxActionIndexChild">
+            <a
+              className="linkEditProfil"
+              href="/children/add"
+              id="style-2"
+              data-replace="Ajouter un enfant"
+            >
+              <span>
+                <p>
+                  Ajouter un enfant{" "}
+                  <AddCircleIcon
+                    className="iconAddIndexChild"
+                    sx={{ width: 20, height: 20, mt: 0.63, ml: 0.4 }}
+                  />
+                </p>
+              </span>
+            </a>
+          </Box>
+
+          {/* {user.id / user.id ? ( */}
 
           <Box className="boxProfil">
-            {daySummaries.map((daySummary) => (
+            {children.map((child) => (
               <Box className="userCard">
                 <Box className="boxIndexChild">
                   <Grid container spacing={2}>
                     <Grid item xs={12} sm={10}>
                       <Box className="cardIndexChild">
                         <Box className="avatarIndexChild">
-                        <Avatar
+                          <Avatar
                             className="avatar"
                             sx={{ width: 100, height: 100 }}
-                            src={`http://localhost:8000/storage/uploads/${daySummary.imageChild}`}
+                            src={`http://localhost:8000/storage/uploads/${child.imageChild}`}
                           />
                         </Box>
                         <Box className="boxInfoIndexChild">
                           <Box className="boxNameIndexChild">
-                           
+                            <p>Nom et prénom: {child.lastnameChild} </p>
+                            <p> {child.firstnameChild}</p>
                           </Box>
-                          <p>Prénom de l'enfant: {daySummary.firstnameChild}</p>
-                          <p>Nom de l'enfant: {daySummary.lastnameChild}</p>
-                          <p>Contenu de la note: {daySummary.contentDaySummary}</p>
-                          <p>Date de création: {daySummary.created_at}</p>
+
+                          <p>Date de naissance: {child.birthDate}</p>
                         </Box>
                       </Box>
                     </Grid>
                     <Grid item xs={12} sm={2}>
                       <Box>
-                   
+                        {" "}
                         <Box
                           className="buttonGroupIndexChild"
                           orientation="vertical"
@@ -84,7 +124,7 @@ const DaySummaries = () => {
                         >
                           <Button
                             className="actionButtonIndexChild"
-                            // href={`/children/show/${child.id}`}
+                            href={`/children/show/${child.child_id}`}
                             key="one"
                           >
                             <VisibilityIcon />
@@ -93,7 +133,7 @@ const DaySummaries = () => {
                           <Button
                             className="actionButtonIndexChild"
                             key="two"
-                            // href={`/children/edit/${child.id}`}
+                            href={`/children/edit/${child.child_id}`}
                           >
                             <ModeEditIcon />
                           </Button>
@@ -103,7 +143,7 @@ const DaySummaries = () => {
                             key="three"
                             href="#"
                             onClick={() => {
-                              deleteDaySummary(daySummary.id);
+                              deleteChild(child.child_id);
                             }}
                           >
                             <DeleteIcon />
@@ -128,4 +168,4 @@ const DaySummaries = () => {
   );
 };
 
-export default DaySummaries;
+export default ChildrenAuth;
