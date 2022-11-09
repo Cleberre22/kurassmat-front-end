@@ -241,7 +241,7 @@ export default function HideAppBar(props) {
                 </Button>
 
 
-                {/* --------------------INDEX POUR ADMIN------------- */}
+                {/* -------------------- INDEX CHILDREN POUR ADMIN ------------- */}
                 {/* <Button
                   component="a"
                   href="/children"
@@ -251,14 +251,16 @@ export default function HideAppBar(props) {
                   Index enfant
                 </Button> */}
 
-                <Button
+
+                {/* -------------------- INDEX DAYSUMMARIES POUR ADMIN ------------- */}
+                {/* <Button
                   component="a"
                   href="/daysummaries"
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   Ind DaySum
-                </Button>
+                </Button> */}
 
                 <Button
                   component="a"
@@ -327,15 +329,6 @@ export default function HideAppBar(props) {
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   Mon compte
-                </Button>
-
-                <Button
-                  component="a"
-                  href="/home"
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  Contact
                 </Button>
 
                 <Button
