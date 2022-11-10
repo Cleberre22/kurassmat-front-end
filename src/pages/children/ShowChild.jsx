@@ -38,7 +38,7 @@ import Prince from "../../components/Prince";
 import UpdateImage from "../../components/UpdateImage";
 import CardProfile from "../../components/CardProfile";
 import SummaryForm from "../../components/SummaryForm";
-
+import PictureForm from "../../components/PictureForm";
 
 const ShowChild = () => {
   const { child } = useParams();
@@ -126,6 +126,10 @@ const ShowChild = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [open2, setOpen2] = React.useState(false);
+  const handleOpen2 = () => setOpen2(true);
+  const handleClose2 = () => setOpen2(false);
 
   const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -295,7 +299,45 @@ const ShowChild = () => {
                       <p>Reçu le: {DSCreated_at}</p>
                     </Box>
 
-                    <Box className="userCardMiddle" sx={{ mb: 3 }}></Box>
+                    <Box className="userCardMiddle" sx={{ mb: 3 }}><div className="divButtonModal">
+                      <Button className="buttonModal"
+                      idChildPicture={idChild}
+                      component="a"
+                      href={`/indexPicturesChild/${idChild}`}
+                      >
+                          <span>
+                            Voir toutes les photos
+                            <MessageIcon
+                              sx={{ width: 16, height: 16, mt: 0.4, ml: 0.7 }}
+                            />
+                          </span>
+                        </Button>
+                        <Button className="buttonModal" onClick={handleOpen2}>
+                          <span>
+                            Ajouter une photo
+                            <MessageIcon
+                              sx={{ width: 16, height: 16, mt: 0.4, ml: 0.7 }}
+                            />
+                          </span>
+                        </Button>
+                        <Modal
+                          aria-labelledby="transition-modal-title"
+                          aria-describedby="transition-modal-description"
+                          open={open2}
+                          onClose={handleClose2}
+                          closeAfterTransition
+                          BackdropComponent={Backdrop}
+                          BackdropProps={{
+                            timeout: 500,
+                          }}
+                        >
+                          <Fade in={open2}>
+                            <Box sx={style}>
+                              <PictureForm idChild={idChild} />
+                            </Box>
+                          </Fade>
+                        </Modal>
+                      </div></Box>
                   </Box>
                 </Grid>
               </Grid>

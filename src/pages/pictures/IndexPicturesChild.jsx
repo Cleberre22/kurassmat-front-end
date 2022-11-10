@@ -13,32 +13,33 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 import MenuAppBar from "../../components/auth/MenuAppBar";
-import Fox from "../../components//Fox";
+import Fox from "../../components/Fox";
 import Prince from "../../components/Prince";
 import BackToTop from "../../components/BackToTop";
 
-const DaySummariesChild = () => {
-  const { idChildSummary } = useParams();
-  const [daySummaries, setDaySummaries] = useState([]);
+const PicturesChild = () => {
+  const { idChildPicture } = useParams();
+  const [pictures, setPictures] = useState([]);
   const [user, setUser] = useState([]);
-  
 
   useEffect(() => {
-    displayDaySummaries();
+    displayPictures();
   }, []); // Sans les crochets ça tourne en boucle
 
-  const displayDaySummaries = async () => {
-    await axios.get(`http://localhost:8000/api/daysummaryindexChild/${idChildSummary}`).then((res) => {
-      setDaySummaries(res.data);
-      console.log(res.data);
-    });
+  const displayPictures = async () => {
+    await axios
+      .get(`http://localhost:8000/api/picturesIndexChild/${idChildPicture }`)
+      .then((res) => {
+        setPictures(res.data);
+        console.log(res.data);
+      });
   };
-//   console.log(articles);
+    console.log(pictures);
 
-  const deleteDaySummary = (id) => {
+  const deletePicture = (id) => {
     axios
-      .delete(`http://localhost:8000/api/daysummary/${id}`)
-      .then(displayDaySummaries);
+      .delete(`http://localhost:8000/api/picture/${id}`)
+      .then(displayPictures);
   };
 
   const [idChild, setIdChild] = useState("");
@@ -46,29 +47,19 @@ const DaySummariesChild = () => {
   const [lastnameChild, setLastnameChild] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [imageChild, setImageChild] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [address, setAddress] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [city, setCity] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [role, setRole] = useState("");
- 
-  const [users_id, setUsers_id] = useState([]);
-  const [contentDaySummary, setContentDaySummary] = useState([]);
-  const [DSCreated_at, setDSCreated_at] = useState([]);
+  const [urlPicture, setUrlPicture] = useState("");
+  const [namePicture, setNamePicture] = useState("");
 
   useEffect(() => {
     getChild();
-   
+
     // displayDaySummaries();
   }, []); // Sans les crochets ça tourne en boucle
 
   // GET - Récupère les valeurs de la fiche avec l'API
   const getChild = async () => {
     await axios
-      .get(`http://localhost:8000/api/childs/${idChildSummary}`)
+      .get(`http://localhost:8000/api/childs/${idChildPicture}`)
       .then((res) => {
         console.log(res.data);
         setIdChild(res.data.data[0].idChild);
@@ -76,27 +67,13 @@ const DaySummariesChild = () => {
         setLastnameChild(res.data.data[0].lastnameChild);
         setBirthDate(res.data.data[0].birthDate);
         setImageChild(res.data.data[0].imageChild);
-        setFirstname(res.data.data[0].firstname);
-        setLastname(res.data.data[0].lastname);
-        setEmail(res.data.data[0].email);
-        setPhone(res.data.data[0].phone);
-        setAddress(res.data.data[0].address);
-        setPostalCode(res.data.data[0].postalCode);
-        setCity(res.data.data[0].city);
-        // setRole(res.data.data[0].role);
-        setContentDaySummary(res.data.data[0].contentDaySummary);
-        setDSCreated_at(res.data.data[0].DSCreated_at);
+        setUrlPicture(res.data.data[0].urlPicture);
+        setNamePicture(res.data.data[0].namePicture);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
-
-
-
-
-
 
   return (
     <div className="indexChild">
@@ -105,11 +82,11 @@ const DaySummariesChild = () => {
         <CssBaseline />
         <Container className="containerProfil" sx={{ mt: 25 }}>
           <h1 id="back-to-top-anchor" className="titleProfil">
-            Liste des récapitulatifs de {firstnameChild}
+            Liste des photos de {firstnameChild}
           </h1>
 
           <Box className="boxProfil">
-            {daySummaries.map((daySummary) => (
+            {pictures.map((picture) => (
               <Box className="userCard">
                 <Box className="boxIndexChild">
                   <Grid container spacing={2}>
@@ -119,23 +96,18 @@ const DaySummariesChild = () => {
                         <Avatar
                             className="avatar"
                             sx={{ width: 100, height: 100 }}
-                            src={`http://localhost:8000/storage/uploads/${daySummary.imageChild}`}
+                            src={`http://localhost:8000/storage/uploads/${picture.urlPicture}`}
                           />
                         </Box>
                         <Box className="boxInfoIndexChild">
-                          <Box className="boxNameIndexChild">
-                           
-                          </Box>
-                          <p>Prénom de l'enfant: {daySummary.firstnameChild}</p>
-                          <p>Nom de l'enfant: {daySummary.lastnameChild}</p>
-                          <p>Contenu de la note: {daySummary.contentDaySummary}</p>
-                          <p>Date de création: {daySummary.created_at}</p>
+                          <Box className="boxNameIndexChild"></Box>
+
+                          <p>Description: {picture.namePicture}</p>
                         </Box>
                       </Box>
                     </Grid>
                     <Grid item xs={12} sm={2}>
                       <Box>
-                   
                         <Box
                           className="buttonGroupIndexChild"
                           orientation="vertical"
@@ -158,7 +130,7 @@ const DaySummariesChild = () => {
                             <ModeEditIcon />
                           </Button>
 
-                          <Button
+                          {/* <Button
                             className="actionButtonIndexChild"
                             key="three"
                             href="#"
@@ -167,7 +139,7 @@ const DaySummariesChild = () => {
                             }}
                           >
                             <DeleteIcon />
-                          </Button>
+                          </Button> */}
                         </Box>
                       </Box>
                     </Grid>
@@ -188,4 +160,4 @@ const DaySummariesChild = () => {
   );
 };
 
-export default DaySummariesChild;
+export default PicturesChild;
