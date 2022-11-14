@@ -99,7 +99,7 @@ const PicturesChild = () => {
                         <Avatar
                             className="avatar"
                             sx={{ width: 100, height: 100 }}
-                            src={`http://localhost:8000/storage/uploads/${picture.urlPicture}`}
+                            src={`http://localhost:8000/thumbnail/${picture.urlPicture}`}
                           />
                         </Box>
                         <Box className="boxInfoIndexChild">
