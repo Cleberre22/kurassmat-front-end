@@ -40,7 +40,7 @@ const PicturesChild = () => {
 
   const deletePicture = (id) => {
     axios
-      .delete(`http://localhost:8000/api/picture/${id}`)
+      .delete(`http://localhost:8000/api/pictures/${id}`)
       .then(displayPictures);
   };
 
@@ -133,16 +133,16 @@ const PicturesChild = () => {
                             <ModeEditIcon />
                           </Button>
 
-                          {/* <Button
+                          <Button
                             className="actionButtonIndexChild"
                             key="three"
                             href="#"
                             onClick={() => {
-                              deleteDaySummary(daySummary.id);
+                              deletePicture(picture.id);
                             }}
                           >
                             <DeleteIcon />
-                          </Button> */}
+                          </Button>
                         </Box>
                       </Box>
                     </Grid>

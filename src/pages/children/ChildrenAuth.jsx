@@ -100,7 +100,7 @@ const ChildrenAuth = () => {
                           <Avatar
                             className="avatar"
                             sx={{ width: 100, height: 100 }}
-                            src={`http://localhost:8000/storage/uploads/${child.imageChild}`}
+                            src={`http://localhost:8000/thumbnail/${child.imageChild}`}
                           />
                         </Box>
                         <Box className="boxInfoIndexChild">

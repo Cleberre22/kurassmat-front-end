@@ -199,7 +199,7 @@ const EditChild = () => {
                 </p>
                 <Avatar
                   sx={{ width: 100, height: 100 }}
-                  src={"http://localhost:8000/storage/uploads/imageChild"}
+                  src={"http://localhost:8000/thumbnail/imageChild"}
                 /> */}
 
                 {/* <Box className="addChildCard" sx={{ mb: 4 }}>

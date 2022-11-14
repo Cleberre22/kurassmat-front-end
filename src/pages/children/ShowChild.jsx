@@ -181,7 +181,7 @@ const ShowChild = () => {
                       <Avatar
                         className="avatarShowChild"
                         sx={{ width: 100, height: 100 }}
-                        src={`http://localhost:8000/storage/uploads/${imageChild}`}
+                        src={`http://localhost:8000/thumbnail/${imageChild}`}
                       />
                     </Box>
 
