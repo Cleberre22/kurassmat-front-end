@@ -87,7 +87,7 @@ const PicturesChild = () => {
             Liste des photos de {firstnameChild}
           </h1>
 
-          <Box className="boxProfil">
+          <Box className="">
             <Sliders />
             {pictures.map((picture) => (
               <Box className="userCard" key={picture.id}>

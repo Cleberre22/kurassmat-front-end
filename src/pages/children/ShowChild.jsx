@@ -39,10 +39,12 @@ import UpdateImage from "../../components/UpdateImage";
 import CardProfile from "../../components/CardProfile";
 import SummaryForm from "../../components/SummaryForm";
 import PictureForm from "../../components/PictureForm";
+import EmployerForm from "../../components/EmployerForm";
+
 
 const ShowChild = () => {
   const { child } = useParams();
-  
+
   const navigate = useNavigate();
 
   // const [idChildSummary, setIdChildSummary] = useState([]);
@@ -98,7 +100,6 @@ const ShowChild = () => {
   };
 
   console.log(child);
-  
 
   const displayUsers = async () => {
     await axios
@@ -130,6 +131,10 @@ const ShowChild = () => {
   const [open2, setOpen2] = React.useState(false);
   const handleOpen2 = () => setOpen2(true);
   const handleClose2 = () => setOpen2(false);
+
+  const [open3, setOpen3] = React.useState(false);
+  const handleOpen3 = () => setOpen3(true);
+  const handleClose3 = () => setOpen3(false);
 
   const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -252,11 +257,12 @@ const ShowChild = () => {
                       </div>
                       ) : ( */}
                       <div className="divButtonModal">
-                      <Button className="buttonModal"
-                      idChildSummary={idChild}
-                      component="a"
-                      href={`/indexDaySummariesChild/${idChild}`}
-                      >
+                        <Button
+                          className="buttonModal"
+                          idChildSummary={idChild}
+                          component="a"
+                          href={`/indexDaySummariesChild/${idChild}`}
+                        >
                           <span>
                             Voir tout les messages
                             <MessageIcon
@@ -299,12 +305,14 @@ const ShowChild = () => {
                       <p>Reçu le: {DSCreated_at}</p>
                     </Box>
 
-                    <Box className="userCardMiddle" sx={{ mb: 3 }}><div className="divButtonModal">
-                      <Button className="buttonModal"
-                      idChildPicture={idChild}
-                      component="a"
-                      href={`/indexPicturesChild/${idChild}`}
-                      >
+                    <Box className="userCardMiddle" sx={{ mb: 3 }}>
+                      <div className="divButtonModal">
+                        <Button
+                          className="buttonModal"
+                          idChildPicture={idChild}
+                          component="a"
+                          href={`/indexPicturesChild/${idChild}`}
+                        >
                           <span>
                             Voir toutes les photos
                             <MessageIcon
@@ -337,7 +345,50 @@ const ShowChild = () => {
                             </Box>
                           </Fade>
                         </Modal>
-                      </div></Box>
+                      </div>
+
+
+                      <div className="divButtonModal">
+                        <Button
+                          className="buttonModal"
+                          idChildPicture={idChild}
+                          component="a"
+                          href={`/indexPicturesChild/${idChild}`}
+                        >
+                          <span>
+                            Voir toutes les photos
+                            <MessageIcon
+                              sx={{ width: 16, height: 16, mt: 0.4, ml: 0.7 }}
+                            />
+                          </span>
+                        </Button>
+                        <Button className="buttonModal" onClick={handleOpen3}>
+                          <span>
+                            Ajouter un parent
+                            <MessageIcon
+                              sx={{ width: 16, height: 16, mt: 0.4, ml: 0.7 }}
+                            />
+                          </span>
+                        </Button>
+                        <Modal
+                          aria-labelledby="transition-modal-title"
+                          aria-describedby="transition-modal-description"
+                          open={open3}
+                          onClose={handleClose3}
+                          closeAfterTransition
+                          BackdropComponent={Backdrop}
+                          BackdropProps={{
+                            timeout: 500,
+                          }}
+                        >
+                          <Fade in={open3}>
+                            <Box sx={style}>
+                              <EmployerForm idChild={idChild} />
+                            </Box>
+                          </Fade>
+                        </Modal>
+                      </div>
+                    </Box>
                   </Box>
                 </Grid>
               </Grid>

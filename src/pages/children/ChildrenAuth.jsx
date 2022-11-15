@@ -66,7 +66,7 @@ const ChildrenAuth = () => {
         <CssBaseline />
         <Container className="containerProfil" sx={{ mt: 25 }}>
           <h1 id="back-to-top-anchor" className="titleProfil">
-            Liste des enfants AUTH
+            Liste des enfants {user.firstname} {user.lastname}
           </h1>
           <Box className="boxActionIndexChild">
             <a
