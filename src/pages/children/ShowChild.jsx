@@ -41,7 +41,6 @@ import SummaryForm from "../../components/SummaryForm";
 import PictureForm from "../../components/PictureForm";
 import EmployerForm from "../../components/EmployerForm";
 
-
 const ShowChild = () => {
   const { child } = useParams();
 
@@ -65,13 +64,14 @@ const ShowChild = () => {
   const [users_id, setUsers_id] = useState([]);
   const [contentDaySummary, setContentDaySummary] = useState([]);
   const [DSCreated_at, setDSCreated_at] = useState([]);
+  const [parents, setParents] = useState([]);
+
 
   useEffect(() => {
     getChild();
     getLastDaySummary();
-
+    getChildShowUser();
     displayUsers();
-    // displayDaySummaries();
   }, []); // Sans les crochets ça tourne en boucle
 
   // GET - Récupère les valeurs de la fiche avec l'API
@@ -85,16 +85,6 @@ const ShowChild = () => {
         setLastnameChild(res.data.data[0].lastnameChild);
         setBirthDate(res.data.data[0].birthDate);
         setImageChild(res.data.data[0].imageChild);
-        setFirstname(res.data.data[0].firstname);
-        setLastname(res.data.data[0].lastname);
-        setEmail(res.data.data[0].email);
-        setPhone(res.data.data[0].phone);
-        setAddress(res.data.data[0].address);
-        setPostalCode(res.data.data[0].postalCode);
-        setCity(res.data.data[0].city);
-        // setRole(res.data.data[0].role);
-        // setContentDaySummary(res.data.data[0].contentDaySummary);
-        // setDSCreated_at(res.data.data[0].DSCreated_at);
       })
       .catch((error) => {
         console.log(error);
@@ -102,40 +92,41 @@ const ShowChild = () => {
   };
   console.log(child);
 
-    // GET - Récupère les valeurs de la fiche avec l'API
-    const getLastDaySummary = async () => {
-      await axios
-        .get(`http://localhost:8000/api/childLastDaySummary/${child}`)
-        .then((res) => {
-          console.log(res.data);
-          setContentDaySummary(res.data.data[0].contentDaySummary);
-          setDSCreated_at(res.data.data[0].DSCreated_at);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-    console.log(child);
+  // GET - Récupère les valeurs de la fiche avec l'API
+  const getLastDaySummary = async () => {
+    await axios
+      .get(`http://localhost:8000/api/childLastDaySummary/${child}`)
+      .then((res) => {
+        console.log(res.data);
+        setContentDaySummary(res.data.data[0].contentDaySummary);
+        setDSCreated_at(res.data.data[0].DSCreated_at);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  console.log(child);
 
-    // // GET - Récupère les valeurs de la fiche avec l'API
-    // const getUser = async () => {
-    //   await axios
-    //     .get(`http://localhost:8000/api/users/${user}`)
-    //     .then((res) => {
-    //       console.log(res.data);
-    //       setFirstname(res.data.data[0].firstname);
-    //       setLastname(res.data.data[0].lastname);
-    //       setEmail(res.data.data[0].email);
-    //       setPhone(res.data.data[0].phone);
-    //       setAddress(res.data.data[0].address);
-    //       setPostalCode(res.data.data[0].postalCode);
-    //       setCity(res.data.data[0].city);
-    //       // setRole(res.data.data[0].role);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // };
+  // GET - Récupère les valeurs de la fiche avec l'API
+  const getChildShowUser = async () => {
+    await axios
+      .get(`http://localhost:8000/api/childShowUser/${child}`)
+      .then((res) => {
+        console.log(res.data.data);
+        setParents(res.data.data);
+        // setFirstname(res.data.data[0].firstname);
+        // setLastname(res.data.data[0].lastname);
+        // setEmail(res.data.data[0].email);
+        // setPhone(res.data.data[0].phone);
+        // setAddress(res.data.data[0].address);
+        // setPostalCode(res.data.data[0].postalCode);
+        // setCity(res.data.data[0].city);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  // console.log(setFirstname);
 
   const displayUsers = async () => {
     await axios
@@ -246,13 +237,10 @@ const ShowChild = () => {
                     <Box className="userCardTop" sx={{ mt: 3 }}>
                       <h2>Personne à prevenir:</h2>
                     </Box>
-
+                    {parents.map((parent) => (
                     <Box className="userCardMiddle" sx={{ mb: 3 }}>
-
-
-                      
                       <p>
-                        {user.firstname} {user.lastname}
+                       aerres {parent.firstname} {user.lastname}
                       </p>
                       <p>Email: {user.email}</p>
                       <p>
@@ -262,6 +250,7 @@ const ShowChild = () => {
 
                       <p>role: {user.role}</p>
                     </Box>
+                     ))}
                   </Box>
                 </Grid>
 
@@ -385,7 +374,6 @@ const ShowChild = () => {
                           </Fade>
                         </Modal>
                       </div>
-
 
                       <div className="divButtonModal">
                         <Button
