@@ -68,6 +68,8 @@ const ShowChild = () => {
 
   useEffect(() => {
     getChild();
+    getLastDaySummary();
+
     displayUsers();
     // displayDaySummaries();
   }, []); // Sans les crochets ça tourne en boucle
@@ -91,15 +93,49 @@ const ShowChild = () => {
         setPostalCode(res.data.data[0].postalCode);
         setCity(res.data.data[0].city);
         // setRole(res.data.data[0].role);
-        setContentDaySummary(res.data.data[0].contentDaySummary);
-        setDSCreated_at(res.data.data[0].DSCreated_at);
+        // setContentDaySummary(res.data.data[0].contentDaySummary);
+        // setDSCreated_at(res.data.data[0].DSCreated_at);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
   console.log(child);
+
+    // GET - Récupère les valeurs de la fiche avec l'API
+    const getLastDaySummary = async () => {
+      await axios
+        .get(`http://localhost:8000/api/childLastDaySummary/${child}`)
+        .then((res) => {
+          console.log(res.data);
+          setContentDaySummary(res.data.data[0].contentDaySummary);
+          setDSCreated_at(res.data.data[0].DSCreated_at);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    console.log(child);
+
+    // // GET - Récupère les valeurs de la fiche avec l'API
+    // const getUser = async () => {
+    //   await axios
+    //     .get(`http://localhost:8000/api/users/${user}`)
+    //     .then((res) => {
+    //       console.log(res.data);
+    //       setFirstname(res.data.data[0].firstname);
+    //       setLastname(res.data.data[0].lastname);
+    //       setEmail(res.data.data[0].email);
+    //       setPhone(res.data.data[0].phone);
+    //       setAddress(res.data.data[0].address);
+    //       setPostalCode(res.data.data[0].postalCode);
+    //       setCity(res.data.data[0].city);
+    //       // setRole(res.data.data[0].role);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // };
 
   const displayUsers = async () => {
     await axios
@@ -212,6 +248,9 @@ const ShowChild = () => {
                     </Box>
 
                     <Box className="userCardMiddle" sx={{ mb: 3 }}>
+
+
+                      
                       <p>
                         {user.firstname} {user.lastname}
                       </p>
