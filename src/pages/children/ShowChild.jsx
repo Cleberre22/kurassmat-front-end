@@ -240,15 +240,15 @@ const ShowChild = () => {
                     {parents.map((parent) => (
                     <Box className="userCardMiddle" sx={{ mb: 3 }}>
                       <p>
-                       aerres {parent.firstname} {user.lastname}
+                       aerres {parent.firstname} {parent.lastname}
                       </p>
-                      <p>Email: {user.email}</p>
+                      <p>Email: {parent.email}</p>
                       <p>
-                        Adresse: {user.address}, {user.postalCode} {user.city}
+                        Adresse: {parent.address}, {parent.postalCode} {parent.city}
                       </p>
-                      <p>Téléphone: {user.phone}</p>
+                      <p>Téléphone: {parent.phone}</p>
 
-                      <p>role: {user.role}</p>
+                      <p>role: {parent.role}</p>
                     </Box>
                      ))}
                   </Box>
