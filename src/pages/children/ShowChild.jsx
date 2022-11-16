@@ -213,7 +213,7 @@ const ShowChild = () => {
                       <h2>Parents:</h2>
                     </Box>
                     <Box className="childCardParentTopRight">
-                      <Button className="buttonModal" onClick={handleOpen3}>
+                      <Button onClick={handleOpen3}>
                         <span>
                           Ajouter un parent
                           <MessageIcon

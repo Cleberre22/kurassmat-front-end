@@ -8,6 +8,23 @@
         justify-content: center;
         align-items: center;
         border-bottom: 1px solid $color-2;
+        @media only screen and (max-width: 550px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+         
+    .childCardTopRight {
+        // background-color: blueviolet;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        p {
+            padding: 3px;
+        }
+    }
+          }
     }
 
     .avatarShowChild {
