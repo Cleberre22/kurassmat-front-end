@@ -1,106 +1,190 @@
-.avatarShowChild {
-    border: $color-4 2px solid;
-}
+.boxProfilChild {
+    background-color: #fff;
 
-.childCard {
-    padding: 20px;
-    padding-bottom: 40px;
-    display: flex;
-    justify-content: center;
-    flex-direction: row !important;
-    align-items: center !important;
-    // background-color: #F09819;
-}
-
-.childCardMiddle {
-    
-    padding-left: 10%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-// background-color: #598381;
-    p {
-        margin: 2px;
-        // background-color: #F09819;
+    .childCardTop {
+        // background-color: red;
+        padding-bottom: 4%;
         display: flex;
         justify-content: center;
         align-items: center;
-        text-align: start;
+        border-bottom: 1px solid $color-2;
     }
+
+    .avatarShowChild {
+        border: $color-4 2px solid;
+        margin-right: 5%;
+    }
+
+    .childCardTopRight {
+        // background-color: blueviolet;
+        margin-left: 5%;
+        p {
+            padding: 3px;
+        }
+    }
+
+    .containerCardParent {
+        // background-color: darkgray;
+        width: 95%;
+        .childCardParentTop {
+            background-color: chocolate;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @media only screen and (max-width: 550px) {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                .childCardParentTopLeft {
+                    // background-color: cornflowerblue;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                }
+                .childCardParentTopRight {
+                    // background-color: #595959;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                }
+              }
+            .childCardParentTopLeft {
+                // background-color: cornflowerblue;
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+            }
+            .childCardParentTopRight {
+                // background-color: #595959;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+    }
+
+   
 }
 
-.daySummaryCard {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-direction: column;
 
-    .boxAction {
-        text-align: end;
-        width: 100%;
-        display: flex;
-        justify-content: end;
-    }
-}
 
-.daySummaryShow {
-    padding: 15px;
-    background-color: #f0961948;
-    border-radius: 10px;
-    border: #598381 1px solid;
-    padding-right: 10px;
-    width: 100%;
-    text-align: justify;
-    // background-color: #598381;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: column;
-}
 
-.divButtonModal {
-    margin-bottom: 10px;
-    border-radius: 50px;
+// .boxProfilChild{
+//     background-color: #fff;
+// }
 
-    .buttonModal {
-        overflow: hidden;
-        position: relative;
-        display: inline-block;
-    }
+// .actionDaySummaryShowChild {
+//     margin: 0;
+//     padding: 0;
+//     // background-color: #19f0de;
+//     min-width: 100% !important;
+//     display: flex;
+//     justify-content: center !important;
+// }
 
-    .buttonModal::before,
-    .buttonModal::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        left: 0;
-    }
+// .childCard {
+//     padding: 20px;
+//     padding-bottom: 40px;
+//     display: flex;
+//     justify-content: center;
+//     flex-direction: row !important;
+//     align-items: center !important;
+//     // background-color: #F09819;
+// }
 
-    .buttonModal::before {
-        background-color: #598381;
-        height: 2px;
-        bottom: 0;
-        transform-origin: 100% 50%;
-        transform: scaleX(0);
-        transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
-    }
+// .childCardMiddle {
 
-    .buttonModal:hover::before {
-        transform-origin: 0% 50%;
-        transform: scaleX(1);
-    }
+//     padding-left: 10%;
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: flex-start;
+//     flex-direction: column;
+// // background-color: #598381;
+//     p {
+//         margin: 2px;
+//         // background-color: #F09819;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         text-align: start;
+//     }
+// }
 
-    .buttonModal span {
-        display: inline-block;
-        transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
-    }
+// .daySummaryCard {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: flex-start;
+//     flex-direction: column;
 
-    .buttonModal {
-        text-decoration: none;
-        color: #F09819;
-        font-weight: 700;
-        vertical-align: top;
-    }
-}
+//     .boxAction {
+//         // background-color: brown;
+//         text-align: center;
+//         width: 100%;
+//         display: flex;
+//         justify-content: center;
+//         align-items: flex-end;
+//     }
+// }
+
+// .daySummaryShow {
+//     padding: 15px;
+//     background-color: #f0961948;
+//     border-radius: 10px;
+//     border: #598381 1px solid;
+//     padding-right: 10px;
+//     width: 100%;
+//     text-align: justify;
+//     // background-color: #598381;
+//     display: flex;
+//     justify-content: flex-end;
+//     align-items: center;
+//     flex-direction: column;
+// }
+
+// .divButtonModal {
+//     // margin-bottom: 10px;
+//     border-radius: 50px;
+
+//     .buttonModal {
+//         overflow: hidden;
+//         position: relative;
+//         display: inline-block;
+//     }
+
+//     .buttonModal::before,
+//     .buttonModal::after {
+//         content: '';
+//         position: absolute;
+//         width: 100%;
+//         left: 0;
+//     }
+
+//     .buttonModal::before {
+//         background-color: #598381;
+//         height: 2px;
+//         bottom: 0;
+//         transform-origin: 100% 50%;
+//         transform: scaleX(0);
+//         transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+//     }
+
+//     .buttonModal:hover::before {
+//         transform-origin: 0% 50%;
+//         transform: scaleX(1);
+//     }
+
+//     .buttonModal span {
+//         display: inline-block;
+//         transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+//     }
+
+//     .buttonModal {
+//         text-decoration: none;
+//         color: #F09819;
+//         font-weight: 700;
+//         vertical-align: top;
+//     }
+// }

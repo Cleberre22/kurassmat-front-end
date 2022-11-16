@@ -92,12 +92,9 @@ const DaySummariesChild = () => {
   };
   
 
-  const toto = user.role;
-  console.log(toto);
-  // const toto = setUserAuth.role = "assmat";
-  // const tata = !toto;
-
-  // console.log(toto);
+  const userRole = user.role;
+  // console.log(userRole);
+ 
 
   return (
     <div className="indexChild">
@@ -152,7 +149,7 @@ const DaySummariesChild = () => {
 
 
 
-                          {toto == 'assmat' ? (
+                          {userRole == 'assmat' ? (
 
                             <Button
                               className="actionButtonIndexChild"
