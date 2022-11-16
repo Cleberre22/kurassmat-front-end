@@ -2,6 +2,35 @@
     border: $color-4 2px solid;
 }
 
+.childCard {
+    padding: 20px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row !important;
+    align-items: center !important;
+    // background-color: #F09819;
+}
+
+.childCardMiddle {
+    
+    padding-left: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+// background-color: #598381;
+    p {
+        margin: 2px;
+        // background-color: #F09819;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: start;
+    }
+}
+
 .daySummaryCard {
     display: flex;
     justify-content: space-between;

@@ -66,7 +66,6 @@ const ShowChild = () => {
   const [DSCreated_at, setDSCreated_at] = useState([]);
   const [parents, setParents] = useState([]);
 
-
   useEffect(() => {
     getChild();
     getLastDaySummary();
@@ -114,13 +113,6 @@ const ShowChild = () => {
       .then((res) => {
         console.log(res.data.data);
         setParents(res.data.data);
-        // setFirstname(res.data.data[0].firstname);
-        // setLastname(res.data.data[0].lastname);
-        // setEmail(res.data.data[0].email);
-        // setPhone(res.data.data[0].phone);
-        // setAddress(res.data.data[0].address);
-        // setPostalCode(res.data.data[0].postalCode);
-        // setCity(res.data.data[0].city);
       })
       .catch((error) => {
         console.log(error);
@@ -197,39 +189,19 @@ const ShowChild = () => {
                 columnSpacing={{ xs: 1, sm: 2, md: 3 }}
               >
                 <Grid item xs={6}>
-                  <Box className="userCard">
-                    {/* <Box className="boxAction">
-                      <a
-                        className="linkEditProfil"
-                        href="/children/edit/${idChild}"
-                        id="style-2"
-                        data-replace="Modifier le profil"
-                      >
-                        <span>Modifier le profil </span>
-                      </a>
-                    </Box> */}
-
-                    <Box className="userCardTop" sx={{ mb: 2 }}>
+                  <Box className="childCard">
+                    <Box className="childCardTop">
                       <Avatar
                         className="avatarShowChild"
-                        sx={{ width: 100, height: 100 }}
+                        sx={{ width: 120, height: 120 }}
                         src={`http://localhost:8000/thumbnail/${imageChild}`}
                       />
                     </Box>
 
-                    <Box className="userCardMiddle" sx={{ mb: 3 }}>
+                    <Box className="childCardMiddle">
                       <p>Prénom: {firstnameChild}</p>
                       <p>Nom: {lastnameChild}</p>
                       <p>Date de naissance: {birthDate}</p>
-                      <p>
-                        Parent: {firstname} {lastname}
-                      </p>
-                      <p>Email: {email}</p>
-                      <p>téléphone: {phone}</p>
-                      <p>
-                        Adresse: {address} {postalCode}, {city}
-                      </p>
-                      <p>Role: {user.role}</p>
                     </Box>
                   </Box>
 
@@ -238,19 +210,20 @@ const ShowChild = () => {
                       <h2>Parents:</h2>
                     </Box>
                     {parents.map((parent) => (
-                    <Box className="userCardMiddle" sx={{ mb: 3 }}>
-                      <p>
-                       Prénom et nom: {parent.firstname} {parent.lastname}
-                      </p>
-                      <p>Email: {parent.email}</p>
-                      <p>
-                        Adresse: {parent.address}, {parent.postalCode} {parent.city}
-                      </p>
-                      <p>Téléphone: {parent.phone}</p>
+                      <Box className="userCardMiddle" sx={{ mb: 3 }}>
+                        <p>
+                          Prénom et nom: {parent.firstname} {parent.lastname}
+                        </p>
+                        <p>Email: {parent.email}</p>
+                        <p>
+                          Adresse: {parent.address}, {parent.postalCode}{" "}
+                          {parent.city}
+                        </p>
+                        <p>Téléphone: {parent.phone}</p>
 
-                      <p>role: {parent.role}</p>
-                    </Box>
-                     ))}
+                        <p>role: {parent.role}</p>
+                      </Box>
+                    ))}
                   </Box>
                 </Grid>
 

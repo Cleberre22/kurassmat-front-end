@@ -87,8 +87,6 @@ const ChildrenAuth = () => {
             </a>
           </Box>
 
-          {/* {user.id / user.id ? ( */}
-
           <Box className="boxProfil">
             {children.map((child) => (
               <Box className="userCard">

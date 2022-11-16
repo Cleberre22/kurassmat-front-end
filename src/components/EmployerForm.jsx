@@ -85,6 +85,10 @@ export default function SignUp({idChild}) {
     formData.append("childs_id", childs_id);
     formData.append("users_id", users_id);
    
+    // Bout de code pour récupérer les données du formulaire
+    for (var pair of formData.entries()) {
+            console.log(pair[0]+ ', ' + pair[1]);
+        }
 
     await axios
       .post(`http://localhost:8000/api/registerEmployer`, formData)
@@ -253,11 +257,6 @@ export default function SignUp({idChild}) {
               Ajouter
             </button>
 
-            {/* <Grid container justifyContent="center">
-              <Grid item>
-                <p className="linkLoginRegister">Vous avez déja un compte ? <a href="/login" id="style-2" data-replace="Connectez-vous"><span>Connectez-vous</span></a></p>
-              </Grid>
-            </Grid> */}
           </Box>
         </Box>
       </Container>

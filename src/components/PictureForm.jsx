@@ -8,13 +8,13 @@ import TextField from "@mui/material/TextField";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import Button from "@mui/material/Button";
 
-const PictureForm = ({idChild}) => {
+const PictureForm = ({ idChild }) => {
   const navigate = useNavigate();
 
   const [urlPicture, setUrlPicture] = useState("");
   const [namePicture, setNamePicture] = useState("");
   const [childs_id, setChilds_id] = useState("");
-  
+
   const changeHandler = (event) => {
     setUrlPicture(event.target.files[0]);
   };
@@ -24,8 +24,8 @@ const PictureForm = ({idChild}) => {
   const [validationError, setValidationError] = useState({});
 
   // On récupère l'id du user pour remplir la table pivot
-//   const [user, setUser] = useState([]);
-//   const [role, setRole] = useState([]);
+  //   const [user, setUser] = useState([]);
+  //   const [role, setRole] = useState([]);
 
   const displayUsers = async () => {
     await axios
@@ -65,8 +65,8 @@ const PictureForm = ({idChild}) => {
 
     // Bout de code pour récupérer les données du formulaire
     for (var pair of formData.entries()) {
-            console.log(pair[0]+ ', ' + pair[1]);
-        }
+      console.log(pair[0] + ", " + pair[1]);
+    }
 
     await axios
       .post(`http://localhost:8000/api/pictures`, formData)
@@ -84,29 +84,25 @@ const PictureForm = ({idChild}) => {
         <h2>Ajouter une photo</h2>
 
         <Button
-                  className="button-87"
-                  variant="contained"
-                  component="label"
-                  sx={{ mb: 2 }}
-                >
-                  Ajouter une photo
-                  <input
-                    hidden
-                    accept="image/*"
-                    type="file"
-                    onChange={changeHandler}
-                    // value={imageChild}
-                    // onChange={(event) => {
-                    //   setImageChild(event.target.value);
-                    // }}
-                    id="imageChild"
-                  />
-                  <PhotoCamera
-                    sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}
-                  />
-                </Button>
-
-
+          className="button-87"
+          variant="contained"
+          component="label"
+          sx={{ mb: 2 }}
+        >
+          Ajouter une photo
+          <input
+            hidden
+            accept="image/*"
+            type="file"
+            onChange={changeHandler}
+            // value={imageChild}
+            // onChange={(event) => {
+            //   setImageChild(event.target.value);
+            // }}
+            id="imageChild"
+          />
+          <PhotoCamera sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }} />
+        </Button>
 
         <TextField
           id="namePicture"
