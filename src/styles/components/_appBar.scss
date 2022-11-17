@@ -1,17 +1,32 @@
 @font-face {
     font-family: "font-1";
     src: url(../../assets/fonts/Skranji-Regular.ttf);
-}
-
-@font-face {
+  }
+  
+  @font-face {
     font-family: "font-2";
     src: url(../../assets/fonts/RobotoCondensed-Regular.ttf);
-}
-
-@font-face {
+  }
+  
+  @font-face {
     font-family: "font-3";
     src: url(../../assets/fonts/RobotoCondensed-Bold.ttf);
-}
+  }
+  
+  @font-face {
+    font-family: "font-4";
+    src: url(../../assets/fonts/RobotoCondensed-Light.ttf);
+  }
+  
+  @font-face {
+    font-family: "font-5";
+    src: url(../../assets/fonts/Sacramento-Regular.ttf);
+  }
+  
+  @font-face {
+    font-family: "font-6";
+    src: url(../../assets/fonts/Parisienne-Regular.ttf);
+  }
 
 .appBar {
     max-height: 80px;

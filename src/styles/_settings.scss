@@ -18,6 +18,16 @@
   src: url(../assets/fonts/RobotoCondensed-Light.ttf);
 }
 
+@font-face {
+  font-family: "font-5";
+  src: url(../assets/fonts/Sacramento-Regular.ttf);
+}
+
+@font-face {
+  font-family: "font-6";
+  src: url(../assets/fonts/Parisienne-Regular.ttf);
+}
+
 $color-1: #ffffff;
 $color-2: #598381;
 $color-6: #177e89;
@@ -64,6 +74,7 @@ a:-webkit-any-link {
   background-image: url(../../public/bgkurassmat4.png);
   background-repeat: no-repeat;
   background-size: auto;
+  background-position:top;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -76,7 +87,7 @@ a:-webkit-any-link {
   position: fixed;
   bottom: 30px;
   left: 30px;
-  width: 16%;
+  width: 14%;
 
   @media only screen and (max-width: 1600px) {
     display: none;
