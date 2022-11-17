@@ -25,6 +25,9 @@ import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 
 import IconButton from "@mui/material/IconButton";
+import EscalatorWarningIcon from "@mui/icons-material/EscalatorWarning";
+import CreateIcon from "@mui/icons-material/Create";
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -40,6 +43,7 @@ import CardProfile from "../../components/CardProfile";
 import SummaryForm from "../../components/SummaryForm";
 import PictureForm from "../../components/PictureForm";
 import EmployerForm from "../../components/EmployerForm";
+import BackToTop from "../../components/BackToTop";
 
 const ShowChild = () => {
   const { child } = useParams();
@@ -65,6 +69,7 @@ const ShowChild = () => {
   const [contentDaySummary, setContentDaySummary] = useState([]);
   const [DSCreated_at, setDSCreated_at] = useState([]);
   const [parents, setParents] = useState([]);
+  const [lastDaySummaries, setLastDaySummaries] = useState([]);
 
   useEffect(() => {
     getChild();
@@ -97,14 +102,13 @@ const ShowChild = () => {
       .get(`http://localhost:8000/api/childLastDaySummary/${child}`)
       .then((res) => {
         console.log(res.data);
-        setContentDaySummary(res.data.data[0].contentDaySummary);
-        setDSCreated_at(res.data.data[0].DSCreated_at);
+        setLastDaySummaries(res.data.data);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  console.log(child);
+  // console.log(child);
 
   // GET - Récupère les valeurs de la fiche avec l'API
   const getChildShowUser = async () => {
@@ -181,7 +185,7 @@ const ShowChild = () => {
       <Box className="main">
         <CssBaseline />
         <Container className="containerProfil">
-          <h1 className="titleProfil">
+          <h1 className="titleProfil" id="backToTop">
             {firstnameChild} {lastnameChild}
           </h1>
           <Box className="boxProfil boxProfilChild">
@@ -190,6 +194,7 @@ const ShowChild = () => {
               rowSpacing={1}
               columnSpacing={{ xs: 1, sm: 2, md: 3 }}
             >
+              {/* ------------------------- INFORMATION CHILD ------------------------- */}
               <Grid item xs={12}>
                 <Box className="childCardTop">
                   <Avatar
@@ -206,21 +211,27 @@ const ShowChild = () => {
                 </Box>
               </Grid>
 
-              <Grid item xs={12}>
+              {/* ------------------------- INFORMATION PARENTS ------------------------- */}
+              <Grid item xs={12} className="boxParent">
                 <Container className="containerCardParent">
-                  <Box className="childCardParentTop" sx={{ mt: 3 }}>
+                  <Box className="childCardParentTop">
                     <Box className="childCardParentTopLeft">
-                      <h2>Parents:</h2>
+                      <h2 className="titleParent">Parents:</h2>
                     </Box>
-                    <Box className="childCardParentTopRight">
-                      <Button onClick={handleOpen3}>
-                        <span>
-                          Ajouter un parent
-                          <MessageIcon
-                            sx={{ width: 16, height: 16, mt: 0.4, ml: 0.7 }}
-                          />
-                        </span>
-                      </Button>
+
+                    <Box className="childCardParentTopRight buttonShowChild">
+                      {userRole == "assmat" ? (
+                        <Button onClick={handleOpen3} component="a">
+                          <span>
+                            Ajouter un parent
+                            <EscalatorWarningIcon
+                              sx={{ width: 20, height: 20, mt: 0.4, ml: 0.7 }}
+                            />
+                          </span>
+                        </Button>
+                      ) : (
+                        <Box></Box>
+                      )}
                       <Modal
                         aria-labelledby="transition-modal-title"
                         aria-describedby="transition-modal-description"
@@ -240,34 +251,46 @@ const ShowChild = () => {
                       </Modal>
                     </Box>
                   </Box>
-                  {parents.map((parent) => (
-                    <Box className="userCardMiddle" sx={{ mb: 3 }}>
-                      <p>
-                        Prénom et nom: {parent.firstname} {parent.lastname}
-                      </p>
-                      <p>Email: {parent.email}</p>
-                      <p>
-                        Adresse: {parent.address}, {parent.postalCode}{" "}
-                        {parent.city}
-                      </p>
-                      <p>Téléphone: {parent.phone}</p>
 
-                      <p>role: {parent.role}</p>
-                    </Box>
-                  ))}
+                  <Grid item xs={12}>
+                    <Grid className="parentBox">
+                      {parents.map((parent) => (
+                        <Grid className="parentData" item xs={6}>
+                          <p>
+                            {parent.firstname} {parent.lastname}
+                          </p>
+                          <p>{parent.email}</p>
+                          <p>
+                            {parent.address}, {parent.postalCode} {parent.city}
+                          </p>
+                          <p>{parent.phone}</p>
+                          {/* <p>role: {parent.role}</p> */}
+                        </Grid>
+                      ))}
+                    </Grid>
+                  </Grid>
                 </Container>
               </Grid>
 
-              <Grid item xs={6}>
-                <Box className="daySummaryCard">
-                  <Box className="boxAction">
-                    <div className="divButtonModal">
+              {/* ------------------------- DAY SUMMARY ------------------------- */}
+              <Grid item xs={12} className="boxDaySummary">
+                <Container className="containerCardDaySummary">
+                  <Box className="childCardDaySummaryTop">
+                    <Box className="childCardDaySummaryTopLeft">
+                      <h2>Derniers messages:</h2>
+                    </Box>
+
+                    <Box className="childCardDaySummaryTopRight buttonShowChild">
                       {userRole == "assmat" ? (
-                        <Box className="actionDaySummaryShowChild">
-                          <Button className="buttonModal" onClick={handleOpen}>
+                        <Box>
+                          <Button
+                            className="buttonModal"
+                            onClick={handleOpen}
+                            component="a"
+                          >
                             <span>
                               Ajouter un message
-                              <MessageIcon
+                              <CreateIcon
                                 sx={{
                                   width: 16,
                                   height: 16,
@@ -285,10 +308,10 @@ const ShowChild = () => {
                           >
                             <span>
                               Voir tout les messages
-                              <MessageIcon
+                              <VisibilityIcon
                                 sx={{
-                                  width: 16,
-                                  height: 16,
+                                  width: 18,
+                                  height: 18,
                                   mt: 0.4,
                                   ml: 0.7,
                                 }}
@@ -305,8 +328,13 @@ const ShowChild = () => {
                         >
                           <span>
                             Voir tout les messages
-                            <MessageIcon
-                              sx={{ width: 16, height: 16, mt: 0.4, ml: 0.7 }}
+                            <VisibilityIcon
+                              sx={{
+                                width: 16,
+                                height: 16,
+                                mt: 0.4,
+                                ml: 0.7,
+                              }}
                             />
                           </span>
                         </Button>
@@ -328,59 +356,155 @@ const ShowChild = () => {
                           </Box>
                         </Fade>
                       </Modal>
-                    </div>
-                  </Box>
-                  <Box className="daySummaryShow" sx={{ mb: 2 }}>
-                    <p>Message: {contentDaySummary}</p>
-
-                    <p>Reçu le: {DSCreated_at}</p>
+                    </Box>
                   </Box>
 
-                  <Box className="userCardMiddle" sx={{ mb: 3 }}>
-                    <div className="divButtonModal">
-                      <Button
-                        className="buttonModal"
-                        idChildPicture={idChild}
-                        component="a"
-                        href={`/indexPicturesChild/${idChild}`}
-                      >
-                        <span>
-                          Voir toutes les photos
-                          <MessageIcon
-                            sx={{ width: 16, height: 16, mt: 0.4, ml: 0.7 }}
-                          />
-                        </span>
-                      </Button>
-                      <Button className="buttonModal" onClick={handleOpen2}>
-                        <span>
-                          Ajouter une photo
-                          <MessageIcon
-                            sx={{ width: 16, height: 16, mt: 0.4, ml: 0.7 }}
-                          />
-                        </span>
-                      </Button>
-                      <Modal
-                        aria-labelledby="transition-modal-title"
-                        aria-describedby="transition-modal-description"
-                        open={open2}
-                        onClose={handleClose2}
-                        closeAfterTransition
-                        BackdropComponent={Backdrop}
-                        BackdropProps={{
-                          timeout: 500,
-                        }}
-                      >
-                        <Fade in={open2}>
-                          <Box sx={style}>
-                            <PictureForm idChild={idChild} />
-                          </Box>
-                        </Fade>
-                      </Modal>
-                    </div>
+                  <Grid item xs={12}>
+                    <Grid className="parentBox">
+                      {lastDaySummaries.map((lastDaySummary) => (
+                        <Grid className="daySummaryData" item xs={6}>
+                          <p>{lastDaySummary.contentDaySummary}</p>
+                          <p>{lastDaySummary.DSCreated_at}</p>
+                        </Grid>
+                      ))}
+                    </Grid>
+                  </Grid>
 
-                    <div className="divButtonModal"></div>
-                  </Box>
-                </Box>
+                  {/* <Box className="daySummaryCard">
+                  
+                          {userRole == "assmat" ? (
+                            <Box className="actionDaySummaryShowChild">
+                              <Button
+                                className="buttonModal"
+                                onClick={handleOpen}
+                              >
+                                <span>
+                                  Ajouter un message
+                                  <MessageIcon
+                                    sx={{
+                                      width: 16,
+                                      height: 16,
+                                      mt: 0.4,
+                                      ml: 0.7,
+                                    }}
+                                  />
+                                </span>
+                              </Button>
+
+                              <Button
+                                className="buttonModal"
+                                idChildSummary={idChild}
+                                component="a"
+                                href={`/indexDaySummariesChild/${idChild}`}
+                              >
+                                <span>
+                                  Voir tout les messages
+                                  <MessageIcon
+                                    sx={{
+                                      width: 16,
+                                      height: 16,
+                                      mt: 0.4,
+                                      ml: 0.7,
+                                    }}
+                                  />
+                                </span>
+                              </Button>
+
+                            </Box>
+                          ) : (
+                            <Button
+                              className="buttonModal"
+                              idChildSummary={idChild}
+                              component="a"
+                              href={`/indexDaySummariesChild/${idChild}`}
+                            >
+                              <span>
+                                Voir tout les messages
+                                <MessageIcon
+                                  sx={{
+                                    width: 16,
+                                    height: 16,
+                                    mt: 0.4,
+                                    ml: 0.7,
+                                  }}
+                                />
+                              </span>
+                            </Button>
+                          )}
+                          <Modal
+                            aria-labelledby="transition-modal-title"
+                            aria-describedby="transition-modal-description"
+                            open={open}
+                            onClose={handleClose}
+                            closeAfterTransition
+                            BackdropComponent={Backdrop}
+                            BackdropProps={{
+                              timeout: 500,
+                            }}
+                          >
+                            <Fade in={open}>
+                              <Box sx={style}>
+                                <SummaryForm idChild={idChild} />
+                              </Box>
+                            </Fade>
+                          </Modal>
+                        </div>
+                      </Box>
+
+                      {lastDaySummaries.map((lastDaySummary) => (
+                        <Box className="daySummaryShow" sx={{ mb: 2 }}>
+                          <p>Message: {lastDaySummary.contentDaySummary}</p>
+
+                          <p>Reçu le: {lastDaySummary.DSCreated_at}</p>
+                        </Box>
+                      ))}
+                      <Box className="userCardMiddle" sx={{ mb: 3 }}>
+                        <div className="divButtonModal">
+                          <Button
+                            className="buttonModal"
+                            idChildPicture={idChild}
+                            component="a"
+                            href={`/indexPicturesChild/${idChild}`}
+                          >
+                            <span>
+                              Voir toutes les photos
+                              <MessageIcon
+                                sx={{ width: 16, height: 16, mt: 0.4, ml: 0.7 }}
+                              />
+                            </span>
+                          </Button>
+                          <Button className="buttonModal" onClick={handleOpen2}>
+                            <span>
+                              Ajouter une photo
+                              <MessageIcon
+                                sx={{ width: 16, height: 16, mt: 0.4, ml: 0.7 }}
+                              />
+                            </span>
+                          </Button>
+                          <Modal
+                            aria-labelledby="transition-modal-title"
+                            aria-describedby="transition-modal-description"
+                            open={open2}
+                            onClose={handleClose2}
+                            closeAfterTransition
+                            BackdropComponent={Backdrop}
+                            BackdropProps={{
+                              timeout: 500,
+                            }}
+                          >
+                            <Fade in={open2}>
+                              <Box sx={style}>
+                                <PictureForm idChild={idChild} />
+                              </Box>
+                            </Fade>
+                          </Modal>
+                        </div>
+
+                        <div className="divButtonModal"></div>
+                      </Box>
+                    </Box> */}
+                  {/* </Box> */}
+                </Container>
               </Grid>
             </Grid>
           </Box>
@@ -388,6 +512,7 @@ const ShowChild = () => {
 
         <Fox />
         <Prince />
+        <BackToTop />
       </Box>
     </div>
   );

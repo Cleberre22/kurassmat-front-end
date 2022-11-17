@@ -1,5 +1,11 @@
+@font-face {
+    font-family: "font-1";
+    src: url(../../assets/fonts/Skranji-Regular.ttf);
+  }
+
 .boxProfilChild {
     background-color: #fff;
+    margin-bottom: 40px;
 
     .childCardTop {
         // background-color: red;
@@ -8,81 +14,316 @@
         justify-content: center;
         align-items: center;
         border-bottom: 1px solid $color-2;
-        @media only screen and (max-width: 550px) {
+
+        @media only screen and (max-width: 900px) {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-         
-    .childCardTopRight {
-        // background-color: blueviolet;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        p {
-            padding: 3px;
+
+            .childCardTopRight {
+                // background-color: blueviolet;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin: 0;
+                margin-bottom: 20px;
+                padding: 10px;
+                border-radius: 10px;
+                background: rgba($color: #000000, $alpha: 0.1);
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 40px -30px;
+                min-width:70%;
+                p {
+                    padding: 3px;
+                }
+            }
         }
-    }
-          }
     }
 
     .avatarShowChild {
         border: $color-4 2px solid;
         margin-right: 5%;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 40px -30px;
+        @media only screen and (max-width: 900px) {
+            margin: 0;
+            margin-bottom: 30px;
+        }
     }
 
     .childCardTopRight {
         // background-color: blueviolet;
         margin-left: 5%;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        background: rgba($color: #000000, $alpha: 0.1);
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 40px -30px;
+
         p {
             padding: 3px;
         }
     }
 
-    .containerCardParent {
-        // background-color: darkgray;
-        width: 95%;
-        .childCardParentTop {
-            background-color: chocolate;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            @media only screen and (max-width: 550px) {
+    // ---------------------------------- PARENTS ----------------------------------
+    .boxParent {
+        margin-top: 3%;
+        padding: 3%;
+        border-bottom: 1px solid $color-2;
+
+        .containerCardParent {
+            // background-color: darkgray;
+            width: 95%;
+
+            .childCardParentTop {
+                // background-color: chocolate;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                flex-direction: column;
+                margin-bottom: 20px;
+
+                @media only screen and (max-width: 550px) {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+
+                    .childCardParentTopLeft {
+                        // background-color: cornflowerblue;
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+
+                    }
+
+                    .childCardParentTopRight {
+                        // background-color: #595959;
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-start;
+                    }
+                }
+
                 .childCardParentTopLeft {
                     // background-color: cornflowerblue;
                     width: 100%;
                     display: flex;
-                    justify-content: center;
+                    justify-content: flex-start;
+
+                    h2 {
+                        font-family: "font-1";
+                        font-weight: 500;
+                        color: $color-2;
+                    }
                 }
+
                 .childCardParentTopRight {
                     // background-color: #595959;
                     width: 100%;
                     display: flex;
-                    justify-content: center;
-                    align-items: flex-start;
+                    justify-content: flex-end;
+                    @media only screen and (max-width: 550px) {
+                        display: flex;
+                    justify-content: flex-start;
+                    }
                 }
-              }
-            .childCardParentTopLeft {
-                // background-color: cornflowerblue;
+            }
+
+            .parentBox {
+                // background-color: brown;
+                // width: 100%;
+                display: flex;
+                
+                @media only screen and (max-width: 900px) {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+
+                .parentData {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    text-align: center;
+                    margin: 10px;
+                    margin-bottom: 20px;
+                    padding: 20px;
+                    border-radius: 10px;
+                    background: rgba($color: #000000, $alpha: 0.1);
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 40px -30px;
+
+                    @media only screen and (max-width: 900px) {
+                        min-width: 80%;
+                    }
+
+                    @media only screen and (max-width: 400px) {
+                        min-width: 100%;
+                    }
+
+                    p {
+                        padding: 3px;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    // ---------------------------------- DAY SUMMARY ----------------------------------
+    .boxDaySummary {
+        // background-color: aqua;
+        margin-top: 3%;
+        padding: 3%;
+        border-bottom: 1px solid $color-2;
+
+        .containerCardDaySummary {
+            // background-color: darkgray;
+            width: 95%;
+
+            .childCardDaySummaryTop {
+                // background-color: chocolate;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 20px;
+
+                @media only screen and (max-width: 1200px) {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+
+                    .childCardDaySummaryTopLeft {
+                        // background-color: cornflowerblue;
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                    }
+
+                    .childCardDaySummaryTopRight {
+                        // background-color: #595959;
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-start;
+                        flex-direction: column;
+                    }
+                }
+
+                .childCardDaySummaryTopLeft {
+                    // background-color: cornflowerblue;
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-start;
+
+                    h2 {
+                        font-family: "font-1";
+                        font-weight: 500;
+                        color: $color-2;
+                    }
+                }
+
+                .childCardDaySummaryTopRight {
+                    // background-color: #595959;
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    .buttonModal {
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            .parentBox {
+                // background-color: brown;
                 width: 100%;
                 display: flex;
-                justify-content: flex-start;
+
+                @media only screen and (max-width: 900px) {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+
+                .daySummaryData {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    text-align:center;
+                    margin: 10px;
+                    padding: 10px;
+                    border-radius: 10px;
+                    background: rgba($color: #000000, $alpha: 0.1);
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 40px -30px;
+                    width: 100%;
+
+                    p {
+                        padding: 3px;
+                    }
+                    @media only screen and (max-width: 900px) {
+                       min-width: 80%;
+                       margin-bottom: 30px;
+                    }
+                    @media only screen and (max-width: 400px) {
+                        min-width: 100%;
+                        margin-bottom: 30px;
+                     }
+
+                }
             }
-            .childCardParentTopRight {
-                // background-color: #595959;
-                width: 100%;
-                display: flex;
-                justify-content: flex-end;
-            }
+
+        }
+
+    }
+
+
+    /*---------------------------------------- LINK ----------------------*/
+    .buttonShowChild {
+        a {
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+        }
+
+        a::before,
+        a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            left: 0;
+        }
+
+        a::before {
+            background-color: #598381;
+            height: 2px;
+            bottom: 0;
+            transform-origin: 100% 50%;
+            transform: scaleX(0);
+            transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        a:hover::before {
+            transform-origin: 0% 50%;
+            transform: scaleX(1);
+        }
+
+        a span {
+            display: inline-block;
+            transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        a {
+            text-decoration: none;
+            color: #F09819;
+            font-weight: 700;
+            vertical-align: top;
         }
     }
 
-   
 }
 
 

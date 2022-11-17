@@ -21,6 +21,7 @@ const ChildrenAuth = () => {
   const { idUserAuth } = useParams();
   const [children, setChildren] = useState([]);
   const [user, setUser] = useState([]);
+  const [role, setRole] = useState("");
   const [users_id, setUsers_id] = useState("");
   const [child_id, setChild_id] = useState("");
 
@@ -59,15 +60,19 @@ const ChildrenAuth = () => {
   };
   // console.log(role);
 
+  const userRole = user.role;
+  // console.log(userRole);
+
   return (
     <div className="indexChild">
       <MenuAppBar />
       <Box className="main">
         <CssBaseline />
-        <Container className="containerProfil" sx={{ mt: 25 }}>
+        <Container className="containerProfil" sx={{ mt: 10 }}>
           <h1 id="back-to-top-anchor" className="titleProfil">
             Liste des enfants {user.firstname} {user.lastname}
           </h1>
+          {userRole == 'assmat' ? (
           <Box className="boxActionIndexChild">
             <a
               className="linkEditProfil"
@@ -86,6 +91,9 @@ const ChildrenAuth = () => {
               </span>
             </a>
           </Box>
+          ) : ( 
+            <Box></Box>
+            )} 
 
           <Box className="boxProfil">
             {children.map((child) => (
@@ -103,11 +111,12 @@ const ChildrenAuth = () => {
                         </Box>
                         <Box className="boxInfoIndexChild">
                           <Box className="boxNameIndexChild">
-                            <p>Nom et prénom: {child.lastnameChild} </p>
-                            <p> {child.firstnameChild}</p>
+                            <p> {child.firstnameChild} </p>
+                            <p> {child.lastnameChild}</p>
+                            <p>né(e) le: {child.birthDate}</p>
                           </Box>
 
-                          <p>Date de naissance: {child.birthDate}</p>
+                          
                         </Box>
                       </Box>
                     </Grid>
