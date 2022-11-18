@@ -25,7 +25,7 @@ const ChildrenAuth = () => {
   const [users_id, setUsers_id] = useState("");
   const [child_id, setChild_id] = useState("");
 
-//  console.log(idUserAuth);
+  //  console.log(idUserAuth);
 
   useEffect(() => {
     displayChildren();
@@ -33,10 +33,12 @@ const ChildrenAuth = () => {
   }, []); // Sans les crochets ça tourne en boucle
 
   const displayChildren = async () => {
-    await axios.get(`http://localhost:8000/api/childIndexAuth/${idUserAuth}`).then((res) => {
-      setChildren(res.data.data);
-    //   console.log(res.data);
-    });
+    await axios
+      .get(`http://localhost:8000/api/childIndexAuth/${idUserAuth}`)
+      .then((res) => {
+        setChildren(res.data.data);
+        //   console.log(res.data);
+      });
   };
   // console.log(articles);
 
@@ -69,37 +71,37 @@ const ChildrenAuth = () => {
       <Box className="main">
         <CssBaseline />
         <Container className="containerProfil" sx={{ mt: 10 }}>
-          <h1 id="back-to-top-anchor" className="titleProfil">
+          <h1 id="back-to-top-anchor" className="titleIndexChild">
             Liste des enfants {user.firstname} {user.lastname}
           </h1>
-          {userRole == 'assmat' ? (
-          <Box className="boxActionIndexChild">
-            <a
-              className="linkEditProfil"
-              href="/children/add"
-              id="style-2"
-              data-replace="Ajouter un enfant"
-            >
-              <span>
-                <p>
-                  Ajouter un enfant{" "}
-                  <AddCircleIcon
-                    className="iconAddIndexChild"
-                    sx={{ width: 20, height: 20, mt: 0.63, ml: 0.4 }}
-                  />
-                </p>
-              </span>
-            </a>
-          </Box>
-          ) : ( 
+          {userRole == "assmat" ? (
+            <Box className="boxActionIndexChild">
+              <a
+                className="linkEditProfil"
+                href="/children/add"
+                id="style-2"
+                data-replace="Ajouter un enfant"
+              >
+                <span>
+                  <p>
+                    Ajouter un enfant{" "}
+                    <AddCircleIcon
+                      className="iconAddIndexChild"
+                      sx={{ width: 20, height: 20, mt: 0.63, ml: 0.4 }}
+                    />
+                  </p>
+                </span>
+              </a>
+            </Box>
+          ) : (
             <Box></Box>
-            )} 
+          )}
 
           <Box className="boxProfil">
             {children.map((child) => (
-              <Box className="userCard">
+              
                 <Box className="boxIndexChild">
-                  <Grid container spacing={2}>
+                  <Grid container >
                     <Grid item xs={12} sm={10}>
                       <Box className="cardIndexChild">
                         <Box className="avatarIndexChild">
@@ -111,12 +113,9 @@ const ChildrenAuth = () => {
                         </Box>
                         <Box className="boxInfoIndexChild">
                           <Box className="boxNameIndexChild">
-                            <p> {child.firstnameChild} </p>
-                            <p> {child.lastnameChild}</p>
+                            <p> {child.firstnameChild} {child.lastnameChild} </p>
                             <p>né(e) le: {child.birthDate}</p>
                           </Box>
-
-                          
                         </Box>
                       </Box>
                     </Grid>
@@ -127,7 +126,7 @@ const ChildrenAuth = () => {
                           className="buttonGroupIndexChild"
                           orientation="vertical"
                           variant="text"
-                          sx={{ m: 2 }}
+                          // sx={{ m: 2 }}
                         >
                           <Button
                             className="actionButtonIndexChild"
@@ -160,7 +159,6 @@ const ChildrenAuth = () => {
                     </Grid>
                   </Grid>
                 </Box>
-              </Box>
             ))}
           </Box>
           {/* ) : ( */}

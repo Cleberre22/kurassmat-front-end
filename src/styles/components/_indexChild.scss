@@ -1,24 +1,32 @@
 .indexChild {
 
-.avatar {
-    box-shadow: rgba(50, 50, 93, 0.45) 0px 50px 100px -20px, rgba(0, 0, 0, 0.33) 0px 30px 40px -30px;
-}
+    .titleIndexChild {
+        // background-color: #F09819;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 20px;
+        font-family: "font-5";
+        color: $color-2;
+        font-size: 44px;
+        padding-top: 10%;
+        @media only screen and (max-width: 650px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           text-align: center;
+        }
+    }
 
     .boxActionIndexChild {
+        // background-color: aqua;
         display: flex;
-        justify-content: flex-start;
+        justify-content: flex-end;
+        align-items: center;
         height: 100%;
         margin-bottom: 15px;
         margin-left: 35px;
         margin-right: 35px;
 
-        .iconAddIndexChild {
-            color: #598381;
-        }
-    }
-
-    /*---------------------------------------- LINK ----------------------*/
-    .boxActionIndexChild {
         a {
             overflow: hidden;
             position: relative;
@@ -58,30 +66,53 @@
             font-weight: 700;
             vertical-align: top;
         }
+
+        .iconAddIndexChild {
+            color: #598381;
+        }
     }
 
     .boxProfil {
-        border: 1px solid #598381;
-        border-radius: 10px;
-        padding: 5%;
-        display: flex;
-        justify-content: space-around;
-        flex-direction: column;
+        // background-color: cyan;
+
+        @media only screen and (max-width: 900px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
 
         .boxIndexChild {
             text-align: end;
             width: 100%;
             display: flex;
             justify-content: center;
+            // background-color: red;
+            border-bottom: 1px solid $color-2;
+            padding: 20px;
 
-            // background-color: rgba(220, 20, 60, 0.356);
+            @media only screen and (max-width: 900px) {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 6%;
+            }
+
             .cardIndexChild {
                 height: 100%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
                 // background-color: cornflowerblue;
+
+                @media only screen and (max-width: 900px) {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+
                 .avatarIndexChild {
                     width: 50%;
                     padding-right: 30px;
@@ -90,7 +121,13 @@
                     justify-content: center;
                     align-items: center;
 
+                    @media only screen and (max-width: 900px) {
+                        padding: 0;
+                        margin-bottom: 10px;
+                    }
+
                     .avatar {
+                        box-shadow: rgba(50, 50, 93, 0.45) 0px 50px 100px -20px, rgba(0, 0, 0, 0.33) 0px 30px 40px -30px;
                         border: $color-4 2px solid;
                     }
                 }
@@ -103,7 +140,12 @@
                     align-items: flex-start;
                     width: 50%;
 
+                    @media only screen and (max-width: 900px) {
+                        width: 100%;
+                    }
+
                     .boxNameIndexChild {
+                        // background-color: lightgreen;
                         display: flex;
                         justify-content: center;
 
@@ -111,15 +153,43 @@
                             margin-right: 5px;
                             margin-bottom: 10px;
                         }
+
+                        @media only screen and (max-width: 900px) {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            flex-direction: column;
+                            width: 100%;
+                            padding-top: 10px;
+                        }
+
                     }
                 }
             }
 
             .buttonGroupIndexChild {
+                // background-color: darkorchid;
+                width: min-content;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+
+                @media only screen and (max-width: 600px) {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: row;
+                    align-items: center;
+                    width: 100%;
+                }
+
                 .actionButtonIndexChild {
+                    overflow: hidden;
+                    position: relative;
+                    display: inline-block;
                     display: flex;
                     width: min-content;
-
                     margin: 8px;
                     color: $color-4;
                 }
@@ -129,18 +199,6 @@
 
     /*---------------------------------------- LINK ----------------------*/
     .buttonGroupIndexChild {
-
-        width: min-content;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-
-        .actionButtonIndexChild {
-            overflow: hidden;
-            position: relative;
-            display: inline-block;
-        }
 
         .actionButtonIndexChild::before,
         .actionButtonIndexChild::after {
