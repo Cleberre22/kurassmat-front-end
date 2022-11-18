@@ -20,19 +20,10 @@ import BackToTop from "../../components/BackToTop";
 const DaySummariesChild = () => {
   const { idChildSummary } = useParams();
   const [daySummaries, setDaySummaries] = useState([]);
-  // const [user, setUser] = useState([]);
-  const [idChild, setIdChild] = useState("");
   const [firstnameChild, setFirstnameChild] = useState("");
   const [lastnameChild, setLastnameChild] = useState("");
-  const [birthDate, setBirthDate] = useState("");
-  const [imageChild, setImageChild] = useState("");
-  const [users_id, setUsers_id] = useState([]);
-  const [contentDaySummary, setContentDaySummary] = useState([]);
-  const [DSCreated_at, setDSCreated_at] = useState([]);
-  const [idUser, setIdUser] = useState("");
-  const [role, setRoleAuth] = useState("");
- 
 
+  const [imageChild, setImageChild] = useState("");
 
   useEffect(() => {
     displayDaySummaries();
@@ -56,26 +47,22 @@ const DaySummariesChild = () => {
       .then(displayDaySummaries);
   };
 
-
   // GET - Récupère les valeurs de la fiche avec l'API
   const getChild = async () => {
     await axios
       .get(`http://localhost:8000/api/childs/${idChildSummary}`)
       .then((res) => {
         console.log(res.data);
-        setIdChild(res.data.data[0].idChild);
         setFirstnameChild(res.data.data[0].firstnameChild);
         setLastnameChild(res.data.data[0].lastnameChild);
-        setBirthDate(res.data.data[0].birthDate);
+
         setImageChild(res.data.data[0].imageChild);
-        setContentDaySummary(res.data.data[0].contentDaySummary);
-        setDSCreated_at(res.data.data[0].DSCreated_at);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  
+
   const [user, setUserAuth] = useState("");
 
   // GET - Récupère les valeurs de la fiche avec l'API
@@ -90,56 +77,49 @@ const DaySummariesChild = () => {
         setUserAuth(res.data);
       });
   };
-  
 
   const userRole = user.role;
   // console.log(userRole);
- 
 
   return (
-    <div className="indexChild">
+    <div className="indexDaySummary">
       <MenuAppBar />
       <Box className="main">
         <CssBaseline />
         <Container className="containerProfil" sx={{ mt: 25 }}>
-          <h1 id="back-to-top-anchor" className="titleProfil">
-            Liste des récapitulatifs de {firstnameChild}
+          <h1 id="back-to-top-anchor" className="titleDaySummary">
+            Liste des récapitulatifs
           </h1>
 
           <Box className="boxProfil">
+            <Box className="indexDaySummaryTop">
+              <Avatar
+                className="avatar"
+                sx={{ width: 120, height: 120 }}
+                src={`http://localhost:8000/thumbnail/${imageChild}`}
+              />
+              <p>
+                {firstnameChild} {lastnameChild}
+              </p>
+            </Box>
             {daySummaries.map((daySummary) => (
-              <Box className="userCard">
-                <Box className="boxIndexChild">
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={10}>
-                      <Box className="cardIndexChild">
-                        <Box className="avatarIndexChild">
-                          <Avatar
-                            className="avatar"
-                            sx={{ width: 100, height: 100 }}
-                            src={`http://localhost:8000/storage/uploads/${daySummary.imageChild}`}
-                          />
-                        </Box>
-                        <Box className="boxInfoIndexChild">
-                          <Box className="boxNameIndexChild"></Box>
-                          <p>Prénom de l'enfant: {daySummary.firstnameChild}</p>
-                          <p>Nom de l'enfant: {daySummary.lastnameChild}</p>
-                          <p>
-                            Contenu de la note: {daySummary.contentDaySummary}
-                          </p>
-                          <p>Date de création: {daySummary.created_at}</p>
-                        </Box>
-                      </Box>
-                    </Grid>
-                    <Grid item xs={12} sm={2}>
-                      <Box>
-                        <Box
-                          className="buttonGroupIndexChild"
-                          orientation="vertical"
-                          variant="text"
-                          sx={{ m: 2 }}
-                        >
-                          {/* <Button
+              <Box className="indexDaySummaryCard">
+                <Grid container spacing={2}>
+                  <Grid item xs={12} sm={10}>
+                    <Box className="cardIndexChild">
+                      <p>Contenu de la note: {daySummary.contentDaySummary}</p>
+                      <p>Date de création: {daySummary.created_at}</p>
+                    </Box>
+                  </Grid>
+                  <Grid item xs={12} sm={2}>
+                    <Box>
+                      <Box
+                        className="buttonGroupIndexChild"
+                        orientation="vertical"
+                        variant="text"
+                        sx={{ m: 2 }}
+                      >
+                        {/* <Button
                             className="actionButtonIndexChild"
                             // href={`/children/show/${child.id}`}
                             key="one"
@@ -147,54 +127,32 @@ const DaySummariesChild = () => {
                             <VisibilityIcon />
                           </Button> */}
 
-
-
-                          {userRole == 'assmat' ? (
-
-                            <Button
-                              className="actionButtonIndexChild"
-                              key="two"
-                              // href={`/children/edit/${child.id}`}
-                            >ASSMAT
-                              <ModeEditIcon />
-                            </Button>
-                            
-                           ) : ( 
-
-                            <Button
-                              className="actionButtonIndexChild"
-                              key="three"
-                              href="#"
-                              onClick={() => {
-                                deleteDaySummary(daySummary.id);
-                              }}
-                            >EMPLOYER
-                              <DeleteIcon />
-                            </Button>
-
-                         )} 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        </Box>
+                        {userRole == "assmat" ? (
+                          <Button
+                            className="actionButtonIndexChild"
+                            key="two"
+                            // href={`/children/edit/${child.id}`}
+                          >
+                            ASSMAT
+                            <ModeEditIcon />
+                          </Button>
+                        ) : (
+                          <Button
+                            className="actionButtonIndexChild"
+                            key="three"
+                            href="#"
+                            onClick={() => {
+                              deleteDaySummary(daySummary.id);
+                            }}
+                          >
+                            EMPLOYER
+                            <DeleteIcon />
+                          </Button>
+                        )}
                       </Box>
-                    </Grid>
+                    </Box>
                   </Grid>
-                </Box>
+                </Grid>
               </Box>
             ))}
           </Box>

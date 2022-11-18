@@ -1,0 +1,42 @@
+.indexDaySummary {
+    
+    .titleDaySummary {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 30px;
+        margin-bottom: 20px;
+        font-family: "font-1";
+        color: $color-2;
+        font-size: 44px;
+        font-weight: 100;
+        padding-top: 3%;
+
+        @media only screen and (max-width: 800px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    .indexDaySummaryTop {
+        padding-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-bottom: 1px solid $color-2;
+        .avatar {
+            border: 2px solid $color-4;
+        }
+        p {
+            margin-left: 20px;
+        }
+    }
+
+    .indexDaySummaryCard {
+        background-color: aqua;
+        padding: 20px;
+        border-bottom: 1px solid $color-2;
+    }
+}
