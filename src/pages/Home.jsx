@@ -12,22 +12,22 @@ import Button from '@mui/material/Button';
 const Home = () => {
   const [user, setUser] = useState([]);
 
-  useEffect(() => {
-    displayUsers();
-  }, []); // Sans les crochets ça tourne en boucle
+  // useEffect(() => {
+  //   displayUsers();
+  // }, []); // Sans les crochets ça tourne en boucle
 
-  const displayUsers = async () => {
-    await axios
-      .get("http://localhost:8000/api/current-user", {
-        headers: {
-          Authorization: "Bearer" + localStorage.getItem("access_token"),
-        },
-      })
-      .then((res) => {
-        setUser(res.data);
-        // console.log(res.data);
-      });
-  };
+  // const displayUsers = async () => {
+  //   await axios
+  //     .get("http://localhost:8000/api/current-user", {
+  //       headers: {
+  //         Authorization: "Bearer" + localStorage.getItem("access_token"),
+  //       },
+  //     })
+  //     .then((res) => {
+  //       setUser(res.data);
+  //       // console.log(res.data);
+  //     });
+  // };
 
   return (
     <div>

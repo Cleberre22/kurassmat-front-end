@@ -1,47 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useForm, Controller } from "react-hook-form";
 import axios from "axios";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
-import TextField from "@mui/material/TextField";
-import PhotoCamera from "@mui/icons-material/PhotoCamera";
-import MessageIcon from "@mui/icons-material/Message";
 import Button from "@mui/material/Button";
 import Backdrop from "@mui/material/Backdrop";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import Typography from "@mui/material/Typography";
-
 import { styled } from "@mui/material/styles";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
-
 import IconButton from "@mui/material/IconButton";
 import EscalatorWarningIcon from "@mui/icons-material/EscalatorWarning";
 import CreateIcon from "@mui/icons-material/Create";
-import VisibilityIcon from '@mui/icons-material/Visibility';
-
-import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import MenuAppBar from "../../components/auth/MenuAppBar";
 import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
-import UpdateImage from "../../components/UpdateImage";
-import CardProfile from "../../components/CardProfile";
 import SummaryForm from "../../components/SummaryForm";
-import PictureForm from "../../components/PictureForm";
 import EmployerForm from "../../components/EmployerForm";
 import BackToTop from "../../components/BackToTop";
 
@@ -50,24 +27,13 @@ const ShowChild = () => {
 
   const navigate = useNavigate();
 
-  // const [idChildSummary, setIdChildSummary] = useState([]);
   const [idChild, setIdChild] = useState("");
   const [firstnameChild, setFirstnameChild] = useState("");
   const [lastnameChild, setLastnameChild] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [imageChild, setImageChild] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [address, setAddress] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [city, setCity] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
   const [user, setUser] = useState([]);
-  const [users_id, setUsers_id] = useState([]);
-  const [contentDaySummary, setContentDaySummary] = useState([]);
-  const [DSCreated_at, setDSCreated_at] = useState([]);
   const [parents, setParents] = useState([]);
   const [lastDaySummaries, setLastDaySummaries] = useState([]);
 
@@ -94,7 +60,7 @@ const ShowChild = () => {
         console.log(error);
       });
   };
-  console.log(child);
+  // console.log(child);
 
   // GET - Récupère les valeurs de la fiche avec l'API
   const getLastDaySummary = async () => {
@@ -122,7 +88,7 @@ const ShowChild = () => {
         console.log(error);
       });
   };
-  // console.log(setFirstname);
+  // console.log(setParents);
 
   const displayUsers = async () => {
     await axios
@@ -369,141 +335,6 @@ const ShowChild = () => {
                       ))}
                     </Grid>
                   </Grid>
-
-                  {/* <Box className="daySummaryCard">
-                  
-                          {userRole == "assmat" ? (
-                            <Box className="actionDaySummaryShowChild">
-                              <Button
-                                className="buttonModal"
-                                onClick={handleOpen}
-                              >
-                                <span>
-                                  Ajouter un message
-                                  <MessageIcon
-                                    sx={{
-                                      width: 16,
-                                      height: 16,
-                                      mt: 0.4,
-                                      ml: 0.7,
-                                    }}
-                                  />
-                                </span>
-                              </Button>
-
-                              <Button
-                                className="buttonModal"
-                                idChildSummary={idChild}
-                                component="a"
-                                href={`/indexDaySummariesChild/${idChild}`}
-                              >
-                                <span>
-                                  Voir tout les messages
-                                  <MessageIcon
-                                    sx={{
-                                      width: 16,
-                                      height: 16,
-                                      mt: 0.4,
-                                      ml: 0.7,
-                                    }}
-                                  />
-                                </span>
-                              </Button>
-
-                            </Box>
-                          ) : (
-                            <Button
-                              className="buttonModal"
-                              idChildSummary={idChild}
-                              component="a"
-                              href={`/indexDaySummariesChild/${idChild}`}
-                            >
-                              <span>
-                                Voir tout les messages
-                                <MessageIcon
-                                  sx={{
-                                    width: 16,
-                                    height: 16,
-                                    mt: 0.4,
-                                    ml: 0.7,
-                                  }}
-                                />
-                              </span>
-                            </Button>
-                          )}
-                          <Modal
-                            aria-labelledby="transition-modal-title"
-                            aria-describedby="transition-modal-description"
-                            open={open}
-                            onClose={handleClose}
-                            closeAfterTransition
-                            BackdropComponent={Backdrop}
-                            BackdropProps={{
-                              timeout: 500,
-                            }}
-                          >
-                            <Fade in={open}>
-                              <Box sx={style}>
-                                <SummaryForm idChild={idChild} />
-                              </Box>
-                            </Fade>
-                          </Modal>
-                        </div>
-                      </Box>
-
-                      {lastDaySummaries.map((lastDaySummary) => (
-                        <Box className="daySummaryShow" sx={{ mb: 2 }}>
-                          <p>Message: {lastDaySummary.contentDaySummary}</p>
-
-                          <p>Reçu le: {lastDaySummary.DSCreated_at}</p>
-                        </Box>
-                      ))}
-                      <Box className="userCardMiddle" sx={{ mb: 3 }}>
-                        <div className="divButtonModal">
-                          <Button
-                            className="buttonModal"
-                            idChildPicture={idChild}
-                            component="a"
-                            href={`/indexPicturesChild/${idChild}`}
-                          >
-                            <span>
-                              Voir toutes les photos
-                              <MessageIcon
-                                sx={{ width: 16, height: 16, mt: 0.4, ml: 0.7 }}
-                              />
-                            </span>
-                          </Button>
-                          <Button className="buttonModal" onClick={handleOpen2}>
-                            <span>
-                              Ajouter une photo
-                              <MessageIcon
-                                sx={{ width: 16, height: 16, mt: 0.4, ml: 0.7 }}
-                              />
-                            </span>
-                          </Button>
-                          <Modal
-                            aria-labelledby="transition-modal-title"
-                            aria-describedby="transition-modal-description"
-                            open={open2}
-                            onClose={handleClose2}
-                            closeAfterTransition
-                            BackdropComponent={Backdrop}
-                            BackdropProps={{
-                              timeout: 500,
-                            }}
-                          >
-                            <Fade in={open2}>
-                              <Box sx={style}>
-                                <PictureForm idChild={idChild} />
-                              </Box>
-                            </Fade>
-                          </Modal>
-                        </div>
-
-                        <div className="divButtonModal"></div>
-                      </Box>
-                    </Box> */}
-                  {/* </Box> */}
                 </Container>
               </Grid>
             </Grid>

@@ -112,7 +112,7 @@ export default function HideAppBar(props) {
 
   const [user, setUser] = useState([]);
   const [role, setRole] = useState([]);
-  const [idUser, setIdUser] = useState([]);
+  // const [idUser, setIdUser] = useState([]);
 
   const displayUsers = async () => {
     await axios
@@ -123,7 +123,7 @@ export default function HideAppBar(props) {
       })
       .then((res) => {
         setUser(res.data);
-        setIdUser(res.data.idUser[0]);
+        // setIdUser(res.data.idUser);
         setRole(res.data.role);
         // console.log(res.data.role);
       });
@@ -231,7 +231,7 @@ export default function HideAppBar(props) {
                 sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
               >
                 <Button
-                  idUser={idUser}
+                  // idUser={idUser}
                   component="a"
                   href={`/childrenAuth/${user.id}`}
                   onClick={handleCloseNavMenu}
@@ -328,7 +328,7 @@ export default function HideAppBar(props) {
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  Mon compte
+                  Mon profil
                 </Button>
 
                 <Button
@@ -343,9 +343,9 @@ export default function HideAppBar(props) {
                 <Box sx={{ flexGrow: 1 }}></Box>
 
                 <Box className="boxAvatar" sx={{ flexGrow: 0 }}>
-                  <p>
+                  {/* <p>
                     {user.firstname} {user.lastname}
-                  </p>
+                  </p> */}
                   <Tooltip title="Open settings">
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                       {userLogged ? (

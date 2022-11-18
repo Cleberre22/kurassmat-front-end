@@ -23,11 +23,15 @@ import MenuAppBar from "../../components/auth/MenuAppBar";
 import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
 import CardProfile from "../../components/CardProfile";
+import UpdateImage from "../../components/UpdateImageChild";
+import PictureForm from "../../components/PictureForm";
+import UpdateImageChild from "../../components/UpdateImageChild";
 
 const EditChild = () => {
   const { child } = useParams();
   const navigate = useNavigate();
 
+  const [idChild, setIdChild] = useState("");
   const [firstnameChild, setFirstnameChild] = useState("");
   const [lastnameChild, setLastnameChild] = useState("");
   const [birthDate, setBirthDate] = useState(new Date());
@@ -63,7 +67,7 @@ const EditChild = () => {
         // console.log(res.data);
       });
   };
-  console.log(child);
+  // console.log(child);
 
   useEffect(() => {
     displayUsers();
@@ -75,17 +79,18 @@ const EditChild = () => {
     await axios
       .get(`http://localhost:8000/api/childs/${child}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
+        setIdChild(res.data.data[0].idChild);
         setFirstnameChild(res.data.data[0].firstnameChild);
         setLastnameChild(res.data.data[0].lastnameChild);
         setBirthDate(res.data.data[0].birthDate);
-        // setImageChild(res.data.imageChild);
+        setImageChild(res.data.data[0].imageChild);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  console.log(firstnameChild);
+  // console.log(imageChild);
 
   //Fonction de modification d'une fiche enfant
   const EditChild = async (e) => {
@@ -103,10 +108,10 @@ const EditChild = () => {
     formData.append("imageChild", imageChild);
     formData.append("users_id", users_id);
 
-    // Bout de code pour récupérer les données du formulaire
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ", " + pair[1]);
-    }
+    // // Bout de code pour récupérer les données du formulaire
+    // for (var pair of formData.entries()) {
+    //   console.log(pair[0] + ", " + pair[1]);
+    // }
 
     await axios
       .post(`http://localhost:8000/api/childs/${child}`, formData)
@@ -118,21 +123,19 @@ const EditChild = () => {
       });
   };
 
-  // Modal Update Image
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 400,
-    // bgcolor: 'background.paper',
-    // border: '2px solid #598381',
-    // boxShadow: 24,
-    // p: 4,
-  };
+ // Modal Update Image
+ const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+};
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+
 
   return (
     <div className="EditChild">
@@ -193,64 +196,14 @@ const EditChild = () => {
               </Container>
 
               <Box className="addChildCard" sx={{ mb: 4 }}>
-                <p>
-                  Ajouter une page ou une modal pour le form edition photo +
-                  function dans controller api
-                </p>
                 <Avatar
                   sx={{ width: 100, height: 100 }}
-                  src={"http://localhost:8000/thumbnail/imageChild"}
+                  src={`http://localhost:8000/thumbnail/${imageChild}`}
                 />
 
-                <Box className="addChildCard" sx={{ mb: 4 }}>
-                  <Avatar sx={{ width: 100, height: 100 }} src="avatar.png" />
-                  <Button
-                    className="button-87"
-                    variant="contained"
-                    component="label"
-                  >
-                    Ajouter une photo
-                    <input
-                      hidden
-                      accept="image/*"
-                      type="file"
-                      onChange={changeHandler}
-                      value={imageChild}
-                        // onChange={(event) => {
-                        //   setImageChild(event.target.value);
-                        // }}
-                      id="imageChild"
-                    />
-                    <PhotoCamera
-                      sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}
-                    />
-                  </Button>
-                </Box>
-
-                {/* <Button
-                  className="button-87"
-                  variant="contained"
-                  component="label"
-                >
-                  Ajouter une photo
-                  <input
-                    hidden
-                    accept="image/*"
-                    type="file"
-                    onChange={changeHandler}
-                    value={imageChild}
-                      // onChange={(event) => {
-                      //   setImageChild(event.target.value);
-                      // }}
-                    id="imageChild"
-                  />
-                  <PhotoCamera 
-                  sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}/>
-                </Button> */}
-
-                {/* <div>
+                <div>
                   <Button className="button-87" onClick={handleOpen}>
-                    Modifier la photo de profil
+                    Modifier la photo de profil avec preview
                     <PhotoCamera
                       sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}
                     />
@@ -268,12 +221,11 @@ const EditChild = () => {
                   >
                     <Fade in={open}>
                       <Box sx={style}>
-                        <CardProfile />
-                     
+                        <UpdateImageChild idChild={idChild} />
                       </Box>
                     </Fade>
                   </Modal>
-                </div> */}
+                </div>
               </Box>
             </Box>
 
