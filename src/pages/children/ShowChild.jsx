@@ -185,7 +185,7 @@ const ShowChild = () => {
       <Box className="main">
         <CssBaseline />
         <Container className="containerProfil">
-          <h1 className="titleProfil" id="backToTop">
+          <h1 className="titleShowChild" id="backToTop">
             {firstnameChild} {lastnameChild}
           </h1>
           <Box className="boxProfil boxProfilChild">

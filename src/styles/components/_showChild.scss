@@ -3,6 +3,25 @@
     src: url(../../assets/fonts/Skranji-Regular.ttf);
   }
 
+  .titleShowChild {
+    // background-color: #F09819;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    font-family: "font-1";
+    color: $color-2;
+    font-size: 44px;
+    font-weight: 100;
+    padding-top: 10%;
+    margin-bottom: 20px;
+    @media only screen and (max-width: 650px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       text-align: center;
+    }
+}
+
 .boxProfilChild {
     background-color: #fff;
     margin-bottom: 40px;

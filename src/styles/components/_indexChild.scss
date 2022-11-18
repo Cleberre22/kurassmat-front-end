@@ -5,9 +5,10 @@
         display: flex;
         justify-content: flex-end;
         margin-right: 20px;
-        font-family: "font-5";
+        font-family: "font-1";
         color: $color-2;
         font-size: 44px;
+        font-weight: 100;
         padding-top: 10%;
         @media only screen and (max-width: 650px) {
             display: flex;
