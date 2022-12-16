@@ -84,7 +84,8 @@ const PicturesChild = () => {
         <CssBaseline />
         <Container className="containerProfil" sx={{ mt: 25 }}>
           <h1 id="back-to-top-anchor" className="titleProfil">
-            Liste des photos de {firstnameChild}
+            {/* Liste des photos de {firstnameChild} */}
+            Gallerie photo
           </h1>
 
           <Box className="">
