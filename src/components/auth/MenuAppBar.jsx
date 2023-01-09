@@ -237,7 +237,7 @@ export default function HideAppBar(props) {
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  IndexAuth
+                  Mes enfants
                 </Button>
 
 
@@ -264,11 +264,11 @@ export default function HideAppBar(props) {
 
                 <Button
                   component="a"
-                  href="/dashboard/index"
+                  href="/IndexPicturesChild/:idChildPicture"
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  Dashboard
+                  Galerie photo
                 </Button>
               </Box>
 
