@@ -10,6 +10,8 @@ import Avatar from "@mui/material/Avatar";
 import TextField from "@mui/material/TextField";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import Button from "@mui/material/Button";
+import IconButton from '@mui/material/IconButton';
+
 
 import dayjs from "dayjs";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
@@ -25,7 +27,9 @@ const AddChild = () => {
 
   const [firstnameChild, setFirstnameChild] = useState("");
   const [lastnameChild, setLastnameChild] = useState("");
-  const [birthDate, setBirthDate] = useState(new Date().toISOString().split("T")[0]);
+  const [birthDate, setBirthDate] = useState(
+    new Date().toISOString().split("T")[0]
+  );
   const [imageChild, setImageChild] = useState("");
   const [users_id, setUsers_id] = useState("");
 
@@ -79,10 +83,10 @@ const AddChild = () => {
     formData.append("imageChild", imageChild);
     formData.append("users_id", users_id);
 
-     //Bout de code pour récupérer les données du formulaire
+    //Bout de code pour récupérer les données du formulaire
     for (var pair of formData.entries()) {
-            console.log(pair[0]+ ', ' + pair[1]);
-        }
+      console.log(pair[0] + ", " + pair[1]);
+    }
 
     await axios
       .post(`http://localhost:8000/api/childs/`, formData)
@@ -150,10 +154,24 @@ const AddChild = () => {
                       />
                     </LocalizationProvider>
                   </Grid>
+
+                  <Grid item xs={12} sm={12}>
+                    <IconButton
+                      color="primary"
+                      aria-label="upload picture"
+                      component="label"
+                    >
+                      <input hidden accept="image/*" 
+                             type="file"
+                             onChange={changeHandler}
+                             />
+                      <PhotoCamera />
+                    </IconButton>
+                  </Grid>
                 </Grid>
               </Container>
 
-              <Box className="addChildCard" sx={{ mb: 4 }}>
+              {/* <Box className="addChildCard" sx={{ mb: 4 }}>
                 <Avatar sx={{ width: 100, height: 100 }} src="avatar.png" />
 
                 <Button
@@ -167,7 +185,7 @@ const AddChild = () => {
                     accept="image/*"
                     type="file"
                     onChange={changeHandler}
-                    // value={imageChild}
+                    value={imageChild}
                     // onChange={(event) => {
                     //   setImageChild(event.target.value);
                     // }}
@@ -177,7 +195,7 @@ const AddChild = () => {
                     sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}
                   />
                 </Button>
-              </Box>
+              </Box> */}
             </Box>
 
             <Grid

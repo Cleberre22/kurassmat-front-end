@@ -27,10 +27,10 @@ const Children = () => {
   const displayChildren = async () => {
     await axios.get("http://localhost:8000/api/childs").then((res) => {
       setChildren(res.data.data);
-      // console.log(res.data.data);
+      console.log(res.data.data);
     });
   };
-  // console.log(articles);
+  // console.log(children);
 
   const deleteChild = (id) => {
     axios
@@ -79,7 +79,7 @@ const Children = () => {
                           <Avatar
                             className="avatar"
                             sx={{ width: 100, height: 100 }}
-                            src={`http://localhost:8000/thumbnail/${child.imageChild}`}
+                            src={`http://localhost:8000/public/thumbnail/${child.imageChild}`}
                           />
                         </Box>
                         <Box className="boxInfoIndexChild">
