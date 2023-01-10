@@ -39,19 +39,19 @@ function App() {
 
         <Route path="/login" element={<Login />} />
 
-        <Route path="/showProfil" element={<ShowProfil/> }/>
-        <Route path="/editProfil" element={<EditProfil/>} />
+        <Route path="/showProfil" element={token ? <ShowProfil/> : <Login/> } />
+        <Route path="/editProfil" element={token ? <EditProfil/> : <Login/> } />
 
-        <Route path="/daysummaries" element={<IndexSummaries />} />
-        <Route path="/indexDaySummariesChild/:idChildSummary" element={<IndexSummariesChild />} />
+        <Route path="/daysummaries" element={token ? <IndexSummaries/> : <Login/> } />
+        <Route path="/indexDaySummariesChild/:idChildSummary" element={token ? <IndexSummariesChild/> : <Login/> } />
 
-        <Route path="/IndexPicturesChild/:idChildPicture" element={<IndexPicturesChild />} />
+        <Route path="/IndexPicturesChild/:idChildPicture" element={token ? <IndexPicturesChild/> : <Login/> }/>
 
-        <Route path="/childrenAuth/:idUserAuth" element={<ChildrenAuth />} />
-        <Route path="/children" element={<Children />} />
-        <Route path="/children/add" element={<AddChild />} />
-        <Route path="/children/edit/:child" element={<EditChild />} />
-        <Route path="/children/show/:child" element={<ShowChild />} />
+        <Route path="/childrenAuth/:idUserAuth" element={token ? <ChildrenAuth/> : <Login/> } />
+        <Route path="/children" element={token ? <Children/> : <Login/> } />
+        <Route path="/children/add" element={token ? <AddChild/> : <Login/> } />
+        <Route path="/children/edit/:child" element={token ? <EditChild/> : <Login/> } />
+        <Route path="/children/show/:child" element={token ? <ShowChild/> : <Login/> } />
 
         <Route path="/dashboard/index" element={token ? <Index/> : <Login/> }/>
       </Routes>

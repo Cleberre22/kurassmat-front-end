@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -9,28 +8,17 @@ import Typography from "@mui/material/Typography";
 import CssBaseline from "@mui/material/CssBaseline";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import Slide from "@mui/material/Slide";
-
 import IconButton from "@mui/material/IconButton";
-import HomeIcon from "@mui/icons-material/Home";
-import ComputerIcon from "@mui/icons-material/Computer";
-import SmartphoneIcon from "@mui/icons-material/Smartphone";
 import LunchDiningIcon from "@mui/icons-material/LunchDining";
-
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-
 import Avatar from "@mui/material/Avatar";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -153,14 +141,14 @@ export default function HideAppBar(props) {
                 sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
               >
                 <IconButton
+                  className="iconBurger"
                   size="large"
                   aria-label="account of current user"
                   aria-controls="menu-appbar"
                   aria-haspopup="true"
                   onClick={handleOpenNavMenu}
-                  color="inherit"
                 >
-                  <LunchDiningIcon />
+                  <MenuIcon />
                 </IconButton>
                 <Menu
                   id="menu-appbar"
@@ -180,11 +168,20 @@ export default function HideAppBar(props) {
                     display: { xs: "block", md: "none" },
                   }}
                 >
-                  {pages.map((page) => (
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{page}</Typography>
+                  
+                    <MenuItem onClick={handleCloseNavMenu} className="menuItemBurger">
+                      <Typography component="a" href="/home" textAlign="center">Acceuil</Typography>
                     </MenuItem>
-                  ))}
+                    <MenuItem onClick={handleCloseNavMenu} className="menuItemBurger">
+                      <Typography component="a" href="/showProfil" textAlign="center">Mon profil</Typography>
+                    </MenuItem>
+                    <MenuItem onClick={handleCloseNavMenu} className="menuItemBurger">
+                      <Typography component="a" href={`/childrenAuth/${user.id}`} textAlign="center">Mes enfants</Typography>
+                    </MenuItem>
+                    <MenuItem onClick={handleCloseNavMenu} className="menuItemBurger">
+                      <Typography component="a" href="/IndexPicturesChild/:idChildPicture" textAlign="center">Galerie photo</Typography>
+                    </MenuItem>
+               
                 </Menu>
               </Box>
 
@@ -202,14 +199,12 @@ export default function HideAppBar(props) {
                   textDecoration: "none",
                 }}
               >
-                <SmartphoneIcon
-                  sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
-                />
                 <Typography
+                  className="logoMobile"
                   variant="h5"
                   noWrap
                   component="a"
-                  href=""
+                  href="/home"
                   sx={{
                     mr: 2,
                     display: { xs: "flex", md: "none" },
@@ -221,7 +216,7 @@ export default function HideAppBar(props) {
                     textDecoration: "none",
                   }}
                 >
-                  LOGO-MOBILE
+                  KURASSMAT
                 </Typography>
               </Box>
 
@@ -231,44 +226,21 @@ export default function HideAppBar(props) {
                 sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
               >
                 <Button
-                  // idUser={idUser}
                   component="a"
-                  href={`/childrenAuth/${user.id}`}
+                  href="/home"
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  Mes enfants
+                  Accueil
                 </Button>
-
-
-                {/* -------------------- INDEX CHILDREN POUR ADMIN ------------- */}
-                {/* <Button
-                  component="a"
-                  href="/children"
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  Index enfant
-                </Button> */}
-
-
-                {/* -------------------- INDEX DAYSUMMARIES POUR ADMIN ------------- */}
-                {/* <Button
-                  component="a"
-                  href="/daysummaries"
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  Ind DaySum
-                </Button> */}
 
                 <Button
                   component="a"
-                  href="/IndexPicturesChild/:idChildPicture"
+                  href="/showProfil"
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  Galerie photo
+                  Mon profil
                 </Button>
               </Box>
 
@@ -278,25 +250,6 @@ export default function HideAppBar(props) {
                 sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
               >
                 <Button
-                  //       variant="h6"
-                  //       noWrap
-                  //       component="a"
-                  //       href="/"
-                  //       sx={{
-                  //         mr: 2,
-                  //         display: { xs: "none", md: "flex" },
-                  //         flexGrow: 1,
-                  //         fontFamily: "monospace",
-                  //         fontWeight: 700,
-                  //         letterSpacing: ".3rem",
-                  //         color: "inherit",
-                  //         textDecoration: "none",
-                  //       }}
-                  //     >
-                  //       <ComputerIcon
-                  //   sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-                  // />
-                  //       LOGO-DESKTOP
                   id="back-to-top-anchor"
                   className="titleMenu"
                   variant="h6"
@@ -324,28 +277,25 @@ export default function HideAppBar(props) {
               >
                 <Button
                   component="a"
-                  href="/showProfil"
+                  href={`/childrenAuth/${user.id}`}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  Mon profil
+                  Mes enfants
                 </Button>
 
                 <Button
                   component="a"
-                  href="/home"
+                  href="/IndexPicturesChild/:idChildPicture"
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  Contact
+                  Galerie photo
                 </Button>
 
                 <Box sx={{ flexGrow: 1 }}></Box>
 
                 <Box className="boxAvatar" sx={{ flexGrow: 0 }}>
-                  {/* <p>
-                    {user.firstname} {user.lastname}
-                  </p> */}
                   <Tooltip title="Open settings">
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                       {userLogged ? (
@@ -367,45 +317,6 @@ export default function HideAppBar(props) {
                       )}
                     </IconButton>
                   </Tooltip>
-                  <Menu
-                    sx={{ mt: "45px" }}
-                    id="menu-appbar"
-                    anchorEl={anchorElUser}
-                    anchorOrigin={{
-                      vertical: "top",
-                      horizontal: "right",
-                    }}
-                    keepMounted
-                    transformOrigin={{
-                      vertical: "top",
-                      horizontal: "right",
-                    }}
-                    open={Boolean(anchorElUser)}
-                    onClose={handleCloseUserMenu}
-                  >
-                    <MenuItem onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center">Profil</Typography>
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center">Compte</Typography>
-                    </MenuItem>
-                    <MenuItem onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center">Dashboard</Typography>
-                    </MenuItem>
-                    {userLogged ? (
-                      <MenuItem
-                        component="a"
-                        href="/login"
-                        onClick={handleCloseUserMenu}
-                      >
-                        <Typography textAlign="center">Connexion</Typography>
-                      </MenuItem>
-                    ) : (
-                      <MenuItem onClick={removeToken}>
-                        <Typography textAlign="center">Deconnection</Typography>
-                      </MenuItem>
-                    )}
-                  </Menu>
                 </Box>
               </Box>
 
@@ -451,15 +362,6 @@ export default function HideAppBar(props) {
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
                 >
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">Profil</Typography>
-                  </MenuItem>
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">Compte</Typography>
-                  </MenuItem>
-                  <MenuItem onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">Dashboard</Typography>
-                  </MenuItem>
                   {userLogged ? (
                     <MenuItem
                       component="a"

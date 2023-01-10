@@ -7,11 +7,11 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
-import VisibilityIcon from "@mui/icons-material/Visibility";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-
+import { styled } from "@mui/material/styles";
+import IconButton from "@mui/material/IconButton";
+import CreateIcon from "@mui/icons-material/Create";
 import MenuAppBar from "../../components/auth/MenuAppBar";
 import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
@@ -22,7 +22,6 @@ const DaySummariesChild = () => {
   const [daySummaries, setDaySummaries] = useState([]);
   const [firstnameChild, setFirstnameChild] = useState("");
   const [lastnameChild, setLastnameChild] = useState("");
-
   const [imageChild, setImageChild] = useState("");
 
   useEffect(() => {
@@ -55,7 +54,6 @@ const DaySummariesChild = () => {
         console.log(res.data);
         setFirstnameChild(res.data.data[0].firstnameChild);
         setLastnameChild(res.data.data[0].lastnameChild);
-
         setImageChild(res.data.data[0].imageChild);
       })
       .catch((error) => {
@@ -78,6 +76,29 @@ const DaySummariesChild = () => {
       });
   };
 
+    // Modal Update Image
+    const style = {
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      width: 400,
+    };
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+  
+    const ExpandMore = styled((props) => {
+      const { expand, ...other } = props;
+      return <IconButton {...other} />;
+    })(({ theme, expand }) => ({
+      transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
+      marginLeft: "auto",
+      transition: theme.transitions.create("transform", {
+        duration: theme.transitions.duration.shortest,
+      }),
+    }));
+
   const userRole = user.role;
   // console.log(userRole);
 
@@ -88,7 +109,7 @@ const DaySummariesChild = () => {
         <CssBaseline />
         <Container className="containerProfil" sx={{ mt: 25 }}>
           <h1 id="back-to-top-anchor" className="titleDaySummary">
-            Liste des récapitulatifs
+            Liste des récapitulatifs de {firstnameChild} {lastnameChild}
           </h1>
 
           <Box className="boxProfil">
@@ -96,19 +117,16 @@ const DaySummariesChild = () => {
               <Avatar
                 className="avatar"
                 sx={{ width: 120, height: 120 }}
-                src={`http://localhost:8000/thumbnail/${imageChild}`}
+                src={`http://localhost:8000/storage/uploads/${imageChild}`}
               />
-              <p>
-                {firstnameChild} {lastnameChild}
-              </p>
             </Box>
             {daySummaries.map((daySummary) => (
               <Box className="indexDaySummaryCard">
                 <Grid container spacing={2}>
                   <Grid item xs={12} sm={10}>
-                    <Box className="cardIndexChild">
-                      <p>Contenu de la note: {daySummary.contentDaySummary}</p>
-                      <p>Date de création: {daySummary.created_at}</p>
+                    <Box className="cardIndexDaySummary">
+                      <p>{daySummary.contentDaySummary}</p>
+                      <p> Envoyé le: {daySummary.created_at}</p>
                     </Box>
                   </Grid>
                   <Grid item xs={12} sm={2}>
@@ -119,23 +137,45 @@ const DaySummariesChild = () => {
                         variant="text"
                         sx={{ m: 2 }}
                       >
-                        {/* <Button
-                            className="actionButtonIndexChild"
-                            // href={`/children/show/${child.id}`}
-                            key="one"
-                          >
-                            <VisibilityIcon />
-                          </Button> */}
-
                         {userRole == "assmat" ? (
-                          <Button
-                            className="actionButtonIndexChild"
-                            key="two"
-                            // href={`/children/edit/${child.id}`}
+                          <Box>
+                            <Button
+                            className="buttonModal"
+                            onClick={handleOpen}
+                            component="a"
                           >
-                            ASSMAT
-                            <ModeEditIcon />
+                            <span>
+                             modal Ajouter un message
+                              <CreateIcon
+                                sx={{
+                                  width: 16,
+                                  height: 16,
+                                  mt: 0.4,
+                                  ml: 0.7,
+                                }}
+                              />
+                            </span>
                           </Button>
+                            <Button
+                              className="actionButtonIndexChild"
+                              key="two"
+                              // href={`/children/edit/${child.id}`}
+                            >
+                              poi
+                              <ModeEditIcon />
+                            </Button>
+
+                            <Button
+                              className="actionButtonIndexChild"
+                              key="three"
+                              href="#"
+                              onClick={() => {
+                                deleteDaySummary(daySummary.id);
+                              }}
+                            >                
+                              <DeleteIcon />
+                            </Button>
+                          </Box>
                         ) : (
                           <Button
                             className="actionButtonIndexChild"
@@ -145,7 +185,6 @@ const DaySummariesChild = () => {
                               deleteDaySummary(daySummary.id);
                             }}
                           >
-                            EMPLOYER
                             <DeleteIcon />
                           </Button>
                         )}

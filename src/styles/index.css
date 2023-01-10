@@ -1298,6 +1298,10 @@ a:-webkit-any-link {
   font-family: "font-6";
   src: url(../../assets/fonts/Parisienne-Regular.ttf);
 }
+a {
+  color: #f26419;
+}
+
 .appBar {
   max-height: 80px;
   width: 100vw;
@@ -1316,17 +1320,19 @@ a:-webkit-any-link {
   font-family: "font-3";
   font-size: 16px;
 }
-.appBar .boxBurger {
-  background-color: brown;
+.appBar .boxBurger .iconBurger {
+  border: 1px solid #f26419;
+  color: #f26419;
+}
+.appBar .menuItemBurger {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: red;
 }
 .appBar .boxMenuDesktopPart1 {
   display: flex;
   justify-content: flex-end;
-}
-@media only screen and (max-width: 1001px) {
-  .appBar .boxMenuDesktopPart1 a {
-    font-size: 13px;
-  }
 }
 @media only screen and (max-width: 900px) {
   .appBar .boxMenuDesktopPart1 {
@@ -1336,11 +1342,6 @@ a:-webkit-any-link {
 .appBar .boxMenuDesktopPart2 {
   display: flex;
   justify-content: flex-start;
-}
-@media only screen and (max-width: 1001px) {
-  .appBar .boxMenuDesktopPart2 a {
-    font-size: 13px;
-  }
 }
 @media only screen and (max-width: 900px) {
   .appBar .boxMenuDesktopPart2 {
@@ -1363,8 +1364,17 @@ a:-webkit-any-link {
     display: none;
   }
 }
-.appBar .boxLogoMobile {
-  background-color: chocolate;
+.appBar .boxLogoMobile .logoMobile {
+  text-align: center;
+  font-family: "font-1";
+  font-size: 28px;
+  font-weight: 600;
+  color: #598381;
+}
+@media only screen and (max-width: 450px) {
+  .appBar .boxLogoMobile {
+    display: none;
+  }
 }
 .appBar .boxAvatar {
   display: flex;
@@ -1387,7 +1397,6 @@ a:-webkit-any-link {
   }
 }
 .appBar .boxAvatar2 {
-  background-color: #08605f;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -1571,6 +1580,11 @@ a:-webkit-any-link {
   }
 }
 
+.indexDaySummary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .indexDaySummary .titleDaySummary {
   display: flex;
   justify-content: flex-end;
@@ -1604,9 +1618,18 @@ a:-webkit-any-link {
   margin-left: 20px;
 }
 .indexDaySummary .indexDaySummaryCard {
-  background-color: aqua;
   padding: 20px;
   border-bottom: 1px solid #598381;
+}
+.indexDaySummary .cardIndexDaySummary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+.indexDaySummary .cardIndexDaySummary p {
+  padding: 10px;
 }
 
 .avatarEditChild {

@@ -1,4 +1,7 @@
 .indexDaySummary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
     .titleDaySummary {
         display: flex;
@@ -24,7 +27,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
         border-bottom: 1px solid $color-2;
         .avatar {
             border: 2px solid $color-4;
@@ -35,8 +37,18 @@
     }
 
     .indexDaySummaryCard {
-        background-color: aqua;
         padding: 20px;
         border-bottom: 1px solid $color-2;
+    }
+
+    .cardIndexDaySummary {
+        p {
+            padding: 10px;
+        }
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       height: 100%;
     }
 }
