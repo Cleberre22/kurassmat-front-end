@@ -36,10 +36,12 @@ const ShowChild = () => {
   const [user, setUser] = useState([]);
   const [parents, setParents] = useState([]);
   const [lastDaySummaries, setLastDaySummaries] = useState([]);
+  const [lastPictures, setLastPictures] = useState([]);
 
   useEffect(() => {
     getChild();
     getLastDaySummary();
+    getLastPictures();
     getChildShowUser();
     displayUsers();
   }, []); // Sans les crochets ça tourne en boucle
@@ -75,6 +77,20 @@ const ShowChild = () => {
       });
   };
   // console.log(child);
+
+    // GET - Récupère les valeurs de la fiche avec l'API
+    const getLastPictures = async () => {
+      await axios
+        .get(`http://localhost:8000/api/childLastPicture/${child}`)
+        .then((res) => {
+          console.log(res.data);
+          setLastPictures(res.data.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    // console.log(child);
 
   // GET - Récupère les valeurs de la fiche avec l'API
   const getChildShowUser = async () => {
@@ -337,6 +353,117 @@ const ShowChild = () => {
                   </Grid>
                 </Container>
               </Grid>
+
+              {/* ------------------------- PICTURES ------------------------- */}
+              <Grid item xs={12} className="boxDaySummary">
+                <Container className="containerCardDaySummary">
+                  <Box className="childCardDaySummaryTop">
+                    <Box className="childCardDaySummaryTopLeft">
+                      <h2>Dernières photos:</h2>
+                    </Box>
+
+                    <Box className="childCardDaySummaryTopRight buttonShowChild">
+                      {userRole == "assmat" ? (
+                        <Box>
+                          <Button
+                            className="buttonModal"
+                            onClick={handleOpen}
+                            component="a"
+                          >
+                            <span>
+                              Ajouter un message
+                              <CreateIcon
+                                sx={{
+                                  width: 16,
+                                  height: 16,
+                                  mt: 0.4,
+                                  ml: 0.7,
+                                }}
+                              />
+                            </span>
+                          </Button>
+                          <Button
+                            className="buttonModal"
+                            idChildSummary={idChild}
+                            component="a"
+                            href={`/indexDaySummariesChild/${idChild}`}
+                          >
+                            <span>
+                              Voir tout les messages
+                              <VisibilityIcon
+                                sx={{
+                                  width: 18,
+                                  height: 18,
+                                  mt: 0.4,
+                                  ml: 0.7,
+                                }}
+                              />
+                            </span>
+                          </Button>
+                        </Box>
+                      ) : (
+                        <Button
+                          className="buttonModal"
+                          idChildSummary={idChild}
+                          component="a"
+                          href={`/indexDaySummariesChild/${idChild}`}
+                        >
+                          <span>
+                            Voir tout les messages
+                            <VisibilityIcon
+                              sx={{
+                                width: 16,
+                                height: 16,
+                                mt: 0.4,
+                                ml: 0.7,
+                              }}
+                            />
+                          </span>
+                        </Button>
+                      )}
+                      <Modal
+                        aria-labelledby="transition-modal-title"
+                        aria-describedby="transition-modal-description"
+                        open={open}
+                        onClose={handleClose}
+                        closeAfterTransition
+                        BackdropComponent={Backdrop}
+                        BackdropProps={{
+                          timeout: 500,
+                        }}
+                      >
+                        <Fade in={open}>
+                          <Box sx={style}>
+                            <SummaryForm idChild={idChild} />
+                          </Box>
+                        </Fade>
+                      </Modal>
+                    </Box>
+                  </Box>
+
+                  <Grid item xs={12}>
+                    <Grid className="parentBox">
+                      {lastPictures.map((lastPicture) => (
+                        <Grid className="daySummaryData" item xs={6}>
+                          <Avatar
+                    className="avatarShowChild"
+                    sx={{ width: 140, height: 140 }}
+                    src={`http://localhost:8000/storage/uploads/${lastPicture}`}
+                  />
+                        </Grid>
+                      ))}
+                    </Grid>
+                  </Grid>
+                </Container>
+              </Grid>
+
+
+
+
+
+
+
+
             </Grid>
           </Box>
         </Container>
