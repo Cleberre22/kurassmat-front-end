@@ -476,6 +476,7 @@ a:-webkit-any-link {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  background-color: #ffffff;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 40px -30px;
 }
 .containerProfil .boxProfil .userCard {
@@ -483,7 +484,6 @@ a:-webkit-any-link {
   justify-content: space-between;
   align-items: flex-start;
   flex-direction: column;
-  border-bottom: #598381 1px solid;
 }
 .containerProfil .boxProfil .userCard .boxAction {
   text-align: end;
@@ -493,9 +493,13 @@ a:-webkit-any-link {
 }
 .containerProfil .boxProfil .userCard .userCardTop {
   width: 100%;
+  padding-left: 20%;
   display: flex;
-  justify-content: ce;
+  justify-content: flex-start;
   align-items: center;
+}
+.containerProfil .boxProfil .userCard .userCardTop .avatarShowProfil {
+  border: 2px solid #f26419;
 }
 .containerProfil .boxProfil .userCard .userCardTop p {
   text-align: end;
@@ -504,50 +508,13 @@ a:-webkit-any-link {
 .containerProfil .boxProfil .userCard .userCardMiddle {
   margin-top: 10px;
   width: 100%;
+  padding: 20px;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
 }
 .containerProfil .boxProfil .userCard .userCardMiddle p {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  text-align: start;
-}
-.containerProfil .boxProfil .childCard {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-direction: column;
-  border-bottom: #598381 1px solid;
-}
-.containerProfil .boxProfil .childCard .boxAction {
-  margin-bottom: 20px;
-  text-align: end;
-  width: 100%;
-  display: flex;
-  justify-content: end;
-}
-.containerProfil .boxProfil .childCard .userCardTop {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-.containerProfil .boxProfil .childCard .userCardTop p {
-  text-align: end;
-  margin-right: 5%;
-}
-.containerProfil .boxProfil .childCard .userCardMiddle {
-  margin-top: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  flex-direction: column;
-}
-.containerProfil .boxProfil .childCard .userCardMiddle p {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -592,9 +559,18 @@ a:-webkit-any-link {
 
 .userCardTopEdit {
   width: 100%;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.userCardTopEdit .avatarEditProfil {
+  border: 2px solid #f26419;
+  margin-right: 40px;
+}
+.userCardTopEdit .btnEditImageProfil {
+  margin-left: 25px;
+  color: #F09819;
 }
 .userCardTopEdit p {
   text-align: end;

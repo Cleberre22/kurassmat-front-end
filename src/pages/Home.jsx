@@ -34,25 +34,25 @@ const Home = () => {
       <Box className="main">
         <CssBaseline />
         <Container className="containerHome">
-          {/* <h1 className="titleHome">KURASSMAT</h1> */}
           <Box className="boxHome overlay">
             <p className="typed-out">
               Vous êtes nounou, assistante maternelle ou encore une MAM ( maison
-              d'assistante maternelle ). Notre solution repensant la garde
-              d'enfants est faite pour vous. Créez/modifiez/supprimez des
-              enfants avec toutes les informations nécessaires.
-              Créez/modifiez/supprimez les menus d'une semaine à l'autre.
-            </p>
+              d'assistante maternelle ).
+            </p>{" "}
             <p>
-              Inscrivez-vous en tant que parents ou en tant qu'assistante
-              maternelle:
+              Notre solution repensant la garde d'enfants est faite pour vous.
+            </p>{" "}
+            <p>
+              Créez/modifiez/supprimez des fiches enfants avec toutes les
+              informations nécessaires.
+            </p>{" "}
+            <p>
+              Envoyez aux parents le récapitulatifs et les photos prisent lors
+              des journées des enfants a votre charge.
             </p>
             <Box className="boxButtonHome">
               <Button href="/registerAssmat" className="button-87 button">
-                ASSMAT
-              </Button>
-              <Button href="/registerEmployer" className="button-87">
-                PARENTS
+               créer mon compte
               </Button>
             </Box>
           </Box>

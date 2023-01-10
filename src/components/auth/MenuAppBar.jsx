@@ -10,7 +10,6 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Box from "@mui/material/Box";
 import Slide from "@mui/material/Slide";
 import IconButton from "@mui/material/IconButton";
-import LunchDiningIcon from "@mui/icons-material/LunchDining";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Avatar from "@mui/material/Avatar";

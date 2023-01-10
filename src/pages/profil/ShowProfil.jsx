@@ -7,7 +7,6 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 
-
 import MenuAppBar from "../../components/auth/MenuAppBar";
 import Fox from "../../components/Fox";
 import Prince from "../../components/Prince";
@@ -37,7 +36,9 @@ const Profil = () => {
       <Box className="main">
         <CssBaseline />
         <Container className="containerProfil">
-          <h1 className="titleProfil">{user.firstname} {user.lastname}</h1>
+          <h1 className="titleProfil">
+            {user.firstname} {user.lastname}
+          </h1>
           <Box className="boxProfil">
             <Box>
               <Grid
@@ -45,90 +46,41 @@ const Profil = () => {
                 rowSpacing={1}
                 columnSpacing={{ xs: 1, sm: 2, md: 3 }}
               >
-                <Grid item xs={6}>
+                <Grid item xs={12}>
                   <Box className="userCard">
-                    <Box className="boxAction">
-                      <a
-                        className="linkEditProfil"
-                        href="/editProfil/"
-                        id="style-2"
-                        data-replace="Modifier mon profil"
-                      >
-                        <span>Modifier mon profil </span>
-                      </a>
-                    </Box>
+                    <Container>
+                      <Box className="boxAction">
+                        <a
+                          className="linkEditProfil"
+                          href="/editProfil/"
+                          id="style-2"
+                          data-replace="Modifier mon profil"
+                        >
+                          <span>Modifier mon profil </span>
+                        </a>
+                      </Box>
 
-                    <Box className="userCardTop" sx={{ mb: 2 }}>
-                      <Avatar
-                        sx={{ width: 100, height: 100 }}
-                        src="avatar.png"
-                      />
-                    </Box>
+                      <Box className="userCardTop" sx={{ mb: 2 }}>
+                        <Avatar
+                        className="avatarShowProfil"
+                          sx={{ width: 120, height: 120 }}
+                          src="avatar.png"
+                        />
 
-                    <Box className="userCardMiddle" sx={{ mb: 3 }}>
-                      <p>
-                        {user.firstname} {user.lastname}
-                      </p>
-                      <p>Email: {user.email}</p>
-                      <p>
-                        Adresse: {user.address}, {user.postalCode} {user.city}
-                      </p>
-                      <p>Téléphone: {user.phone}</p>
-                    </Box>
+                        <Box className="userCardMiddle" sx={{ mb: 3 }}>
+                          <p>
+                            {user.firstname} {user.lastname}
+                          </p>
+                          <p>Email: {user.email}</p>
+                          <p>
+                            Adresse: {user.address}, {user.postalCode}{" "}
+                            {user.city}
+                          </p>
+                          <p>Téléphone: {user.phone}</p>
+                        </Box>
+                      </Box>
+                    </Container>
                   </Box>
-
-                  <Box className="userCard">
-                    <Box className="userCardTop" sx={{ mt: 3 }}>
-                      <h2>Personne à prevenir:</h2>
-                    </Box>
-
-                    <Box className="userCardMiddle" sx={{ mb: 3 }}>
-                      <p>
-                        {user.firstname} {user.lastname}
-                      </p>
-                      <p>Email: {user.email}</p>
-                      <p>
-                        Adresse: {user.address}, {user.postalCode} {user.city}
-                      </p>
-                      <p>Téléphone: {user.phone}</p>
-                    </Box>
-                  </Box>
-                </Grid>
-
-                <Grid item xs={6}>
-                  <Box className="childCard">
-                    <Box className="boxAction">
-                      <a
-                        className="linkEditProfil"
-                        href="/children/add"
-                        id="style-2"
-                        data-replace="Ajouter un enfant"
-                      >
-                        <span>Ajouter un enfant</span>
-                      </a>
-                    </Box>
-                    <Box className="userCardTop" sx={{ mb: 2 }}>
-                      <Avatar
-                        sx={{ width: 80, height: 80 }}
-                        src="avatar-2.png"
-                      />
-                    </Box>
-
-                    <Box className="userCardMiddle" sx={{ mb: 3 }}>
-                      {/* {childs.map((child) => (
-                        <p>
-                          {child.firstname} {child.lastname}
-                        </p>
-                      ))} */}
-
-                      <p>Email: {user.email}</p>
-                      <p>
-                        Adresse: {user.address}, {user.postalCode} {user.city}
-                      </p>
-                      <p>Téléphone: {user.phone}</p>
-                    </Box>
-                  </Box>
-
                 </Grid>
               </Grid>
             </Box>

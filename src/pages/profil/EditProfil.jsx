@@ -8,7 +8,7 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import TextField from "@mui/material/TextField";
-
+import Button from "@mui/material/Button";
 import MenuAppBar from "../../components/auth/MenuAppBar";
 import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
@@ -24,6 +24,7 @@ const EditProfil = () => {
   const [postalCode, setPostalCode] = useState("");
   const [userId, setUserId] = useState();
   const [city, setCity] = useState("");
+  const [imageUser, setImageUser] = useState("");
   const [validationError, setValidationError] = useState({});
 
   const {
@@ -32,6 +33,11 @@ const EditProfil = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ defaultValues: {} });
+
+  const changeHandler = (event) => {
+    setImageUser(event.target.files);
+  };
+
 
   useEffect(() => {
     getUsers();
@@ -46,6 +52,7 @@ const EditProfil = () => {
         },
       })
       .then((res) => {
+         console.log(res.data);
         setFirstname(res.data.firstname);
         setLastname(res.data.lastname);
         setEmail(res.data.email);
@@ -54,6 +61,7 @@ const EditProfil = () => {
         setPostalCode(res.data.postalCode);
         setCity(res.data.city);
         setUserId(res.data.id);
+        setImageUser(res.data.imageUser);
       });
   };
 
@@ -70,6 +78,12 @@ const EditProfil = () => {
     formData.append("address", address);
     formData.append("postalCode", postalCode);
     formData.append("city", city);
+    formData.append("imageUser", imageUser);
+
+       // Bout de code pour récupérer les données du formulaire
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ", " + pair[1]);
+    }
 
     await axios
       .post(`http://localhost:8000/api/users/${userId}`, formData)
@@ -94,12 +108,16 @@ const EditProfil = () => {
             <Box component="form" onSubmit={EditProfil}>
               <Box className="userCardTopEdit" sx={{ mb: 4 }}>
               <Avatar
-                        sx={{ width: 100, height: 100 }}
-                        src="avatar.png"
-                      />
-                <button type="submit" className="button-87" role="button">
-                  Modifier ma photo de profil
-                </button>
+                        className="avatarEditProfil"
+                          sx={{ width: 120, height: 120 }}
+                          src="avatar.png"
+                        />
+               <Grid item xs={12} sm={12}>
+                  <Button variant="outlined" color="primary" component="label" className="btnEditImageProfil">
+                    Modifier la photo
+                    <input hidden accept="image/*" multiple type="file" onChange={changeHandler}/>
+                  </Button>
+                </Grid>
               </Box>
 
               <Grid container spacing={2}>
