@@ -1,4 +1,27 @@
-@font-face {}
+@font-face {
+  font-family: "font-1";
+  src: url(../assets/fonts/Skranji-Regular.ttf);
+}
+@font-face {
+  font-family: "font-2";
+  src: url(../assets/fonts/RobotoCondensed-Regular.ttf);
+}
+@font-face {
+  font-family: "font-3";
+  src: url(../assets/fonts/RobotoCondensed-Bold.ttf);
+}
+@font-face {
+  font-family: "font-4";
+  src: url(../assets/fonts/RobotoCondensed-Light.ttf);
+}
+@font-face {
+  font-family: "font-5";
+  src: url(../assets/fonts/Sacramento-Regular.ttf);
+}
+@font-face {
+  font-family: "font-6";
+  src: url(../assets/fonts/Parisienne-Regular.ttf);
+}
 * {
   padding: 0;
   margin: 0;
@@ -10,7 +33,7 @@ body {
   margin: 0;
   box-sizing: border-box;
   background: #ffffff;
-  font-family: "JosefinSans-Medium";
+  font-family: url(../assets/fonts/RobotoCondensed-Regular.ttf);
   color: #282c34;
 }
 
@@ -23,6 +46,1571 @@ a:-webkit-any-link {
   cursor: pointer;
 }
 
-.errorsMessage {
+.main {
+  padding-bottom: 30px;
+  min-height: 90vh;
+  background-image: url(../../public/bgkurassmat4.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+@media only screen and (max-width: 1600px) {
+  .main {
+    background-size: auto;
+  }
+}
+
+.fox {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 14%;
+}
+@media only screen and (max-width: 1600px) {
+  .fox {
+    display: none;
+  }
+}
+
+.prince {
+  position: fixed;
+  bottom: 55%;
+  right: 30px;
+  width: 14%;
+  opacity: 75%;
+}
+@media only screen and (max-width: 1600px) {
+  .prince {
+    display: none;
+  }
+}
+
+/*---------------------------------------- BACK TO TOP ----------------------*/
+/* Smooth scrolling IF user doesn't have a preference due to motion sensitivities */
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+.BackToTop {
+  background-color: #282c34;
+}
+
+.iconBackToTop {
+  color: #f26419;
+}
+
+/*---------------------------------------- BOX ----------------------*/
+.mainLoginRegister {
+  height: 90vh;
+  border-top: 2px solid #598381;
+  background-image: url(../../../public/bgkurassmat4.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boxLoginRegister {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  border: 2px solid #598381;
+  min-width: 300px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  /*---------------------------------------- AVATAR ----------------------*/
+  /*---------------------------------------- BUTTON ----------------------*/
+  /*---------------------------------------- LINK ----------------------*/
+}
+.boxLoginRegister h1 {
+  color: #598381;
+  font-size: 32px;
+  font-weight: 500;
+  font-family: "font-1";
+}
+.boxLoginRegister p {
+  font-size: 14px;
+}
+.boxLoginRegister .errorsMessage {
   color: red;
+}
+.boxLoginRegister .avatar {
+  background-color: #f26419 !important;
+}
+.boxLoginRegister .button-87 {
+  height: 40px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #f26419 0%, #F09819 51%, #FF512F 100%);
+  cursor: pointer;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.boxLoginRegister .button-87:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.boxLoginRegister .button-87:active {
+  transform: scale(0.95);
+}
+.boxLoginRegister a {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+.boxLoginRegister a::before,
+.boxLoginRegister a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+.boxLoginRegister a::before {
+  background-color: #598381;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.boxLoginRegister a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+.boxLoginRegister a span {
+  display: inline-block;
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.boxLoginRegister a {
+  text-decoration: none;
+  color: #F09819;
+  font-weight: 700;
+  vertical-align: top;
+}
+
+/*---------------------------------------- BOX ----------------------*/
+.mainLoginRegister {
+  border-top: 2px solid #598381;
+  height: 95vh;
+  background-image: url(../../../public/bgkurassmat4.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boxLoginRegister {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  border: 2px solid #598381;
+  min-width: 300px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  /*---------------------------------------- AVATAR ----------------------*/
+  /*---------------------------------------- BUTTON ----------------------*/
+  /*---------------------------------------- LINK ----------------------*/
+}
+.boxLoginRegister h1 {
+  color: #598381;
+  font-size: 32px;
+  font-weight: 500;
+  font-family: "font-1";
+}
+.boxLoginRegister p {
+  font-size: 14px;
+}
+.boxLoginRegister .errorsMessage {
+  color: red;
+}
+.boxLoginRegister .avatar {
+  background-color: #f26419 !important;
+}
+.boxLoginRegister .button-87 {
+  height: 40px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #f26419 0%, #F09819 51%, #FF512F 100%);
+  cursor: pointer;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.boxLoginRegister .button-87:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.boxLoginRegister .button-87:active {
+  transform: scale(0.95);
+}
+.boxLoginRegister a {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+.boxLoginRegister a::before,
+.boxLoginRegister a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+.boxLoginRegister a::before {
+  background-color: #598381;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.boxLoginRegister a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+.boxLoginRegister a span {
+  display: inline-block;
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.boxLoginRegister a {
+  text-decoration: none;
+  color: #F09819;
+  font-weight: 700;
+  vertical-align: top;
+}
+
+.containerHome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  position: relative;
+  width: 100vw;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.containerHome .boxHome {
+  padding: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.containerHome .boxHome p {
+  font-family: "font-2";
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  left: 0;
+  right: 0;
+  border-radius: 10px;
+  transform: scale(0.5);
+  -webkit-animation: 0.5s slideIn ease-in-out forwards, 1s skewBg ease-in-out;
+          animation: 0.5s slideIn ease-in-out forwards, 1s skewBg ease-in-out;
+}
+
+@-webkit-keyframes skewBg {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes skewBg {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes underline {
+  100% {
+    width: 100%;
+  }
+}
+@keyframes underline {
+  100% {
+    width: 100%;
+  }
+}
+@-webkit-keyframes slideIn {
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes slideIn {
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+/*---------------------------------------- BUTTON ----------------------*/
+.boxButtonHome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 600px) {
+  .boxButtonHome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.boxButtonHome .button-87 {
+  min-width: 150px;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: rgba(0, 0, 3, 0.959) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  background-image: linear-gradient(45deg, #f26419 0%, #F09819 51%, #FF512F 100%);
+  cursor: pointer;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  box-shadow: rgba(0, 0, 3, 0.959) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.boxButtonHome .button-87:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.boxButtonHome .button-87:active {
+  transform: scale(0.95);
+}
+
+.containerProfil {
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  position: relative;
+  width: 100vw;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 1600px) {
+  .containerProfil {
+    display: none;
+  }
+}
+.containerProfil .titleProfil {
+  text-align: end;
+  color: #598381;
+  font-size: 2.6rem;
+  font-family: "font-1";
+  margin-bottom: 2%;
+  margin-right: 8%;
+}
+.containerProfil .boxProfil {
+  border: 1px solid #598381;
+  border-radius: 10px;
+  padding: 5%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 40px -30px;
+}
+.containerProfil .boxProfil .userCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  border-bottom: #598381 1px solid;
+}
+.containerProfil .boxProfil .userCard .boxAction {
+  text-align: end;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.containerProfil .boxProfil .userCard .userCardTop {
+  width: 100%;
+  display: flex;
+  justify-content: ce;
+  align-items: center;
+}
+.containerProfil .boxProfil .userCard .userCardTop p {
+  text-align: end;
+  margin-left: 5%;
+}
+.containerProfil .boxProfil .userCard .userCardMiddle {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.containerProfil .boxProfil .userCard .userCardMiddle p {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: start;
+}
+.containerProfil .boxProfil .childCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  border-bottom: #598381 1px solid;
+}
+.containerProfil .boxProfil .childCard .boxAction {
+  margin-bottom: 20px;
+  text-align: end;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.containerProfil .boxProfil .childCard .userCardTop {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.containerProfil .boxProfil .childCard .userCardTop p {
+  text-align: end;
+  margin-right: 5%;
+}
+.containerProfil .boxProfil .childCard .userCardMiddle {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.containerProfil .boxProfil .childCard .userCardMiddle p {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: start;
+}
+
+/*---------------------------------------- LINK ----------------------*/
+.boxAction a {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+.boxAction a::before,
+.boxAction a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+.boxAction a::before {
+  background-color: #598381;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.boxAction a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+.boxAction a span {
+  display: inline-block;
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.boxAction a {
+  text-decoration: none;
+  color: #F09819;
+  font-weight: 700;
+  vertical-align: top;
+}
+
+.userCardTopEdit {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userCardTopEdit p {
+  text-align: end;
+  margin-left: 5%;
+}
+
+/*---------------------------------------- BUTTON ----------------------*/
+.userCardTopEdit .button-87 {
+  margin-left: 15px;
+  padding: 5px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #f26419 0%, #F09819 51%, #FF512F 100%);
+  cursor: pointer;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.userCardTopEdit .button-87:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.userCardTopEdit .button-87:active {
+  transform: scale(0.95);
+}
+
+.buttonEditProfil .button-877 {
+  height: 30px;
+  width: 100%;
+  padding: 5px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #f26419 0%, #F09819 51%, #FF512F 100%);
+  cursor: pointer;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.buttonEditProfil .button-87:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.buttonEditProfil .button-87:active {
+  transform: scale(0.95);
+}
+
+.indexChild {
+  /*---------------------------------------- LINK ----------------------*/
+}
+.indexChild .titleIndexChild {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  font-family: "font-1";
+  color: #598381;
+  font-size: 44px;
+  font-weight: 100;
+  padding-top: 10%;
+}
+@media only screen and (max-width: 800px) {
+  .indexChild .titleIndexChild {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+.indexChild .boxActionIndexChild {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  margin-bottom: 15px;
+  margin-left: 35px;
+  margin-right: 35px;
+}
+.indexChild .boxActionIndexChild a {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+.indexChild .boxActionIndexChild a::before,
+.indexChild .boxActionIndexChild a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+.indexChild .boxActionIndexChild a::before {
+  background-color: #598381;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.indexChild .boxActionIndexChild a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+.indexChild .boxActionIndexChild a span {
+  display: inline-block;
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.indexChild .boxActionIndexChild a {
+  text-decoration: none;
+  color: #F09819;
+  font-weight: 700;
+  vertical-align: top;
+}
+.indexChild .boxActionIndexChild .iconAddIndexChild {
+  color: #598381;
+}
+@media only screen and (max-width: 900px) {
+  .indexChild .boxProfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.indexChild .boxProfil .boxIndexChild {
+  text-align: end;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #598381;
+  padding: 20px;
+}
+@media only screen and (max-width: 900px) {
+  .indexChild .boxProfil .boxIndexChild {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 6%;
+  }
+}
+.indexChild .boxProfil .boxIndexChild .cardIndexChild {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 900px) {
+  .indexChild .boxProfil .boxIndexChild .cardIndexChild {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.indexChild .boxProfil .boxIndexChild .cardIndexChild .avatarIndexChild {
+  width: 50%;
+  padding-right: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 900px) {
+  .indexChild .boxProfil .boxIndexChild .cardIndexChild .avatarIndexChild {
+    padding: 0;
+    margin-bottom: 10px;
+  }
+}
+.indexChild .boxProfil .boxIndexChild .cardIndexChild .avatarIndexChild .avatar {
+  box-shadow: rgba(50, 50, 93, 0.45) 0px 50px 100px -20px, rgba(0, 0, 0, 0.33) 0px 30px 40px -30px;
+  border: #f26419 2px solid;
+}
+.indexChild .boxProfil .boxIndexChild .cardIndexChild .boxInfoIndexChild {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
+}
+@media only screen and (max-width: 900px) {
+  .indexChild .boxProfil .boxIndexChild .cardIndexChild .boxInfoIndexChild {
+    width: 100%;
+  }
+}
+.indexChild .boxProfil .boxIndexChild .cardIndexChild .boxInfoIndexChild .boxNameIndexChild {
+  display: flex;
+  justify-content: center;
+}
+.indexChild .boxProfil .boxIndexChild .cardIndexChild .boxInfoIndexChild .boxNameIndexChild p {
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+@media only screen and (max-width: 900px) {
+  .indexChild .boxProfil .boxIndexChild .cardIndexChild .boxInfoIndexChild .boxNameIndexChild {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 10px;
+  }
+}
+.indexChild .boxProfil .boxIndexChild .buttonGroupIndexChild {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+@media only screen and (max-width: 600px) {
+  .indexChild .boxProfil .boxIndexChild .buttonGroupIndexChild {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+}
+.indexChild .boxProfil .boxIndexChild .buttonGroupIndexChild .actionButtonIndexChild {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  display: flex;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  margin: 8px;
+  color: #f26419;
+}
+.indexChild .buttonGroupIndexChild .actionButtonIndexChild::before,
+.indexChild .buttonGroupIndexChild .actionButtonIndexChild::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+.indexChild .buttonGroupIndexChild .actionButtonIndexChild::before {
+  background-color: #598381;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.indexChild .buttonGroupIndexChild .actionButtonIndexChild:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+.indexChild .buttonGroupIndexChild .actionButtonIndexChild span {
+  display: inline-block;
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.indexChild .buttonGroupIndexChild .actionButtonIndexChild {
+  text-decoration: none;
+  color: #F09819;
+  font-weight: 700;
+  vertical-align: top;
+}
+
+.containerAddChild {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.containerAddChild .titleProfil {
+  text-align: end;
+  color: #598381;
+  font-size: 2.6rem;
+  font-family: "font-1";
+  margin-bottom: 2%;
+  margin-right: 8%;
+}
+
+.boxAddChild {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #598381;
+  border-radius: 10px;
+  padding: 5%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 40px -30px;
+}
+
+.containerAddChild {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*---------------------------------------- BUTTON ----------------------*/
+.addChildCard .button-87 {
+  margin-top: 20px;
+  padding: 2px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #f26419 0%, #F09819 51%, #FF512F 100%);
+  cursor: pointer;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.addChildCard .button-87:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.addChildCard .button-87:active {
+  transform: scale(0.95);
+}
+
+.buttonAddChild .button-87 {
+  height: 30px;
+  width: 100%;
+  padding: 5px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #f26419 0%, #F09819 51%, #FF512F 100%);
+  cursor: pointer;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.buttonAddChild .button-87:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.buttonAddChild .button-87:active {
+  transform: scale(0.95);
+}
+
+@font-face {
+  font-family: "font-1";
+  src: url(../../assets/fonts/Skranji-Regular.ttf);
+}
+.titleShowChild {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  font-family: "font-1";
+  color: #598381;
+  font-size: 44px;
+  font-weight: 100;
+  padding-top: 10%;
+  margin-bottom: 20px;
+}
+@media only screen and (max-width: 650px) {
+  .titleShowChild {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.boxProfilChild {
+  background-color: #fff;
+  margin-bottom: 40px;
+  /*---------------------------------------- LINK ----------------------*/
+}
+.boxProfilChild .childCardTop {
+  padding-bottom: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #598381;
+}
+@media only screen and (max-width: 900px) {
+  .boxProfilChild .childCardTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .boxProfilChild .childCardTop .childCardTopRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #f26419;
+    box-shadow: rgba(50, 50, 93, 0.15) 0px 50px 100px -20px, rgba(0, 0, 0, 0.13) 0px 30px 40px -30px;
+    min-width: 70%;
+  }
+  .boxProfilChild .childCardTop .childCardTopRight p {
+    padding: 3px;
+  }
+}
+.boxProfilChild .avatarShowChild {
+  border: #f26419 2px solid;
+  margin-right: 5%;
+  box-shadow: rgba(50, 50, 93, 0.15) 0px 50px 100px -20px, rgba(0, 0, 0, 0.13) 0px 30px 40px -30px;
+}
+@media only screen and (max-width: 900px) {
+  .boxProfilChild .avatarShowChild {
+    margin: 0;
+    margin-bottom: 30px;
+  }
+}
+.boxProfilChild .childCardTopRight {
+  margin-left: 5%;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #f26419;
+  box-shadow: rgba(50, 50, 93, 0.15) 0px 50px 100px -20px, rgba(0, 0, 0, 0.13) 0px 30px 40px -30px;
+}
+.boxProfilChild .childCardTopRight p {
+  padding: 3px;
+}
+.boxProfilChild .boxParent {
+  margin-top: 3%;
+  padding: 3%;
+  border-bottom: 1px solid #598381;
+}
+.boxProfilChild .boxParent .containerCardParent {
+  width: 95%;
+}
+.boxProfilChild .boxParent .containerCardParent .childCardParentTop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+@media only screen and (max-width: 550px) {
+  .boxProfilChild .boxParent .containerCardParent .childCardParentTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .boxProfilChild .boxParent .containerCardParent .childCardParentTop .childCardParentTopLeft {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .boxProfilChild .boxParent .containerCardParent .childCardParentTop .childCardParentTopRight {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+.boxProfilChild .boxParent .containerCardParent .childCardParentTop .childCardParentTopLeft {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.boxProfilChild .boxParent .containerCardParent .childCardParentTop .childCardParentTopLeft h2 {
+  font-family: "font-1";
+  font-weight: 500;
+  color: #598381;
+}
+.boxProfilChild .boxParent .containerCardParent .childCardParentTop .childCardParentTopRight {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+@media only screen and (max-width: 550px) {
+  .boxProfilChild .boxParent .containerCardParent .childCardParentTop .childCardParentTopRight {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+.boxProfilChild .boxParent .containerCardParent .parentBox {
+  display: flex;
+}
+@media only screen and (max-width: 900px) {
+  .boxProfilChild .boxParent .containerCardParent .parentBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.boxProfilChild .boxParent .containerCardParent .parentBox .parentData {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #f26419;
+  box-shadow: rgba(50, 50, 93, 0.15) 0px 50px 100px -20px, rgba(0, 0, 0, 0.13) 0px 30px 40px -30px;
+}
+@media only screen and (max-width: 900px) {
+  .boxProfilChild .boxParent .containerCardParent .parentBox .parentData {
+    min-width: 80%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .boxProfilChild .boxParent .containerCardParent .parentBox .parentData {
+    min-width: 100%;
+  }
+}
+.boxProfilChild .boxParent .containerCardParent .parentBox .parentData p {
+  padding: 3px;
+}
+.boxProfilChild .boxDaySummary {
+  margin-top: 3%;
+  padding: 3%;
+  border-bottom: 1px solid #598381;
+}
+.boxProfilChild .boxDaySummary .containerCardDaySummary {
+  width: 95%;
+}
+.boxProfilChild .boxDaySummary .containerCardDaySummary .childCardDaySummaryTop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+@media only screen and (max-width: 1200px) {
+  .boxProfilChild .boxDaySummary .containerCardDaySummary .childCardDaySummaryTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .boxProfilChild .boxDaySummary .containerCardDaySummary .childCardDaySummaryTop .childCardDaySummaryTopLeft {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .boxProfilChild .boxDaySummary .containerCardDaySummary .childCardDaySummaryTop .childCardDaySummaryTopRight {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+.boxProfilChild .boxDaySummary .containerCardDaySummary .childCardDaySummaryTop .childCardDaySummaryTopLeft {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.boxProfilChild .boxDaySummary .containerCardDaySummary .childCardDaySummaryTop .childCardDaySummaryTopLeft h2 {
+  font-family: "font-1";
+  font-weight: 500;
+  color: #598381;
+}
+.boxProfilChild .boxDaySummary .containerCardDaySummary .childCardDaySummaryTop .childCardDaySummaryTopRight {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.boxProfilChild .boxDaySummary .containerCardDaySummary .childCardDaySummaryTop .childCardDaySummaryTopRight .buttonModal {
+  margin-right: 10px;
+}
+.boxProfilChild .boxDaySummary .containerCardDaySummary .parentBox {
+  width: 100%;
+  display: flex;
+}
+@media only screen and (max-width: 900px) {
+  .boxProfilChild .boxDaySummary .containerCardDaySummary .parentBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.boxProfilChild .boxDaySummary .containerCardDaySummary .parentBox .daySummaryData {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #f26419;
+  box-shadow: rgba(50, 50, 93, 0.15) 0px 50px 100px -20px, rgba(0, 0, 0, 0.13) 0px 30px 40px -30px;
+  width: 100%;
+}
+.boxProfilChild .boxDaySummary .containerCardDaySummary .parentBox .daySummaryData p {
+  padding: 3px;
+}
+@media only screen and (max-width: 900px) {
+  .boxProfilChild .boxDaySummary .containerCardDaySummary .parentBox .daySummaryData {
+    min-width: 80%;
+    margin-bottom: 30px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .boxProfilChild .boxDaySummary .containerCardDaySummary .parentBox .daySummaryData {
+    min-width: 100%;
+    margin-bottom: 30px;
+  }
+}
+.boxProfilChild .buttonShowChild a {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+.boxProfilChild .buttonShowChild a::before,
+.boxProfilChild .buttonShowChild a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+.boxProfilChild .buttonShowChild a::before {
+  background-color: #598381;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.boxProfilChild .buttonShowChild a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+.boxProfilChild .buttonShowChild a span {
+  display: inline-block;
+  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.boxProfilChild .buttonShowChild a {
+  text-decoration: none;
+  color: #F09819;
+  font-weight: 700;
+  vertical-align: top;
+}
+
+@font-face {
+  font-family: "font-1";
+  src: url(../../assets/fonts/Skranji-Regular.ttf);
+}
+@font-face {
+  font-family: "font-2";
+  src: url(../../assets/fonts/RobotoCondensed-Regular.ttf);
+}
+@font-face {
+  font-family: "font-3";
+  src: url(../../assets/fonts/RobotoCondensed-Bold.ttf);
+}
+@font-face {
+  font-family: "font-4";
+  src: url(../../assets/fonts/RobotoCondensed-Light.ttf);
+}
+@font-face {
+  font-family: "font-5";
+  src: url(../../assets/fonts/Sacramento-Regular.ttf);
+}
+@font-face {
+  font-family: "font-6";
+  src: url(../../assets/fonts/Parisienne-Regular.ttf);
+}
+.appBar {
+  max-height: 80px;
+  width: 100vw;
+  padding-left: 70px;
+  padding-right: 20px;
+  border-bottom: 2px solid #598381;
+  background-color: #ffffff;
+}
+@media only screen and (max-width: 900px) {
+  .appBar {
+    padding-left: 20px;
+  }
+}
+.appBar a {
+  color: #598381;
+  font-family: "font-3";
+  font-size: 16px;
+}
+.appBar .boxBurger {
+  background-color: brown;
+}
+.appBar .boxMenuDesktopPart1 {
+  display: flex;
+  justify-content: flex-end;
+}
+@media only screen and (max-width: 1001px) {
+  .appBar .boxMenuDesktopPart1 a {
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .appBar .boxMenuDesktopPart1 {
+    display: none;
+  }
+}
+.appBar .boxMenuDesktopPart2 {
+  display: flex;
+  justify-content: flex-start;
+}
+@media only screen and (max-width: 1001px) {
+  .appBar .boxMenuDesktopPart2 a {
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .appBar .boxMenuDesktopPart2 {
+    display: none;
+  }
+}
+.appBar .logoDesktop {
+  display: flex;
+  justify-content: center;
+}
+.appBar .logoDesktop .titleMenu {
+  text-align: center;
+  font-family: "font-1";
+  font-size: 34px;
+  font-weight: 600;
+  color: #598381;
+}
+@media only screen and (max-width: 900px) {
+  .appBar .logoDesktop {
+    display: none;
+  }
+}
+.appBar .boxLogoMobile {
+  background-color: chocolate;
+}
+.appBar .boxAvatar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.appBar .boxAvatar p {
+  font-size: 12px;
+  color: #598381;
+  margin-right: 10px;
+}
+@media only screen and (max-width: 1150px) {
+  .appBar .boxAvatar p {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1150px) {
+  .appBar .boxAvatar {
+    display: none;
+  }
+}
+.appBar .boxAvatar2 {
+  background-color: #08605f;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.appBar .boxAvatar2 p {
+  font-size: 12px;
+  color: #598381;
+  margin-right: 10px;
+}
+@media only screen and (max-width: 1150px) {
+  .appBar .boxAvatar2 p {
+    display: none;
+  }
+}
+@media only screen and (min-width: 1150px) {
+  .appBar .boxAvatar2 {
+    display: none;
+  }
+}
+
+.summaryForm {
+  padding: 35px;
+  border-radius: 10px;
+  border: #f26419 2px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.summaryForm h2 {
+  text-align: center;
+  color: #598381;
+  font-size: 1.6rem;
+  font-family: "font-1";
+  margin-bottom: 5%;
+}
+.summaryForm .button-87 {
+  width: 100%;
+  padding: 5px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #f26419 0%, #F09819 51%, #FF512F 100%);
+  cursor: pointer;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.summaryForm .button-87:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.summaryForm .button-87:active {
+  transform: scale(0.95);
+}
+
+.pictureForm {
+  padding: 35px;
+  border-radius: 10px;
+  border: #f26419 2px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.pictureForm h2 {
+  text-align: center;
+  color: #598381;
+  font-size: 1.6rem;
+  font-family: "font-1";
+  margin-bottom: 5%;
+}
+.pictureForm .button-87 {
+  width: 100%;
+  padding: 5px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 5px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #f26419 0%, #F09819 51%, #FF512F 100%);
+  cursor: pointer;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.pictureForm .button-87:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.pictureForm .button-87:active {
+  transform: scale(0.95);
+}
+
+.containerCarousel {
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px #282c34 solid;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 40px -30px;
+}
+
+.carousel {
+  position: relative;
+}
+.carousel .thumbs {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 10px;
+}
+.carousel .thumb {
+  margin: 0 5px;
+  cursor: pointer;
+  max-height: 124px;
+}
+.carousel .slider-wrapper {
+  border-radius: 10px;
+}
+.carousel .slide .img {
+  margin-top: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.carousel .slide .img .img {
+  border-radius: 10px;
+}
+.carousel .overlay {
+  border-radius: 0;
+  width: 100%;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 1.2rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+.carousel .overlay p {
+  margin-left: 10px;
+}
+.carousel .overlay_title {
+  margin: 0.8rem 0 1rem 0;
+}
+@media screen and (max-width: 600px) {
+  .carousel .carousel .slide img {
+    width: 100%;
+    height: 40vh;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .carousel .overlay {
+    display: none;
+  }
+}
+
+.indexDaySummary .titleDaySummary {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  font-family: "font-1";
+  color: #598381;
+  font-size: 44px;
+  font-weight: 100;
+  padding-top: 3%;
+}
+@media only screen and (max-width: 800px) {
+  .indexDaySummary .titleDaySummary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+.indexDaySummary .indexDaySummaryTop {
+  padding-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #598381;
+}
+.indexDaySummary .indexDaySummaryTop .avatar {
+  border: 2px solid #f26419;
+}
+.indexDaySummary .indexDaySummaryTop p {
+  margin-left: 20px;
+}
+.indexDaySummary .indexDaySummaryCard {
+  background-color: aqua;
+  padding: 20px;
+  border-bottom: 1px solid #598381;
+}
+
+.avatarEditChild {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=index.css.map */

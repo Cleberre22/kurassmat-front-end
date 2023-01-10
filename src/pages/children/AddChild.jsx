@@ -10,8 +10,7 @@ import Avatar from "@mui/material/Avatar";
 import TextField from "@mui/material/TextField";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import Button from "@mui/material/Button";
-import IconButton from '@mui/material/IconButton';
-
+import IconButton from "@mui/material/IconButton";
 
 import dayjs from "dayjs";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
@@ -102,112 +101,86 @@ const AddChild = () => {
     <div>
       <MenuAppBar />
       <Box className="main">
-        <CssBaseline />
-        <Container className="containerProfil">
+        <Container className="containerAddChild">
           <h1 className="titleProfil">Ajouter un enfant</h1>
 
-          <Box className="boxProfil" component="form" onSubmit={AddChild}>
+          <Box
+            item
+            xs={12}
+            sm={12}
+            className="boxAddChild"
+            component="form"
+            onSubmit={AddChild}
+          >
             <Box className="containerAddChild">
-              <Container className="containerAddChild">
-                <Grid className="infoAddChild" container spacing={2}>
-                  <Grid item xs={12} sm={12}>
-                    <TextField
-                      fullWidth
-                      value={firstnameChild}
-                      onChange={(event) => {
-                        setFirstnameChild(event.target.value);
-                      }}
-                      id="firstnameChild"
-                      label="Prénom"
-                      autoFocus
-                    />
-                  </Grid>
-
-                  <Grid item xs={12} sm={12}>
-                    <TextField
-                      fullWidth
-                      value={lastnameChild}
-                      onChange={(event) => {
-                        setLastnameChild(event.target.value);
-                      }}
-                      id="lastnameChild"
-                      label="Nom"
-                      autoFocus
-                    />
-                  </Grid>
-
-                  <Grid item xs={12} sm={12}>
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DesktopDatePicker
-                        label="Date de naissance"
-                        inputFormat="DD-MM-YYYY"
-                        value={birthDate}
-                        // value="2022-12-24"
-                        id="birthDate"
-                        class="birth"
-                        onChange={(event) => {
-                          setBirthDate(
-                            new Date(event).toISOString().split("T")[0]
-                          );
-                        }}
-                        renderInput={(params) => <TextField {...params} />}
-                      />
-                    </LocalizationProvider>
-                  </Grid>
-
-                  <Grid item xs={12} sm={12}>
-                    <IconButton
-                      color="primary"
-                      aria-label="upload picture"
-                      component="label"
-                    >
-                      <input hidden accept="image/*" 
-                             type="file"
-                             onChange={changeHandler}
-                             />
-                      <PhotoCamera />
-                    </IconButton>
-                  </Grid>
+              <Grid className="infoAddChild" container spacing={2}>
+                <Grid item xs={12} sm={12}>
+                  <TextField
+                    fullWidth
+                    value={firstnameChild}
+                    onChange={(event) => {
+                      setFirstnameChild(event.target.value);
+                    }}
+                    id="firstnameChild"
+                    label="Prénom"
+                    autoFocus
+                  />
                 </Grid>
-              </Container>
 
-              {/* <Box className="addChildCard" sx={{ mb: 4 }}>
-                <Avatar sx={{ width: 100, height: 100 }} src="avatar.png" />
+                <Grid item xs={12} sm={12}>
+                  <TextField
+                    fullWidth
+                    value={lastnameChild}
+                    onChange={(event) => {
+                      setLastnameChild(event.target.value);
+                    }}
+                    id="lastnameChild"
+                    label="Nom"
+                    autoFocus
+                  />
+                </Grid>
 
-                <Button
-                  className="button-87"
-                  variant="contained"
-                  component="label"
+                <Grid item xs={12} sm={12}>
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DesktopDatePicker
+                      label="Date de naissance"
+                      inputFormat="DD-MM-YYYY"
+                      value={birthDate}
+                      // value="2022-12-24"
+                      id="birthDate"
+                      class="birth"
+                      onChange={(event) => {
+                        setBirthDate(
+                          new Date(event).toISOString().split("T")[0]
+                        );
+                      }}
+                      renderInput={(params) => <TextField {...params} />}
+                    />
+                  </LocalizationProvider>
+                </Grid>
+
+                <Grid item xs={12} sm={12}>
+                  <Button variant="outlined" color="primary" component="label">
+                    Ajouter une photo
+                    <input hidden accept="image/*" multiple type="file" onChange={changeHandler}/>
+                  </Button>
+                </Grid>
+
+                <Grid
+                  item
+                  xs={12}
+                  sm={12}
+                  container
+                  justifyContent="center"
+                  sx={{ mt: 4 }}
+                  className="buttonAddChild"
                 >
-                  Ajouter une photo
-                  <input
-                    hidden
-                    accept="image/*"
-                    type="file"
-                    onChange={changeHandler}
-                    value={imageChild}
-                    // onChange={(event) => {
-                    //   setImageChild(event.target.value);
-                    // }}
-                    id="imageChild"
-                  />
-                  <PhotoCamera
-                    sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}
-                  />
-                </Button>
-              </Box> */}
+                  <button type="submit" className="button-87" role="button">
+                    Ajouter un enfant
+                  </button>
+                </Grid>
+              </Grid>
             </Box>
-
-            <Grid
-              container
-              justifyContent="center"
-              sx={{ mt: 4 }}
-              className="buttonAddChild"
-            >
-              <button type="submit" className="button-87" role="button">
-                Ajouter un enfant
-              </button>
-            </Grid>
           </Box>
         </Container>
       </Box>

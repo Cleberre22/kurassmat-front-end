@@ -148,6 +148,14 @@ const EditChild = () => {
           <Box className="boxProfil" component="form" onSubmit={EditChild}>
             <Box className="containerAddChild">
               <Container className="containerAddChild">
+              <Box className="avatarEditChild" sx={{ mb: 4 }}>
+                <Avatar
+                  sx={{ width: 130, height: 130 }}
+                  src={`http://localhost:8000/storage/uploads/${imageChild}`}
+                />
+
+              
+              </Box>
                 <Grid className="infoAddChild" container spacing={2}>
                   <Grid item xs={12} sm={12}>
                     <TextField
@@ -192,41 +200,17 @@ const EditChild = () => {
                       />
                     </LocalizationProvider>
                   </Grid>
+
+                  <Grid item xs={12} sm={12}>
+                  <Button variant="outlined" color="primary" component="label">
+                    Modifier la photo
+                    <input hidden accept="image/*" multiple type="file" onChange={changeHandler}/>
+                  </Button>
+                </Grid>
                 </Grid>
               </Container>
 
-              <Box className="addChildCard" sx={{ mb: 4 }}>
-                <Avatar
-                  sx={{ width: 100, height: 100 }}
-                  src={`http://localhost:8000/thumbnail/${imageChild}`}
-                />
-
-                <div>
-                  <Button className="button-87" onClick={handleOpen}>
-                    Modifier la photo de profil avec preview
-                    <PhotoCamera
-                      sx={{ width: 16, height: 16, mb: 0.33, ml: 0.7 }}
-                    />
-                  </Button>
-                  <Modal
-                    aria-labelledby="transition-modal-title"
-                    aria-describedby="transition-modal-description"
-                    open={open}
-                    onClose={handleClose}
-                    closeAfterTransition
-                    BackdropComponent={Backdrop}
-                    BackdropProps={{
-                      timeout: 500,
-                    }}
-                  >
-                    <Fade in={open}>
-                      <Box sx={style}>
-                        <UpdateImageChild idChild={idChild} />
-                      </Box>
-                    </Fade>
-                  </Modal>
-                </div>
-              </Box>
+              
             </Box>
 
             <Grid

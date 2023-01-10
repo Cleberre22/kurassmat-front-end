@@ -166,7 +166,7 @@ const ShowChild = () => {
                   <Avatar
                     className="avatarShowChild"
                     sx={{ width: 140, height: 140 }}
-                    src={`http://localhost:8000/thumbnail/${imageChild}`}
+                    src={`http://localhost:8000/storage/uploads/${imageChild}`}
                   />
 
                   <Box className="childCardTopRight">
