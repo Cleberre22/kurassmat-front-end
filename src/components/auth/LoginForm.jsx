@@ -69,7 +69,7 @@ export default function SignUp() {
       let formData = new FormData();
       formData.append("email", email);
       formData.append("password", password);
-      let res = await axios.post("http://127.0.0.1:8000/api/login/", formData, {
+      let res = await axios.post("https://kurassmat.charleyleberre.fr/api/login", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       if (res.status === 200) {

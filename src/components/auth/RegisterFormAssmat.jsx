@@ -63,8 +63,8 @@ export default function SignUp() {
     // formData.append("password_confirmation", password_confirmation);
 
     await axios
-      .post(`http://localhost:8000/api/registerAssmat`, formData)
-      .then(navigate("/home"))
+      .post(`http://kurassmat.charleyleberre/api/registerAssmat`, formData)
+      .then(navigate("/login"))
       // .then(navigate(-1))
       .catch(({ response }) => {
         if (response.status === 422) {
