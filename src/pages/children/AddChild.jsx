@@ -83,7 +83,10 @@ const AddChild = () => {
     await axios
       .post(`https://kurassmat.charleyleberre.fr/api/childs/`, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
+
         }
       })
       .then(navigate("/"))
