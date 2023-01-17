@@ -81,7 +81,11 @@ const AddChild = () => {
     }
 
     await axios
-      .post(`https://kurassmat.charleyleberre.fr/api/childs/`, formData)
+      .post(`https://kurassmat.charleyleberre.fr/api/childs/`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
       .then(navigate("/"))
       .catch(({ response }) => {
         if (response.status === 422) {
