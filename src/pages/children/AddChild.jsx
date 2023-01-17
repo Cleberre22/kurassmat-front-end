@@ -2,21 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import axios from "axios";
-import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Avatar from "@mui/material/Avatar";
 import TextField from "@mui/material/TextField";
-import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-
-import dayjs from "dayjs";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-
 import MenuAppBar from "../../components/auth/MenuAppBar";
 import Fox from "../../components//Fox";
 import Prince from "../../components/Prince";
@@ -89,7 +82,7 @@ const AddChild = () => {
 
     await axios
       .post(`https://kurassmat.charleyleberre.fr/api/childs/`, formData)
-      .then(navigate("/home"))
+      .then(navigate("/"))
       .catch(({ response }) => {
         if (response.status === 422) {
           setValidationError(response.data.errors);

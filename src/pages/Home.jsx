@@ -15,6 +15,7 @@ const Home = () => {
     <div>
       <MenuAppBar />
       <Box className="main">
+        
         <CssBaseline />
         <Container className="containerHome">
           <Box className="boxHome overlay">
