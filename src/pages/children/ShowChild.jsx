@@ -67,7 +67,9 @@ const ShowChild = () => {
   // GET - Récupère les valeurs de la fiche avec l'API
   const getLastDaySummary = async () => {
     await axios
-      .get(`https://kurassmat.charleyleberre.fr/api/childLastDaySummary/${child}`)
+      .get(
+        `https://kurassmat.charleyleberre.fr/api/childLastDaySummary/${child}`
+      )
       .then((res) => {
         console.log(res.data);
         setLastDaySummaries(res.data.data);
@@ -78,19 +80,19 @@ const ShowChild = () => {
   };
   // console.log(child);
 
-    // GET - Récupère les valeurs de la fiche avec l'API
-    const getLastPictures = async () => {
-      await axios
-        .get(`https://kurassmat.charleyleberre.fr/api/childLastPicture/${child}`)
-        .then((res) => {
-          console.log(res.data);
-          setLastPictures(res.data.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-    // console.log(child);
+  // GET - Récupère les valeurs de la fiche avec l'API
+  const getLastPictures = async () => {
+    await axios
+      .get(`https://kurassmat.charleyleberre.fr/api/childLastPicture/${child}`)
+      .then((res) => {
+        console.log(res.data);
+        setLastPictures(res.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  // console.log(child);
 
   // GET - Récupère les valeurs de la fiche avec l'API
   const getChildShowUser = async () => {
@@ -355,7 +357,7 @@ const ShowChild = () => {
               </Grid>
 
               {/* ------------------------- PICTURES ------------------------- */}
-              <Grid item xs={12} className="boxDaySummary">
+              {/* <Grid item xs={12} className="boxDaySummary">
                 <Container className="containerCardDaySummary">
                   <Box className="childCardDaySummaryTop">
                     <Box className="childCardDaySummaryTopLeft">
@@ -446,31 +448,23 @@ const ShowChild = () => {
                       {lastPictures.map((lastPicture) => (
                         <Grid className="daySummaryData" item xs={6}>
                           <Avatar
-                    className="avatarShowChild"
-                    sx={{ width: 140, height: 140 }}
-                    src={`https://kurassmat.charleyleberre.fr/storage/uploads/${lastPicture}`}
-                  />
+                            className="avatarShowChild"
+                            sx={{ width: 140, height: 140 }}
+                            src={`https://kurassmat.charleyleberre.fr/storage/uploads/${lastPicture}`}
+                          />
                         </Grid>
                       ))}
                     </Grid>
                   </Grid>
                 </Container>
-              </Grid>
-
-
-
-
-
-
-
-
+              </Grid> */}
             </Grid>
           </Box>
         </Container>
 
         <Fox />
         <Prince />
-        <BackToTop />
+        {/* <BackToTop /> */}
       </Box>
     </div>
   );

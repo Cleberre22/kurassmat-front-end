@@ -169,7 +169,7 @@ export default function HideAppBar(props) {
                 >
                   
                     <MenuItem onClick={handleCloseNavMenu} className="menuItemBurger">
-                      <Typography component="a" href="/home" textAlign="center">Acceuil</Typography>
+                      <Typography component="a" href="/home" textAlign="center">Accueil</Typography>
                     </MenuItem>
                     <MenuItem onClick={handleCloseNavMenu} className="menuItemBurger">
                       <Typography component="a" href="/showProfil" textAlign="center">Mon profil</Typography>
