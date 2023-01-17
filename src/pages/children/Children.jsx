@@ -25,7 +25,7 @@ const Children = () => {
   }, []); // Sans les crochets ça tourne en boucle
 
   const displayChildren = async () => {
-    await axios.get("http://localhost:8000/api/childs").then((res) => {
+    await axios.get("https://kurassmat.charleyleberre.fr/api/childs").then((res) => {
       setChildren(res.data.data);
       console.log(res.data.data);
     });
@@ -34,7 +34,7 @@ const Children = () => {
 
   const deleteChild = (id) => {
     axios
-      .delete(`http://localhost:8000/api/childs/${id}`)
+      .delete(`https://kurassmat.charleyleberre.fr/api/childs/${id}`)
       .then(displayChildren);
   };
 
@@ -79,7 +79,7 @@ const Children = () => {
                           <Avatar
                             className="avatar"
                             sx={{ width: 100, height: 100 }}
-                            src={`http://localhost:8000/public/thumbnail/${child.imageChild}`}
+                            src={`https://kurassmat.charleyleberre.fr/public/thumbnail/${child.imageChild}`}
                           />
                         </Box>
                         <Box className="boxInfoIndexChild">

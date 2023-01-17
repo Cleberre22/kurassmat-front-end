@@ -32,7 +32,7 @@ const DaySummariesChild = () => {
 
   const displayDaySummaries = async () => {
     await axios
-      .get(`http://localhost:8000/api/daysummaryindexChild/${idChildSummary}`)
+      .get(`https://kurassmat.charleyleberre.fr/api/daysummaryindexChild/${idChildSummary}`)
       .then((res) => {
         setDaySummaries(res.data);
         console.log(res.data);
@@ -42,14 +42,14 @@ const DaySummariesChild = () => {
 
   const deleteDaySummary = (id) => {
     axios
-      .delete(`http://localhost:8000/api/daysummary/${id}`)
+      .delete(`https://kurassmat.charleyleberre.fr/api/daysummary/${id}`)
       .then(displayDaySummaries);
   };
 
   // GET - Récupère les valeurs de la fiche avec l'API
   const getChild = async () => {
     await axios
-      .get(`http://localhost:8000/api/childs/${idChildSummary}`)
+      .get(`https://kurassmat.charleyleberre.fr/api/childs/${idChildSummary}`)
       .then((res) => {
         console.log(res.data);
         setFirstnameChild(res.data.data[0].firstnameChild);
@@ -66,7 +66,7 @@ const DaySummariesChild = () => {
   // GET - Récupère les valeurs de la fiche avec l'API
   const getUserAuth = async () => {
     await axios
-      .get("http://localhost:8000/api/current-user", {
+      .get("https://kurassmat.charleyleberre.fr/api/current-user", {
         headers: {
           Authorization: "Bearer" + localStorage.getItem("access_token"),
         },
@@ -117,7 +117,7 @@ const DaySummariesChild = () => {
               <Avatar
                 className="avatar"
                 sx={{ width: 120, height: 120 }}
-                src={`http://localhost:8000/storage/uploads/${imageChild}`}
+                src={`https://kurassmat.charleyleberre.fr/storage/uploads/${imageChild}`}
               />
             </Box>
             {daySummaries.map((daySummary) => (

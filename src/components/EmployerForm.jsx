@@ -91,7 +91,7 @@ export default function SignUp({idChild}) {
         }
 
     await axios
-      .post(`http://localhost:8000/api/registerEmployer`, formData)
+      .post(`https://kurassmat.charleyleberre.fr/api/registerEmployer`, formData)
       .then(navigate("/home"))
       // .then(navigate(-1))
       .catch(({ response }) => {

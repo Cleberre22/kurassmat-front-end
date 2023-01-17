@@ -25,7 +25,7 @@ const DaySummaries = () => {
   }, []); // Sans les crochets ça tourne en boucle
 
   const displayDaySummaries = async () => {
-    await axios.get("http://localhost:8000/api/daysummary").then((res) => {
+    await axios.get("https://kurassmat.charleyleberre.fr/api/daysummary").then((res) => {
       setDaySummaries(res.data);
       // console.log(res.data);
     });
@@ -34,7 +34,7 @@ const DaySummaries = () => {
 
   const deleteDaySummary = (id) => {
     axios
-      .delete(`http://localhost:8000/api/daysummary/${id}`)
+      .delete(`https://kurassmat.charleyleberre.fr/api/daysummary/${id}`)
       .then(displayDaySummaries);
   };
 
@@ -59,7 +59,7 @@ const DaySummaries = () => {
                         <Avatar
                             className="avatar"
                             sx={{ width: 100, height: 100 }}
-                            src={`http://localhost:8000/storage/uploads/${daySummary.imageChild}`}
+                            src={`https://kurassmat.charleyleberre.fr/storage/uploads/${daySummary.imageChild}`}
                           />
                         </Box>
                         <Box className="boxInfoIndexChild">

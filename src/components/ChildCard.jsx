@@ -8,7 +8,7 @@ const Child = () => {
   // Le useEffect se joue lorsque le composant est monté
 //   useEffect(() => {
 //     axios
-//       .get("http://localhost:8000/api/childs")
+//       .get("https://kurassmat.charleyleberre.fr/api/childs")
 //       .then((res) => setChilds(res.data));
 //   }, []);
 
@@ -18,7 +18,7 @@ const Child = () => {
   }, []); // Sans les crochets ça tourne en boucle
 
  const displayChild = async (props) => {
-    await axios.get("http://localhost:8000/api/childs/${id}").then((res) => {
+    await axios.get("https://kurassmat.charleyleberre.fr/api/childs/${id}").then((res) => {
       setChild(res.data);
       console.log(res.data);
       console.log(childs);
@@ -46,7 +46,7 @@ const Child = () => {
 export default Child;
 
 //   const displayChild = async () => {
-//     await axios.get("http://localhost:8000/api/childs").then((res) => {
+//     await axios.get("https://kurassmat.charleyleberre.fr/api/childs").then((res) => {
 //       setChild(res.data);
 //       console.log(res.data);
 //       console.log(child);

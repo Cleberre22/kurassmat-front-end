@@ -32,7 +32,7 @@ const UpdateImageChild = ({idChild}) => {
   // GET - Récupère les valeurs de la fiche avec l'API
   const getChild = async () => {
     await axios
-      .get(`http://localhost:8000/api/childs/${child}`)
+      .get(`https://kurassmat.charleyleberre.fr/api/childs/${child}`)
       .then((res) => {
         // console.log(res.data);
         setImageChild(res.data.data[0].imageChild);
@@ -67,7 +67,7 @@ const UpdateImageChild = ({idChild}) => {
 
 
     await axios
-      .post(`http://localhost:8000/api/childUpdateImage`, formData)
+      .post(`https://kurassmat.charleyleberre.fr/api/childUpdateImage`, formData)
       .then(navigate("/home"))
       .catch(({ response }) => {
         if (response.status === 422) {
@@ -82,7 +82,7 @@ const UpdateImageChild = ({idChild}) => {
         <h2>Modifier la photo</h2>
         <Avatar
                   sx={{ width: 100, height: 100 }}
-                  src={`http://localhost:8000/thumbnail/${imageChild}`}
+                  src={`https://kurassmat.charleyleberre.fr/thumbnail/${imageChild}`}
                 />
         <Button
           className="button-87"

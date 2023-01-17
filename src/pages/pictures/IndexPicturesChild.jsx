@@ -30,7 +30,7 @@ const PicturesChild = () => {
 
   const displayPictures = async () => {
     await axios
-      .get(`http://localhost:8000/api/picturesIndexChild/${idChildPicture }`)
+      .get(`https://kurassmat.charleyleberre.fr/api/picturesIndexChild/${idChildPicture }`)
       .then((res) => {
         setPictures(res.data);
         console.log(res.data);
@@ -40,7 +40,7 @@ const PicturesChild = () => {
 
   const deletePicture = (id) => {
     axios
-      .delete(`http://localhost:8000/api/pictures/${id}`)
+      .delete(`https://kurassmat.charleyleberre.fr/api/pictures/${id}`)
       .then(displayPictures);
   };
 
@@ -61,7 +61,7 @@ const PicturesChild = () => {
   // GET - Récupère les valeurs de la fiche avec l'API
   const getChild = async () => {
     await axios
-      .get(`http://localhost:8000/api/childs/${idChildPicture}`)
+      .get(`https://kurassmat.charleyleberre.fr/api/childs/${idChildPicture}`)
       .then((res) => {
         console.log(res.data);
         setIdChild(res.data.data[0].idChild);
@@ -100,7 +100,7 @@ const PicturesChild = () => {
                         <Avatar
                             className="avatar"
                             sx={{ width: 100, height: 100 }}
-                            src={`http://localhost:8000/thumbnail/${picture.urlPicture}`}
+                            src={`https://kurassmat.charleyleberre.fr/thumbnail/${picture.urlPicture}`}
                           />
                         </Box>
                         <Box className="boxInfoIndexChild">

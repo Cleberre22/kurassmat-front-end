@@ -31,7 +31,7 @@
 // // GET - Récupère les valeurs de la fiche avec l'API
 // const getChild = async () => {
 //   await axios
-//     .get(`http://localhost:8000/api/childs/${child}`)
+//     .get(`https://kurassmat.charleyleberre.fr/api/childs/${child}`)
 //     .then((res) => {
 //       console.log(res.data);
 //       setImageChild(res.data.imageChild);
@@ -57,7 +57,7 @@
 //   }
 
 //   await axios
-//     .post(`http://localhost:8000/api/childUpadteImage/${child}`, formData)
+//     .post(`https://kurassmat.charleyleberre.fr/api/childUpadteImage/${child}`, formData)
 //     .then(navigate("/children"))
 //     .catch(({ response }) => {
 //       if (response.status === 422) {

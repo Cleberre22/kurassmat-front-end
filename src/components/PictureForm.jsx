@@ -29,7 +29,7 @@ const PictureForm = ({ idChild }) => {
 
   const displayUsers = async () => {
     await axios
-      .get("http://localhost:8000/api/current-user", {
+      .get("https://kurassmat.charleyleberre.fr/api/current-user", {
         headers: {
           Authorization: "Bearer" + localStorage.getItem("access_token"),
         },
@@ -69,7 +69,7 @@ const PictureForm = ({ idChild }) => {
     }
 
     await axios
-      .post(`http://localhost:8000/api/pictures`, formData)
+      .post(`https://kurassmat.charleyleberre.fr/api/pictures`, formData)
       .then(navigate("/home"))
       .catch(({ response }) => {
         if (response.status === 422) {

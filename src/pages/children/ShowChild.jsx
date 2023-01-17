@@ -49,7 +49,7 @@ const ShowChild = () => {
   // GET - Récupère les valeurs de la fiche avec l'API
   const getChild = async () => {
     await axios
-      .get(`http://localhost:8000/api/childs/${child}`)
+      .get(`https://kurassmat.charleyleberre.fr/api/childs/${child}`)
       .then((res) => {
         console.log(res.data);
         setIdChild(res.data.data[0].idChild);
@@ -67,7 +67,7 @@ const ShowChild = () => {
   // GET - Récupère les valeurs de la fiche avec l'API
   const getLastDaySummary = async () => {
     await axios
-      .get(`http://localhost:8000/api/childLastDaySummary/${child}`)
+      .get(`https://kurassmat.charleyleberre.fr/api/childLastDaySummary/${child}`)
       .then((res) => {
         console.log(res.data);
         setLastDaySummaries(res.data.data);
@@ -81,7 +81,7 @@ const ShowChild = () => {
     // GET - Récupère les valeurs de la fiche avec l'API
     const getLastPictures = async () => {
       await axios
-        .get(`http://localhost:8000/api/childLastPicture/${child}`)
+        .get(`https://kurassmat.charleyleberre.fr/api/childLastPicture/${child}`)
         .then((res) => {
           console.log(res.data);
           setLastPictures(res.data.data);
@@ -95,7 +95,7 @@ const ShowChild = () => {
   // GET - Récupère les valeurs de la fiche avec l'API
   const getChildShowUser = async () => {
     await axios
-      .get(`http://localhost:8000/api/childShowUser/${child}`)
+      .get(`https://kurassmat.charleyleberre.fr/api/childShowUser/${child}`)
       .then((res) => {
         console.log(res.data.data);
         setParents(res.data.data);
@@ -108,7 +108,7 @@ const ShowChild = () => {
 
   const displayUsers = async () => {
     await axios
-      .get("http://localhost:8000/api/current-user", {
+      .get("https://kurassmat.charleyleberre.fr/api/current-user", {
         headers: {
           Authorization: "Bearer" + localStorage.getItem("access_token"),
         },
@@ -182,7 +182,7 @@ const ShowChild = () => {
                   <Avatar
                     className="avatarShowChild"
                     sx={{ width: 140, height: 140 }}
-                    src={`http://localhost:8000/storage/uploads/${imageChild}`}
+                    src={`https://kurassmat.charleyleberre.fr/storage/uploads/${imageChild}`}
                   />
 
                   <Box className="childCardTopRight">
@@ -448,7 +448,7 @@ const ShowChild = () => {
                           <Avatar
                     className="avatarShowChild"
                     sx={{ width: 140, height: 140 }}
-                    src={`http://localhost:8000/storage/uploads/${lastPicture}`}
+                    src={`https://kurassmat.charleyleberre.fr/storage/uploads/${lastPicture}`}
                   />
                         </Grid>
                       ))}

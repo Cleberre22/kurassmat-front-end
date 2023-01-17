@@ -46,7 +46,7 @@ const EditProfil = () => {
   // GET - Récupère les valeurs de la fiche avec l'API
   const getUsers = async () => {
     await axios
-      .get("http://localhost:8000/api/current-user", {
+      .get("https://kurassmat.charleyleberre.fr/api/current-user", {
         headers: {
           Authorization: "Bearer" + localStorage.getItem("access_token"),
         },
@@ -86,7 +86,7 @@ const EditProfil = () => {
     }
 
     await axios
-      .post(`http://localhost:8000/api/users/${userId}`, formData)
+      .post(`https://kurassmat.charleyleberre.fr/api/users/${userId}`, formData)
       .then(navigate("/profil"))
       // .then(navigate(-1))
       .catch(({ response }) => {

@@ -22,7 +22,7 @@ const SummaryForm = ({idChild}) => {
 
   const displayUsers = async () => {
     await axios
-      .get("http://localhost:8000/api/current-user", {
+      .get("https://kurassmat.charleyleberre.fr/api/current-user", {
         headers: {
           Authorization: "Bearer" + localStorage.getItem("access_token"),
         },
@@ -62,7 +62,7 @@ const SummaryForm = ({idChild}) => {
     //     }
 
     await axios
-      .post(`http://localhost:8000/api/daysummary`, formData)
+      .post(`https://kurassmat.charleyleberre.fr/api/daysummary`, formData)
       .then(navigate("/home"))
       .catch(({ response }) => {
         if (response.status === 422) {
