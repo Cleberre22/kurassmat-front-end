@@ -34,7 +34,7 @@ const ChildrenAuth = () => {
 
   const displayChildren = async () => {
     await axios
-      .get(`https://kurassmat.charleyleberre.fr/api/childIndexAuth/${idUserAuth}`)
+      .get(`http://localhost:8000/api/childIndexAuth/${idUserAuth}`)
       .then((res) => {
         setChildren(res.data.data);
         //   console.log(res.data);
@@ -44,13 +44,13 @@ const ChildrenAuth = () => {
 
   const deleteChild = (id) => {
     axios
-      .delete(`https://kurassmat.charleyleberre.fr/api/childs/${id}`)
+      .delete(`http://localhost:8000/api/childs/${id}`)
       .then(displayChildren);
   };
 
   const displayUsers = async () => {
     await axios
-      .get("https://kurassmat.charleyleberre.fr/api/current-user", {
+      .get("http://localhost:8000/api/current-user", {
         headers: {
           Authorization: "Bearer" + localStorage.getItem("access_token"),
         },
