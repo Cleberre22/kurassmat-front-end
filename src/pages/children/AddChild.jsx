@@ -85,7 +85,8 @@ const AddChild = () => {
         headers: {
       //     'Content-Type': 'multipart/form-data',
           'Access-Control-Allow-Origin': '*',
-      //     'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
+          'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type',
 
          }
    })
