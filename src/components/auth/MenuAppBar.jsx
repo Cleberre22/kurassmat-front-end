@@ -371,7 +371,7 @@ export default function HideAppBar(props) {
                     </MenuItem>
                   ) : (
                     <MenuItem onClick={removeToken}>
-                      <Typography textAlign="center">Deconnection</Typography>
+                      <Typography textAlign="center">Déconnexion</Typography>
                     </MenuItem>
                   )}
                 </Menu>
