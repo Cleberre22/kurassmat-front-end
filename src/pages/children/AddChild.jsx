@@ -81,14 +81,14 @@ const AddChild = () => {
     }
 
     await axios
-       .post(`https://kurassmat.charleyleberre.fr/api/childs/`, formData/*, {
-      //   headers: {
+       .post(`https://kurassmat.charleyleberre.fr/api/childs/`, formData, {
+        headers: {
       //     'Content-Type': 'multipart/form-data',
-      //     'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Origin': '*',
       //     'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
 
-      //   }
-   }*/)
+         }
+   })
       .then(navigate("/"))
       .catch(({ response }) => {
         if (response.status === 422) {
