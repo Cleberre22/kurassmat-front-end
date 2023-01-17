@@ -106,7 +106,7 @@ const EditProfil = () => {
 
           <Box className="boxProfil">
             <Box component="form" onSubmit={EditProfil}>
-              <Box className="userCardTopEdit" sx={{ mb: 4 }}>
+              {/* <Box className="userCardTopEdit" sx={{ mb: 4 }}>
               <Avatar
                         className="avatarEditProfil"
                           sx={{ width: 120, height: 120 }}
@@ -118,7 +118,7 @@ const EditProfil = () => {
                     <input hidden accept="image/*" multiple type="file" onChange={changeHandler}/>
                   </Button>
                 </Grid>
-              </Box>
+              </Box> */}
 
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
