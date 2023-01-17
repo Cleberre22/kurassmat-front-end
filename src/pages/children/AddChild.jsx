@@ -68,7 +68,7 @@ const AddChild = () => {
     users_id.push(user.id);
 
     const formData = new FormData();
-
+    const imageChild = "truc.jpg";
     formData.append("firstnameChild", firstnameChild);
     formData.append("lastnameChild", lastnameChild);
     formData.append("birthDate", birthDate);
@@ -160,12 +160,12 @@ const AddChild = () => {
                   </LocalizationProvider>
                 </Grid>
 
-                <Grid item xs={12} sm={12}>
+                {/* <Grid item xs={12} sm={12}>
                   <Button variant="outlined" color="primary" component="label">
                     Ajouter une photo
                     <input hidden accept="image/*" multiple type="file" onChange={changeHandler}/>
                   </Button>
-                </Grid>
+                </Grid> */}
 
                 <Grid
                   item
