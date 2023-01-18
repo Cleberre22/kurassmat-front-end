@@ -192,7 +192,7 @@ export default function SignUp() {
 
             <Grid container justifyContent="center">
                <Grid item >
-                <p className="linkLoginRegister">Pas de compte ? <a href="/register" id="style-2" data-replace="Inscrivez-vous"><span>Inscrivez-vous</span></a></p>
+                <p className="linkLoginRegister">Pas de compte ? <a href="/registerAssmat" id="style-2" data-replace="Inscrivez-vous"><span>Inscrivez-vous</span></a></p>
                </Grid> 
             </Grid>
           </Box>
