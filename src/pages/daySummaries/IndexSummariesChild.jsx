@@ -137,7 +137,17 @@ const DaySummariesChild = () => {
                         variant="text"
                         sx={{ m: 2 }}
                       >
-                        {userRole == "assmat" ? (
+                          <Button
+                            className="actionButtonIndexChild"
+                            key="three"
+                            href="#"
+                            onClick={() => {
+                              deleteDaySummary(daySummary.id);
+                            }}
+                          >
+                            <DeleteIcon />
+                          </Button>
+                        {/* {userRole == "assmat" ? (
                           <Box>
                             <Button
                             className="buttonModal"
@@ -187,7 +197,7 @@ const DaySummariesChild = () => {
                           >
                             <DeleteIcon />
                           </Button>
-                        )}
+                        )} */}
                       </Box>
                     </Box>
                   </Grid>
