@@ -34,7 +34,7 @@ const ChildrenAuth = () => {
 
   const displayChildren = async () => {
     await axios
-      .get(`http://localhost:8000/api/childIndexAuth/${idUserAuth}`, {
+      .get(`https://kurassmat.charleyleberre.fr/api/childIndexAuth/${idUserAuth}`, {
         headers: {
           Authorization: "Bearer" + localStorage.getItem("access_token"),
         },
@@ -48,7 +48,7 @@ const ChildrenAuth = () => {
 
   const deleteChild = (id) => {
     axios
-      .delete(`http://localhost:8000/api/childs/${id}`, {
+      .delete(`https://kurassmat.charleyleberre.fr/api/childs/${id}`, {
         headers: {
           Authorization: "Bearer" + localStorage.getItem("access_token"),
         },
@@ -58,7 +58,7 @@ const ChildrenAuth = () => {
 
   const displayUsers = async () => {
     await axios
-      .get("http://localhost:8000/api/current-user", {
+      .get("https://kurassmat.charleyleberre.fr/api/current-user", {
         headers: {
           Authorization: "Bearer" + localStorage.getItem("access_token"),
         },
@@ -116,7 +116,7 @@ const ChildrenAuth = () => {
                           <Avatar
                             className="avatar"
                             sx={{ width: 100, height: 100 }}
-                            src={`http://localhost:8000/storage/uploads/${child.imageChild}`}
+                            src={`https://kurassmat.charleyleberre.fr/storage/uploads/${child.imageChild}`}
                           />
                         </Box>
                         <Box className="boxInfoIndexChild">
