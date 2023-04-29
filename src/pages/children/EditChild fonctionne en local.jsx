@@ -45,7 +45,7 @@ const EditChild = () => {
 
   const displayUsers = async () => {
     await axios
-      .get("http://localhost:8000/api/current-user", {
+      .get("https://kurassmat.charleyleberre.fr/api/current-user", {
         headers: {
           Authorization: "Bearer" + localStorage.getItem("access_token"),
         },
@@ -66,7 +66,7 @@ const EditChild = () => {
   // GET - Récupère les valeurs de la fiche avec l'API
   const getChild = async () => {
     await axios
-      .get(`http://localhost:8000/api/childs/${child}`, {
+      .get(`https://kurassmat.charleyleberre.fr/api/childs/${child}`, {
         headers: {
           Authorization: "Bearer" + localStorage.getItem("access_token"),
         },
@@ -107,7 +107,7 @@ const EditChild = () => {
     // }
 
     await axios
-      .post(`http://localhost:8000/api/childs/${child}`, formData, {
+      .post(`https://kurassmat.charleyleberre.fr/api/childs/${child}`, formData, {
         headers: {
           Authorization: "Bearer" + localStorage.getItem("access_token"),
         },
@@ -146,7 +146,7 @@ const EditChild = () => {
               <Box className="avatarEditChild" sx={{ mb: 4 }}>
                 <Avatar
                   sx={{ width: 130, height: 130 }}
-                  src={`http://localhost:8000/storage/uploads/${imageChild}`}
+                  src={`https://kurassmat.charleyleberre.fr/storage/uploads/${imageChild}`}
                 />
 
               
