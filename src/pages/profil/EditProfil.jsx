@@ -52,7 +52,7 @@ const EditProfil = () => {
         },
       })
       .then((res) => {
-         console.log(res.data);
+        //  console.log(res.data);
         setFirstname(res.data.firstname);
         setLastname(res.data.lastname);
         setEmail(res.data.email);
