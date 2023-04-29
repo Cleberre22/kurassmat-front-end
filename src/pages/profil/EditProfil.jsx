@@ -66,7 +66,8 @@ const EditProfil = () => {
   };
 
   //Fonction de modification d'un utilisateur
-  const EditProfil = async () => {
+  const EditProfil = async (e) => {
+    e.preventDefault();
 
     const formData = new FormData();
     formData.append("_method", "PATCH");
@@ -79,7 +80,7 @@ const EditProfil = () => {
     formData.append("city", city);
     formData.append("imageUser", imageUser);
 
-       // Bout de code pour récupérer les données du formulaire
+    //    // Bout de code pour récupérer les données du formulaire
     // for (var pair of formData.entries()) {
     //   console.log(pair[0] + ", " + pair[1]);
     // }
