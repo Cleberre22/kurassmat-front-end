@@ -49,7 +49,11 @@ const ShowChild = () => {
   // GET - Récupère les valeurs de la fiche avec l'API
   const getChild = async () => {
     await axios
-      .get(`https://kurassmat.charleyleberre.fr/api/childs/${child}`)
+      .get(`https://kurassmat.charleyleberre.fr/api/childs/${child}`, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then((res) => {
         console.log(res.data);
         setIdChild(res.data.data[0].idChild);
@@ -68,8 +72,11 @@ const ShowChild = () => {
   const getLastDaySummary = async () => {
     await axios
       .get(
-        `https://kurassmat.charleyleberre.fr/api/childLastDaySummary/${child}`
-      )
+        `https://kurassmat.charleyleberre.fr/api/childLastDaySummary/${child}`, {
+          headers: {
+            Authorization: "Bearer" + localStorage.getItem("access_token"),
+          },
+        })
       .then((res) => {
         console.log(res.data);
         setLastDaySummaries(res.data.data);
@@ -83,7 +90,11 @@ const ShowChild = () => {
   // GET - Récupère les valeurs de la fiche avec l'API
   const getLastPictures = async () => {
     await axios
-      .get(`https://kurassmat.charleyleberre.fr/api/childLastPicture/${child}`)
+      .get(`https://kurassmat.charleyleberre.fr/api/childLastPicture/${child}`, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then((res) => {
         console.log(res.data);
         setLastPictures(res.data.data);
@@ -97,7 +108,11 @@ const ShowChild = () => {
   // GET - Récupère les valeurs de la fiche avec l'API
   const getChildShowUser = async () => {
     await axios
-      .get(`https://kurassmat.charleyleberre.fr/api/childShowUser/${child}`)
+      .get(`https://kurassmat.charleyleberre.fr/api/childShowUser/${child}`,{
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then((res) => {
         console.log(res.data.data);
         setParents(res.data.data);
