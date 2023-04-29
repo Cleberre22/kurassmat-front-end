@@ -48,7 +48,11 @@ const ChildrenAuth = () => {
 
   const deleteChild = (id) => {
     axios
-      .delete(`https://kurassmat.charleyleberre.fr/api/childs/${id}`)
+      .delete(`https://kurassmat.charleyleberre.fr/api/childs/${id}`, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then(displayChildren);
   };
 

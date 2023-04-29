@@ -40,7 +40,11 @@ const PicturesChild = () => {
 
   const deletePicture = (id) => {
     axios
-      .delete(`https://kurassmat.charleyleberre.fr/api/pictures/${id}`)
+      .delete(`https://kurassmat.charleyleberre.fr/api/pictures/${id}`, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then(displayPictures);
   };
 
