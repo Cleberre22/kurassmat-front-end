@@ -86,7 +86,11 @@ const EditProfil = () => {
     }
 
     await axios
-      .post(`https://kurassmat.charleyleberre.fr/api/users/${userId}`, formData)
+      .post(`https://kurassmat.charleyleberre.fr/api/users/${userId}`, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then(navigate("/profil"))
       // .then(navigate(-1))
       .catch(({ response }) => {
