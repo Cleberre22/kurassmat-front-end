@@ -67,8 +67,6 @@ const EditProfil = () => {
 
   //Fonction de modification d'un utilisateur
   const EditProfil = async (e) => {
-    e.preventDefault();
-
     const formData = new FormData();
     formData.append("_method", "PATCH");
     formData.append("firstname", firstname);
