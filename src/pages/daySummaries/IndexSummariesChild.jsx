@@ -32,7 +32,11 @@ const DaySummariesChild = () => {
 
   const displayDaySummaries = async () => {
     await axios
-      .get(`https://kurassmat.charleyleberre.fr/api/daysummaryindexChild/${idChildSummary}`)
+      .get(`https://kurassmat.charleyleberre.fr/api/daysummaryindexChild/${idChildSummary}`,{
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then((res) => {
         setDaySummaries(res.data);
         console.log(res.data);
@@ -42,14 +46,22 @@ const DaySummariesChild = () => {
 
   const deleteDaySummary = (id) => {
     axios
-      .delete(`https://kurassmat.charleyleberre.fr/api/daysummary/${id}`)
+      .delete(`https://kurassmat.charleyleberre.fr/api/daysummary/${id}`,{
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then(displayDaySummaries);
   };
 
   // GET - Récupère les valeurs de la fiche avec l'API
   const getChild = async () => {
     await axios
-      .get(`https://kurassmat.charleyleberre.fr/api/childs/${idChildSummary}`)
+      .get(`https://kurassmat.charleyleberre.fr/api/childs/${idChildSummary}`,{
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then((res) => {
         console.log(res.data);
         setFirstnameChild(res.data.data[0].firstnameChild);
