@@ -82,6 +82,10 @@ const AddChild = () => {
 
     await axios
        .post(`https://kurassmat.charleyleberre.fr/api/childs/`, formData, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      
       //   headers: {
       // //     'Content-Type': 'multipart/form-data',
       //     'Access-Control-Allow-Origin': '*',
