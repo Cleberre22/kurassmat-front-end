@@ -25,7 +25,12 @@ const DaySummaries = () => {
   }, []); // Sans les crochets ça tourne en boucle
 
   const displayDaySummaries = async () => {
-    await axios.get("https://kurassmat.charleyleberre.fr/api/daysummary").then((res) => {
+    await axios.get("https://kurassmat.charleyleberre.fr/api/daysummary", {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
+      .then((res) => {
       setDaySummaries(res.data);
       // console.log(res.data);
     });
@@ -34,7 +39,11 @@ const DaySummaries = () => {
 
   const deleteDaySummary = (id) => {
     axios
-      .delete(`https://kurassmat.charleyleberre.fr/api/daysummary/${id}`)
+      .delete(`https://kurassmat.charleyleberre.fr/api/daysummary/${id}`, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then(displayDaySummaries);
   };
 
