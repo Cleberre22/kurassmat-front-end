@@ -117,7 +117,7 @@ const DaySummariesChild = () => {
   return (
     <div className="indexDaySummary">
       <MenuAppBar />
-      <Box className="mainDaySummary">
+      <Box className="main">
         <CssBaseline />
         <Container className="containerProfil" sx={{ mt: 25 }}>
           <h1 id="back-to-top-anchor" className="titleDaySummary">
