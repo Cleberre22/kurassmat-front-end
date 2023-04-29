@@ -32,7 +32,11 @@ const UpdateImageChild = ({idChild}) => {
   // GET - Récupère les valeurs de la fiche avec l'API
   const getChild = async () => {
     await axios
-      .get(`https://kurassmat.charleyleberre.fr/api/childs/${child}`)
+      .get(`https://kurassmat.charleyleberre.fr/api/childs/${child}`, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then((res) => {
         // console.log(res.data);
         setImageChild(res.data.data[0].imageChild);
@@ -67,7 +71,11 @@ const UpdateImageChild = ({idChild}) => {
 
 
     await axios
-      .post(`https://kurassmat.charleyleberre.fr/api/childUpdateImage`, formData)
+      .post(`https://kurassmat.charleyleberre.fr/api/childUpdateImage`, formData, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then(navigate("/home"))
       .catch(({ response }) => {
         if (response.status === 422) {

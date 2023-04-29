@@ -34,7 +34,11 @@ const ChildrenAuth = () => {
 
   const displayChildren = async () => {
     await axios
-      .get(`http://localhost:8000/api/childIndexAuth/${idUserAuth}`)
+      .get(`http://localhost:8000/api/childIndexAuth/${idUserAuth}`, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then((res) => {
         setChildren(res.data.data);
         //   console.log(res.data);
@@ -44,7 +48,11 @@ const ChildrenAuth = () => {
 
   const deleteChild = (id) => {
     axios
-      .delete(`http://localhost:8000/api/childs/${id}`)
+      .delete(`http://localhost:8000/api/childs/${id}`, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then(displayChildren);
   };
 

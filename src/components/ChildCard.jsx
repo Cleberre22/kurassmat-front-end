@@ -18,7 +18,11 @@ const Child = () => {
   }, []); // Sans les crochets ça tourne en boucle
 
  const displayChild = async (props) => {
-    await axios.get("https://kurassmat.charleyleberre.fr/api/childs/${id}").then((res) => {
+    await axios.get("https://kurassmat.charleyleberre.fr/api/childs/${id}", {
+      headers: {
+        Authorization: "Bearer" + localStorage.getItem("access_token"),
+      },
+    }).then((res) => {
       setChild(res.data);
       console.log(res.data);
       console.log(childs);
@@ -44,19 +48,3 @@ const Child = () => {
 };
 
 export default Child;
-
-//   const displayChild = async () => {
-//     await axios.get("https://kurassmat.charleyleberre.fr/api/childs").then((res) => {
-//       setChild(res.data);
-//       console.log(res.data);
-//       console.log(child);
-//     });
-//   };
-
-// const ChildCard = (props) => {
-//   return (
-
-//   );
-// }
-
-// export default ChildCard;

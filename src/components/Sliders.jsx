@@ -27,7 +27,11 @@ const Sliders = () => {
 
   const displayPictures = async () => {
     await axios
-      .get(`https://kurassmat.charleyleberre.fr/api/picturesIndexChild/${idChildPicture}`)
+      .get(`https://kurassmat.charleyleberre.fr/api/picturesIndexChild/${idChildPicture}`, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then((res) => {
         setPictures(res.data);
         console.log(res.data);
@@ -37,7 +41,11 @@ const Sliders = () => {
 
   const deletePicture = (id) => {
     axios
-      .delete(`https://kurassmat.charleyleberre.fr/api/picture/${id}`)
+      .delete(`https://kurassmat.charleyleberre.fr/api/picture/${id}`, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then(displayPictures);
   };
 
@@ -58,7 +66,11 @@ const Sliders = () => {
   // GET - Récupère les valeurs de la fiche avec l'API
   const getChild = async () => {
     await axios
-      .get(`https://kurassmat.charleyleberre.fr/api/childs/${idChildPicture}`)
+      .get(`https://kurassmat.charleyleberre.fr/api/childs/${idChildPicture}`, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then((res) => {
         console.log(res.data);
         setIdChild(res.data.data[0].idChild);

@@ -34,7 +34,11 @@ const ChildrenAuth = () => {
 
   const displayChildren = async () => {
     await axios
-      .get(`https://kurassmat.charleyleberre.fr/api/childIndexAuth/${idUserAuth}`)
+      .get(`https://kurassmat.charleyleberre.fr/api/childIndexAuth/${idUserAuth}`, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then((res) => {
         setChildren(res.data.data);
         //   console.log(res.data);

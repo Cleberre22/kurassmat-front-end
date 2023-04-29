@@ -69,7 +69,11 @@ const PictureForm = ({ idChild }) => {
     }
 
     await axios
-      .post(`https://kurassmat.charleyleberre.fr/api/pictures`, formData)
+      .post(`https://kurassmat.charleyleberre.fr/api/pictures`, formData, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then(navigate("/home"))
       .catch(({ response }) => {
         if (response.status === 422) {

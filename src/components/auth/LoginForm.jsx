@@ -74,7 +74,6 @@ export default function SignUp() {
       });
       if (res.status === 200) {
         localStorage.setItem("access_token", res.data.token);
-
         navigate("/home", { replace: true });
       }
     } catch (err) {}

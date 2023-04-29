@@ -25,7 +25,12 @@ const Children = () => {
   }, []); // Sans les crochets ça tourne en boucle
 
   const displayChildren = async () => {
-    await axios.get("https://kurassmat.charleyleberre.fr/api/childs").then((res) => {
+    await axios.get("https://kurassmat.charleyleberre.fr/api/childs", {
+      headers: {
+        Authorization: "Bearer" + localStorage.getItem("access_token"),
+      },
+    })
+    .then((res) => {
       setChildren(res.data.data);
       console.log(res.data.data);
     });
@@ -34,7 +39,11 @@ const Children = () => {
 
   const deleteChild = (id) => {
     axios
-      .delete(`https://kurassmat.charleyleberre.fr/api/childs/${id}`)
+      .delete(`https://kurassmat.charleyleberre.fr/api/childs/${id}`, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then(displayChildren);
   };
 

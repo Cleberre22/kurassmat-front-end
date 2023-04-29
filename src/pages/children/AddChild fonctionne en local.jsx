@@ -82,13 +82,13 @@ const AddChild = () => {
 
     await axios
        .post(`http://localhost:8000/api/childs/`, formData, {
-      //   headers: {
-      // //     'Content-Type': 'multipart/form-data',
-      //     'Access-Control-Allow-Origin': '*',
-      //     'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
-      //     'Access-Control-Allow-Headers': 'Content-Type',
-
-      //    }
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+          'Content-Type': 'multipart/form-data',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type',
    })
       .then(navigate("/"))
       .catch(({ response }) => {

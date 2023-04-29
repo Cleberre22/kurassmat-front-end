@@ -81,19 +81,15 @@ const AddChild = () => {
     }
 
     await axios
-       .post(`https://kurassmat.charleyleberre.fr/api/childs/`, formData, {
+      .post(`https://kurassmat.charleyleberre.fr/api/childs/`, formData, {
         headers: {
           Authorization: "Bearer" + localStorage.getItem("access_token"),
-       
-    
-      //   headers: {
-        'Content-Type': 'multipart/form-data',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type',
-
-      //    }
-   }})
+          "Content-Type": "multipart/form-data",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type",
+        },
+      })
       .then(navigate("/"))
       .catch(({ response }) => {
         if (response.status === 422) {
@@ -167,7 +163,13 @@ const AddChild = () => {
                 <Grid item xs={12} sm={12}>
                   <Button variant="outlined" color="primary" component="label">
                     Ajouter une photo
-                    <input hidden accept="image/*" multiple type="file" onChange={changeHandler}/>
+                    <input
+                      hidden
+                      accept="image/*"
+                      multiple
+                      type="file"
+                      onChange={changeHandler}
+                    />
                   </Button>
                 </Grid>
 

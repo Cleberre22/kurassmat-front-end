@@ -62,7 +62,11 @@ const SummaryForm = ({idChild}) => {
     //     }
 
     await axios
-      .post(`https://kurassmat.charleyleberre.fr/api/daysummary`, formData)
+      .post(`https://kurassmat.charleyleberre.fr/api/daysummary`, formData, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      })
       .then(navigate("/home"))
       .catch(({ response }) => {
         if (response.status === 422) {
