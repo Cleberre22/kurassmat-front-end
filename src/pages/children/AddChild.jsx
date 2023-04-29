@@ -84,16 +84,16 @@ const AddChild = () => {
        .post(`https://kurassmat.charleyleberre.fr/api/childs/`, formData, {
         headers: {
           Authorization: "Bearer" + localStorage.getItem("access_token"),
-        },
-      
+       
+    
       //   headers: {
-      // //     'Content-Type': 'multipart/form-data',
-      //     'Access-Control-Allow-Origin': '*',
-      //     'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
-      //     'Access-Control-Allow-Headers': 'Content-Type',
+        'Content-Type': 'multipart/form-data',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type',
 
       //    }
-   })
+   }})
       .then(navigate("/"))
       .catch(({ response }) => {
         if (response.status === 422) {
