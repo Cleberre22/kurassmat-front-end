@@ -66,7 +66,7 @@ const ShowChild = () => {
         console.log(error);
       });
   };
-  console.log(child);
+  console.log(child.imageChild);
 
   // GET - Récupère les valeurs de la fiche avec l'API
   const getLastDaySummary = async () => {
@@ -199,7 +199,7 @@ const ShowChild = () => {
                   <Avatar
                     className="avatarShowChild"
                     sx={{ width: 140, height: 140 }}
-                    src={`https://kurassmat.charleyleberre.fr/api/app/public/uploads/${imageChild}`}
+                    src={`https://kurassmat.charleyleberre.fr/api/storage/app/public/uploads/${child.imageChild}`}
                   />
 
                   <Box className="childCardTopRight">
