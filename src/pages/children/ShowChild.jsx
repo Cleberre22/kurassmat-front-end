@@ -205,7 +205,7 @@ const ShowChild = () => {
                   <Avatar
                     className="avatarShowChild"
                     sx={{ width: 140, height: 140 }}
-                    src={`http://kurassmat.charleyleberre.fr/storage/uploads/${imageChild}`}
+                    src={`http://kurassmat.charleyleberre.fr/api/storage/uploads/${imageChild}`}
                   />
                   <Avatar
                     className="avatarShowChild"
