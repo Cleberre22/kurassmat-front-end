@@ -201,6 +201,31 @@ const ShowChild = () => {
                     sx={{ width: 140, height: 140 }}
                     src={`https://kurassmat.charleyleberre.fr/api/storage/app/public/uploads/${imageChild}`}
                   />
+                  <Avatar
+                    className="avatarShowChild"
+                    sx={{ width: 140, height: 140 }}
+                    src={`https://kurassmat.charleyleberre.fr/api/app/public/uploads/${imageChild}`}
+                  />
+                  <Avatar
+                    className="avatarShowChild"
+                    sx={{ width: 140, height: 140 }}
+                    src={`https://kurassmat.charleyleberre.fr/api/uploads/${imageChild}`}
+                  />
+                  <Avatar
+                    className="avatarShowChild"
+                    sx={{ width: 140, height: 140 }}
+                    src={`https://kurassmat.charleyleberre.fr/api/storage/public/uploads/${imageChild}`}
+                  />
+                  <Avatar
+                    className="avatarShowChild"
+                    sx={{ width: 140, height: 140 }}
+                    src={`https://kurassmat.charleyleberre.fr/api/public/uploads/${imageChild}`}
+                  />
+                  <Avatar
+                    className="avatarShowChild"
+                    sx={{ width: 140, height: 140 }}
+                    src={`https://kurassmat.charleyleberre.fr/api/storage/app/public/uploads/${imageChild}`}
+                  />
 
                   <Box className="childCardTopRight">
                     <p>Prénom::::::::::::: {firstnameChild}</p>
