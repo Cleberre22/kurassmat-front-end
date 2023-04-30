@@ -66,7 +66,7 @@ const ShowChild = () => {
         console.log(error);
       });
   };
-  // console.log(child);
+  console.log(child);
 
   // GET - Récupère les valeurs de la fiche avec l'API
   const getLastDaySummary = async () => {
