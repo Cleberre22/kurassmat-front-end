@@ -199,11 +199,11 @@ const ShowChild = () => {
                   <Avatar
                     className="avatarShowChild"
                     sx={{ width: 140, height: 140 }}
-                    src={`https://kurassmat.charleyleberre.fr/api/storage/app/public/uploads/${imageChild}`}
+                    src={`https://kurassmat.charleyleberre.fr/api/app/public/uploads/${imageChild}`}
                   />
 
                   <Box className="childCardTopRight">
-                    <p>Prénom: {firstnameChild}</p>
+                    <p>Prénom::::::::::::: {firstnameChild}</p>
                     <p>Nom: {lastnameChild}</p>
                     <p>Date de naissance: {birthDate}</p>
                   </Box>
