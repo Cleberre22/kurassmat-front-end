@@ -210,7 +210,7 @@ const ShowChild = () => {
                   <Avatar
                     className="avatarShowChild"
                     sx={{ width: 140, height: 140 }}
-                    src={`https://kurassmat.charleyleberre.fr/storage/uploads/${imageChild}`}
+                    src={`http://kurassmat.charleyleberre.fr/storage/uploads/${child.imageChild}`}
                   />
 
                   <Box className="childCardTopRight">
