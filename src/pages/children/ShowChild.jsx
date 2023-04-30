@@ -210,7 +210,7 @@ const ShowChild = () => {
                   <Avatar
                     className="avatarShowChild"
                     sx={{ width: 140, height: 140 }}
-                    src={`https://kurassmat.charleyleberre.fr/api/storage/app/public/uploads/${imageChild}`}
+                    src={`https://kurassmat.charleyleberre.fr/storage/uploads/${imageChild}`}
                   />
 
                   <Box className="childCardTopRight">
@@ -490,7 +490,7 @@ const ShowChild = () => {
 
         <Fox />
         <Prince />
-        {/* <BackToTop /> */}
+      
       </Box>
     </div>
   );
