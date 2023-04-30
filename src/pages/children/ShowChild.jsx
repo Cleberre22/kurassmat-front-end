@@ -196,21 +196,7 @@ const ShowChild = () => {
               {/* ------------------------- INFORMATION CHILD ------------------------- */}
               <Grid item xs={12}>
                 <Box className="childCardTop">
-                  <Avatar
-                    className="avatarShowChild"
-                    sx={{ width: 140, height: 140 }}
-                    src={`https://kurassmat.charleyleberre.fr/storage/uploads/${imageChild}`}
-                  />
-                  <Avatar
-                    className="avatarShowChild"
-                    sx={{ width: 140, height: 140 }}
-                    src={`https://kurassmat.charleyleberre.fr/api/storage/uploads/${imageChild}`}
-                  />
-                  <Avatar
-                    className="avatarShowChild"
-                    sx={{ width: 140, height: 140 }}
-                    src={`https://kurassmat.charleyleberre.fr/api/uploads/${imageChild}`}
-                  />
+             
                   <Avatar
                     className="avatarShowChild"
                     sx={{ width: 140, height: 140 }}
