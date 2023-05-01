@@ -55,7 +55,7 @@ const ShowChild = () => {
         },
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setIdChild(res.data.data[0].idChild);
         setFirstnameChild(res.data.data[0].firstnameChild);
         setLastnameChild(res.data.data[0].lastnameChild);
@@ -78,7 +78,7 @@ const ShowChild = () => {
           },
         })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setLastDaySummaries(res.data.data);
       })
       .catch((error) => {
@@ -96,7 +96,7 @@ const ShowChild = () => {
         },
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setLastPictures(res.data.data);
       })
       .catch((error) => {
@@ -114,7 +114,7 @@ const ShowChild = () => {
         },
       })
       .then((res) => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         setParents(res.data.data);
       })
       .catch((error) => {
