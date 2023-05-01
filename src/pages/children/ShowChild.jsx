@@ -100,7 +100,7 @@ const ShowChild = () => {
         setLastPictures(res.data.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
   // console.log(child);
@@ -212,6 +212,16 @@ const ShowChild = () => {
                     sx={{ width: 140, height: 140 }}
                     src={`https://kurassmat.charleyleberre.fr/storage/uploads/${child.imageChild}`}
                   />
+                      <Avatar
+                    className="avatarShowChild"
+                    sx={{ width: 140, height: 140 }}
+                    src={`https://kurassmat.charleyleberre.fr/storage/public/uploads/${child.imageChild}`}
+                  />
+                          <Avatar
+                    className="avatarShowChild"
+                    sx={{ width: 140, height: 140 }}
+                    src={`https://kurassmat.charleyleberre.fr/storage/public/uploads/${imageChild}`}
+                  /> 
 
                   <Box className="childCardTopRight">
                     <p>Prénom::::::::::::: {firstnameChild}</p>
